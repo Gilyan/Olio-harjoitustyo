@@ -15,3 +15,4 @@
 - Työnjako
  - Kuinka työnjako aiotaan hoitaa eli vastuut eri tehtäville
  - Työaikasuunnitelma (mitä aiotaan tehdään ja minä päivänä/viikkona, suunnitellut resurssit), kerää toteuma päivittäin/viikottain, esitä suunnitelmassa muutama tuleva viikko. Pohdi kuitenkin kokonaisuutta.
+- Näyttösuunnitelmat, mockups (sisällytä raporttiin ja kerro näytöistä). Alla muutamia työkaluja (tai piirrä):
