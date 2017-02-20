@@ -12,7 +12,6 @@
  - Luokkamalli sovelluksesta, mitä luokkia sovelluksessa on ja niiden tärkeimmät tehtävät ja ominaisuudet sekä luokkien väliset suhteet, UML
  - Suunnitelmassa alustava ajatus, loppuraportissa lopullinen rakenne ja perustelut muutoksille
  - Muista kertoa ajatuksista, pelkkä kaaviokuvio ei ole riittävä
-
 - Työnjako
  - Kuinka työnjako aiotaan hoitaa eli vastuut eri tehtäville
  - Työaikasuunnitelma (mitä aiotaan tehdään ja minä päivänä/viikkona, suunnitellut resurssit), kerää toteuma päivittäin/viikottain, esitä suunnitelmassa muutama tuleva viikko. Pohdi kuitenkin kokonaisuutta.
