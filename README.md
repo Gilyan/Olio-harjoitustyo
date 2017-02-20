@@ -2,8 +2,6 @@
 
 ## Tekijät: Minttu Mäkäläinen, Kioto Hiirola, Joona Hautamäki
 
-- Kansilehti
-- Sisällysluettelo
 - Tietoa tekijöistä
 - Sovelluksen yleiskuvaus
 - Kenelle sovellus on suunnattu, kohdeyleisö
