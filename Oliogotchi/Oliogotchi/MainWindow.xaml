@@ -5,13 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Oliogotchi"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="Oliogotchi - päävalikko" Height="600" Width="800">
     <Grid>
-        <StackPanel VerticalAlignment="Bottom" Margin="0,0,0,50" Width="150" Height="100">
-            <Button x:Name="btnJatka" Content="Jatka" Margin="0,0,0,5"/>
-            <Button x:Name="btnUusi" Content="Uusi peli" Margin="0,0,0,5"/>
-            <Button x:Name="btnLopeta" Content="Lopeta" Margin="0,0,0,5"/>
-            <Button x:Name="btnAsetukset" Content="Asetukset" Margin="0,0,0,5"/>
+        <StackPanel VerticalAlignment="Bottom" Margin="0,0,0,50" Width="200" Height="160">
+            <Button x:Name="btnJatka" Content="Jatka" Margin="0,0,0,10" Width="200" Height="30" FontFamily="Perpetua Titling MT" FontSize="14"/>
+            <Button x:Name="btnUusi" Content="Uusi peli" Margin="0,0,0,10" Width="200" Height="30" FontFamily="Perpetua Titling MT" FontSize="14"/>
+            <Button x:Name="btnLopeta" Content="Lopeta" Margin="0,0,0,10" Width="200" Height="30" FontFamily="Perpetua Titling MT" FontSize="14"/>
+            <Button x:Name="btnAsetukset" Content="Asetukset" Margin="0,0,0,10" Width="200" Height="30" FontFamily="Perpetua Titling MT" FontSize="14"/>
         </StackPanel>
     </Grid>
 </Window>

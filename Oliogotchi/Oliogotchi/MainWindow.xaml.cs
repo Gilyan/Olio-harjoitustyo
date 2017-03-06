@@ -1,4 +1,21 @@
-﻿using System;
+﻿/* **********************************************************
+Oliogotchin päävalikko.
+
+Toiminta: Päävalikon kautta voi 
+- jatkaa vanhaa peliä
+- aloittaa uuden pelin
+- lopettaa pelin
+- mennä asetuksiin
+
+Luotu 6.3.2017
+
+Minttu Mäkäläinen K8517
+Kioto Hiirola K8252
+Joona Hautamäki K1647
+@ JAMK 
+********************************************************** */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
