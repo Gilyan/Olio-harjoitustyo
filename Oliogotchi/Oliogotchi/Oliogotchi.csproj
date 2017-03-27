@@ -109,8 +109,16 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Resources\" />
+    <Resource Include="Resources\TestBLeg.png" />
+    <Resource Include="Resources\TestBody.png" />
+    <Resource Include="Resources\TestFLeg.png" />
+    <Resource Include="Resources\TestHead.png" />
+    <Resource Include="Resources\TestWing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\TestTail.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
