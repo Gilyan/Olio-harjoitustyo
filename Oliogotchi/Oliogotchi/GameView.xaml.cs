@@ -19,11 +19,42 @@ namespace Oliogotchi
     /// </summary>
     public partial class GameView : Window
     {
+        private int clean;
+        private int hunger;
+        private int happiness;
+        private int habitatTrash;
+        private int habitatCleanliness;
+
+
         public GameView()
         {
             InitializeComponent();
         }
-        public void Testi()
+        public void GiveFood()
+        {
+
+        }
+        public void Play()
+        {
+
+        }
+        public void Clean()
+        {
+
+        }
+        public void Evolve()
+        {
+
+        }
+        public void Die()
+        {
+
+        }
+        public void ChangeName()
+        {
+
+        }
+        public void Living()
         {
 
         }
