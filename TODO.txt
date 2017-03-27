@@ -1,0 +1,31 @@
+Jokainen p‰ivitt‰‰ omat tekemisens‰ t‰nne
+
+## Minttu
+
+| Mit‰ tehty | P‰iv‰m‰‰r‰ | Paljonko meni aikaa |
+|:--|:--|:--|
+| teksti‰ | pvm | x h |
+
+| Mit‰ teht‰v‰| Milloin teen |
+|:--|:--|
+| teksti‰ | pvm |
+
+## Kioto
+
+| Mit‰ tehty | P‰iv‰m‰‰r‰ | Paljonko meni aikaa |
+|:--|:--|:--|
+| teksti‰ | pvm | x h |
+
+| Mit‰ teht‰v‰| Milloin teen |
+|:--|:--|
+| teksti‰ | pvm |
+
+## Joona
+
+| Mit‰ tehty | P‰iv‰m‰‰r‰ | Paljonko meni aikaa |
+|:--|:--|:--|
+| teksti‰ | pvm | x h |
+
+| Mit‰ teht‰v‰| Milloin teen |
+|:--|:--|
+| teksti‰ | pvm |
