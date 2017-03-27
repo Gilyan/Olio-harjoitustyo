@@ -6,7 +6,7 @@
         xmlns:gif="http://wpfanimatedgif.codeplex.com"
         xmlns:local="clr-namespace:Oliogotchi"
         mc:Ignorable="d"
-        Title="Settings" Height="600" Width="800">
+        Title="Settings" Height="600" Width="800" ResizeMode="NoResize">
     <Grid>
         <StackPanel Orientation="Vertical">
             <TextBlock x:Name="txbTitle" TextWrapping="Wrap" Text="Asetukset" Width="200" Height="40" FontFamily="Perpetua Titling MT" FontSize="30" HorizontalAlignment="Left" Margin="30,30,0,0" />
