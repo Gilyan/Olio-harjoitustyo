@@ -41,5 +41,25 @@ namespace Oliogotchi
         {
             InitializeComponent();
         }
+
+        private void btnJatka_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnUusi_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnLopeta_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void btnAsetukset_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
