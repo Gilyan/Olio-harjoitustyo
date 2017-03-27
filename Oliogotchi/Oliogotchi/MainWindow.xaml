@@ -13,5 +13,12 @@
             <Button x:Name="btnLopeta" Content="Lopeta" Margin="0,0,0,10" Width="200" Height="30" FontFamily="Perpetua Titling MT" FontSize="14" Click="btnLopeta_Click"/>
             <Button x:Name="btnAsetukset" Content="Asetukset" Margin="0,0,0,10" Width="200" Height="30" FontFamily="Perpetua Titling MT" FontSize="14" Click="btnAsetukset_Click"/>
         </StackPanel>
+        <DockPanel VerticalAlignment="Bottom">
+            <StatusBar>
+                <StatusBarItem Height="20">
+                    <TextBlock x:Name="txbFooter" Text="Kaunis päivä tänään." FontSize="12"/>
+                </StatusBarItem>
+            </StatusBar>
+        </DockPanel>
     </Grid>
 </Window>
