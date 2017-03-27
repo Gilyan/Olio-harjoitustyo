@@ -39,6 +39,7 @@ namespace Oliogotchi
         private int happiness;
         private int habitatTrash;
         private int habitatCleanliness;
+        private int muuttuja;
 
 
         public GameView()
