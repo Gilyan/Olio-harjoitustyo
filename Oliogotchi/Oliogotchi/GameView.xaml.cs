@@ -1,4 +1,19 @@
-﻿using System;
+﻿/* **********************************************************
+Oliogotchin pelisivu.
+
+Toiminta: Pelisivun kautta voi 
+- pelata peliä
+- tänne juttuja lisättävä
+
+Luotu 27.3.2017
+
+Minttu Mäkäläinen K8517
+Kioto Hiirola K8252
+Joona Hautamäki K1647
+@ JAMK 
+********************************************************** */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
