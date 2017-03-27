@@ -1,4 +1,19 @@
-﻿using System;
+﻿/* **********************************************************
+Oliogotchin pelisivu.
+
+Toiminta: Pelisivun kautta voi 
+- pelata peliä
+- tänne juttuja lisättävä
+
+Luotu 27.3.2017
+
+Minttu Mäkäläinen K8517
+Kioto Hiirola K8252
+Joona Hautamäki K1647
+@ JAMK 
+********************************************************** */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,13 +34,51 @@ namespace Oliogotchi
     /// </summary>
     public partial class GameView : Window
     {
+        private int clean;
+        private int hunger;
+        private int happiness;
+        private int habitatTrash;
+        private int habitatCleanliness;
+
+
         public GameView()
         {
             InitializeComponent();
         }
-        public void Testi()
+        public void GiveFood()
         {
 
+        }
+        public void Play()
+        {
+
+        }
+        public void Clean()
+        {
+
+        }
+        public void Evolve()
+        {
+
+        }
+        public void Die()
+        {
+
+        }
+        public void ChangeName()
+        {
+
+        }
+        public void Living()
+        {
+
+        }
+
+        private void btnMainMenu_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow menu = new MainWindow();
+            menu.Show();
+            this.Close();
         }
     }
 }
