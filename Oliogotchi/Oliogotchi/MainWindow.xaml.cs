@@ -42,17 +42,28 @@ namespace Oliogotchi
             InitializeComponent();
         }
 
+        public MainWindow(double x, double y)
+        {
+            InitializeComponent();
+            this.Left = x;
+            this.Top = y;
+        }
+
         private void btnJatka_Click(object sender, RoutedEventArgs e)
         {
             // HAE TALLENNUS TÄNNE
-            GameView game = new GameView();
+            double x = this.Left;
+            double y = this.Top;
+            GameView game = new GameView(x, y);
             game.Show();
             this.Close();
         }
 
         private void btnUusi_Click(object sender, RoutedEventArgs e)
         {
-            GameView game = new GameView();
+            double x = this.Left;
+            double y = this.Top;
+            GameView game = new GameView(x, y);
             game.Show();
             this.Close();
         }
@@ -65,7 +76,9 @@ namespace Oliogotchi
 
         private void btnAsetukset_Click(object sender, RoutedEventArgs e)
         {
-            SettingsView settings = new SettingsView();
+            double x = this.Left;
+            double y = this.Top;
+            SettingsView settings = new SettingsView(x, y);
             settings.Show();
             this.Close();
         }

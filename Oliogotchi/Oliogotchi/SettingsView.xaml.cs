@@ -39,9 +39,18 @@ namespace Oliogotchi
             InitializeComponent();
         }
 
+        public SettingsView(double x, double y)
+        {
+            InitializeComponent();
+            this.Left = x;
+            this.Top = y;
+        }
+
         private void btnMainMenu_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow menu = new MainWindow();
+            double x = this.Left;
+            double y = this.Top;
+            MainWindow menu = new MainWindow(x, y);
             menu.Show();
             this.Close();
         }
