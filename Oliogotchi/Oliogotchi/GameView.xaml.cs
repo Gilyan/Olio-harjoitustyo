@@ -46,6 +46,13 @@ namespace Oliogotchi
         {
             InitializeComponent();
         }
+
+        public GameView(double x, double y)
+        {
+            InitializeComponent();
+            this.Left = x;
+            this.Top = y;
+        }
         public void GiveFood()
         {
 
@@ -77,7 +84,9 @@ namespace Oliogotchi
 
         private void btnMainMenu_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow menu = new MainWindow();
+            double x = this.Left;
+            double y = this.Top;
+            MainWindow menu = new MainWindow(x, y);
             menu.Show();
             this.Close();
         }
