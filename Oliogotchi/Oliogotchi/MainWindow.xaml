@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Oliogotchi"
         mc:Ignorable="d"
-        Title="Oliogotchi - päävalikko" Height="600" Width="800">
+        Title="Oliogotchi - Päävalikko" Height="600" Width="800">
     <Grid>
         <StackPanel VerticalAlignment="Bottom" Margin="0,0,0,50" Width="200" Height="160">
             <Button x:Name="btnJatka" Content="Jatka" Margin="0,0,0,10" Width="200" Height="30" FontFamily="Perpetua Titling MT" FontSize="14" Click="btnJatka_Click"/>

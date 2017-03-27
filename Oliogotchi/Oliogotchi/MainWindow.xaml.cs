@@ -44,22 +44,30 @@ namespace Oliogotchi
 
         private void btnJatka_Click(object sender, RoutedEventArgs e)
         {
-
+            // HAE TALLENNUS TÄNNE
+            GameView game = new GameView();
+            game.Show();
+            this.Close();
         }
 
         private void btnUusi_Click(object sender, RoutedEventArgs e)
         {
-
+            GameView game = new GameView();
+            game.Show();
+            this.Close();
         }
 
         private void btnLopeta_Click(object sender, RoutedEventArgs e)
         {
+            // TALLENNUSMETODIN HAKU TÄNNE
             Application.Current.Shutdown();
         }
 
         private void btnAsetukset_Click(object sender, RoutedEventArgs e)
         {
-
+            SettingsView settings = new SettingsView();
+            settings.Show();
+            this.Close();
         }
     }
 }
