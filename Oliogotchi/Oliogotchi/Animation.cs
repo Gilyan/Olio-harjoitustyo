@@ -11,4 +11,9 @@ namespace Oliogotchi
     {
         // tänne tulee kaikki animaatioihin liittyvät jutut
     }
+
+    class CreatureAnimation
+    {
+
+    }
 }
