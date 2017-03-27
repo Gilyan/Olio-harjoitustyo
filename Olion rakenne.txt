@@ -1,0 +1,62 @@
+METODIT
+-------------------------------------------
+- GiveFood
+	- liha
+	- kasvis
+- Play
+	- kivi/sakset/paperi
+		- vaihtoehdot ruudulle jota klikataan
+		- klikkauksen j‰lkeen olion valinta 
+		--> win/lose -tilanne
+		- jos olio voittaa -> happiness++
+		- jos olio h‰vi‰‰ -> happiness--
+	- pallonhaku
+		- palloa heitet‰‰n drag & dropilla
+		- olio hakee -animaatio
+		- happiness++
+		- hunger--
+- Clean
+	- siivousanimaatio
+	- roskat katoavat
+		- habitat trash--
+		- habitat cleanliness++
+- Evolve
+	- aktiivisen vain kun on mahdollista kehitty‰
+	- muuten harmaana
+	- kun kun Age 1min +
+	  hunger 100 + 
+	  clean 100 + 
+	  happiness 100 
+		-> 1. evolvoituminen
+			- alustetaan uusi olio (liha/vege/seka)
+			- 2. kuva uuden olion perusteella
+			- ik‰/nimi vied‰‰n samoina, happiness/clean/hunger = 100
+	- kun kun Age 5min +
+	  hunger 100 + 
+	  clean 100 + 
+	  happiness 100 
+		-> 2. evolvoituminen
+			- 3. kuva vaihdetaan
+
+- Die
+	- kun happiness = 0 TAI
+	- kun hunger = 0 TAI
+	- kun clean = 0
+		-> olio kuolee
+			- kuolemiskuva
+			- teksti miksi olio kuoli tilanteen mukaan
+- ChangeName
+	- kutsutaan muuta nimi -metodia
+- Living
+	- Kasvattaa seuraavia ominaisuuksia
+		- likaantuminen++
+		- ik‰‰ntyminen++
+		- n‰lkiintyminen++
+
+OMINAISUUDET
+-------------------------------------------
+- Name		- alussa Slimy baby
+- Age		- alussa 0
+- Hunger	- alussa 50
+- Happiness	- alussa 50
+- Image		- Kioto tuhnuaa
