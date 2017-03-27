@@ -14,6 +14,7 @@ namespace Oliogotchi
 
     class CreatureAnimation
     {
-
+        // https://programmingwithkinect.wordpress.com/2013/04/09/sprite-animation-in-wpf-c/
+        // "Resources/Olio/" + i + ".png" <-- spriten kuville polku
     }
 }
