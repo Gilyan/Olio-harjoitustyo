@@ -23,5 +23,12 @@ namespace Oliogotchi
         {
             InitializeComponent();
         }
+
+        private void btnMainMenu_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow menu = new MainWindow();
+            menu.Show();
+            this.Close();
+        }
     }
 }

@@ -3,14 +3,16 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:gif="http://wpfanimatedgif.codeplex.com"
         xmlns:local="clr-namespace:Oliogotchi"
         mc:Ignorable="d"
         Title="Settings" Height="600" Width="800">
     <Grid>
         <StackPanel Orientation="Vertical">
-            <TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="TextBlock"/>
-            <Button x:Name="btnChangeName" Content="Muuta olion nimeä" Width="200" Height="30" FontFamily="Perpetua Titling MT" FontSize="14" HorizontalAlignment="Left" Margin="30,30,0,0" />
-            <Button x:Name="btnDeletePet" Content="Poista olio" Width="200" Height="30" FontFamily="Perpetua Titling MT" FontSize="14" HorizontalAlignment="Left" Margin="30,30,0,0" />
+            <TextBlock x:Name="txbTitle" TextWrapping="Wrap" Text="Asetukset" Width="200" Height="40" FontFamily="Perpetua Titling MT" FontSize="30" HorizontalAlignment="Left" Margin="30,30,0,0" />
+            <Button x:Name="btnChangeName" Content="Muuta olion nimeä" Width="200" Height="30" FontFamily="Perpetua Titling MT" FontSize="14" HorizontalAlignment="Left" Margin="40,30,0,0" />
+            <Button x:Name="btnDeletePet" Content="Poista olio" Width="200" Height="30" FontFamily="Perpetua Titling MT" FontSize="14" HorizontalAlignment="Left" Margin="40,30,0,0" />
+            <Button x:Name="btnMainMenu" Content="Päävalikko" Width="200" Height="30" FontFamily="Perpetua Titling MT" FontSize="14" HorizontalAlignment="Left" Margin="40,30,0,0" Click="btnMainMenu_Click" />
         </StackPanel>
         <DockPanel VerticalAlignment="Bottom">
             <StatusBar>
