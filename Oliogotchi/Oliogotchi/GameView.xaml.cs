@@ -23,5 +23,9 @@ namespace Oliogotchi
         {
             InitializeComponent();
         }
+        public void Testi()
+        {
+
+        }
     }
 }

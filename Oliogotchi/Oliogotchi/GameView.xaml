@@ -7,6 +7,50 @@
         mc:Ignorable="d"
         Title="Pelinäkymä" Height="600" Width="800">
     <Grid>
-        
+        <StackPanel Orientation="Vertical">
+        <StackPanel>
+                <Grid Height="100" Width="800">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+            </Grid>
+        </StackPanel>
+            <StackPanel >
+                <Grid Height="500" Width="800" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10,10,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="400"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Button x:Name="btnShower" Grid.Row="0" Grid.Column="0" Content="Anna Ruokaa" Margin="0,0,0,10" Width="100" Height="20" FontFamily="Perpetua Titling MT" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Button x:Name="btnPet" Grid.Row="1" Grid.Column="0" Content="Pelaa Peliä" Margin="0,0,0,10" Width="100" Height="20" FontFamily="Perpetua Titling MT" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Button x:Name="btnJOTTAIN" Grid.Row="2" Grid.Column="0" Content="JOTAIN" Margin="0,0,0,10" Width="100" Height="20" FontFamily="Perpetua Titling MT" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Button x:Name="btnSettings" Grid.Row="3" Grid.Column="0" Content="Päävalikko" Margin="0,0,0,10" Width="100" Height="20" FontFamily="Perpetua Titling MT" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    
+                    <Button x:Name="btnGiveFood" Grid.Row="0" Grid.Column="2" Content="Anna Ruokaa" Margin="0,0,0,10" Width="100" Height="20" FontFamily="Perpetua Titling MT" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Button x:Name="btnPlayGame" Grid.Row="1" Grid.Column="2" Content="Pelaa Peliä" Margin="0,0,0,10" Width="100" Height="20" FontFamily="Perpetua Titling MT" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Button x:Name="btnSOMETHING" Grid.Row="2" Grid.Column="2" Content="JOTAIN" Margin="0,0,0,10" Width="100" Height="20" FontFamily="Perpetua Titling MT" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Button x:Name="btnMainMenu" Grid.Row="3" Grid.Column="2" Content="Päävalikko" Margin="0,0,0,10" Width="100" Height="20" FontFamily="Perpetua Titling MT" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Grid>
+            </StackPanel>
+        </StackPanel>
+        <DockPanel VerticalAlignment="Bottom">
+            <StatusBar>
+                <StatusBarItem Height="20">
+                    <TextBlock x:Name="txbFooter" Text="Kaunis päivä tänään." FontSize="12"/>
+                </StatusBarItem>
+            </StatusBar>
+        </DockPanel>
     </Grid>
 </Window>
