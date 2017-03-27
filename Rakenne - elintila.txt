@@ -1,0 +1,10 @@
+HABITAT
+-------------------------------------------
+- Taustakuva - alkuvaiheessa 1 tausta
+- Taustan cleanliness - alussa 100
+- Taustan nimi
+
+METODEJA
+-------------------------------------------
+- RemoveTrash
+- AddTrash
