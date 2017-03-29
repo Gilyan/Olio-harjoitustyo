@@ -21,10 +21,10 @@ namespace Oliogotchi
 {
     class Creature
     {
-        public string Name { get; set; }
         public int Age { get; set; }
         public int Hunger { get; set; }
         public int Happiness { get; set; }
+        public int Cleanliness { get; set; }
 
         public void Evolve()
         {

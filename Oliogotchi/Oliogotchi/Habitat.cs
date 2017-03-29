@@ -22,8 +22,7 @@ namespace Oliogotchi
     class Habitat
     {
         public int Trash { get; set; }
-        public int Cleanliness { get; set; }        // Alkuarvo = 100
-        public string Name { get; set; }
+        public int Cleanliness { get; set; }
 
         public void RemoveTrash()
         {

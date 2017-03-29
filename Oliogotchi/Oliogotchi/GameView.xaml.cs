@@ -41,12 +41,14 @@ namespace Oliogotchi
         private int happiness = 50;
         private int habitatTrash = 0;
         private int habitatCleanliness = 100;
-        private string habitatName = "";
 
 
         public GameView()
         {
             InitializeComponent();
+            CreateCreature();
+            CreateHabitat();
+            
         }
 
         public GameView(double x, double y)
@@ -54,6 +56,23 @@ namespace Oliogotchi
             InitializeComponent();
             this.Left = x;
             this.Top = y;
+        }
+        public void CreateHabitat()
+        {
+            Habitat tausta = new Habitat();
+            tausta.Cleanliness = habitatCleanliness;
+            tausta.Trash = habitatTrash;
+        }
+        public void CreateCreature()
+        {
+            Creature olio = new Creature();
+            olio.Age = 0;
+            olio.Happiness = happiness;
+            olio.Hunger = hunger;
+            olio.Cleanliness = cleanliness;
+
+            prbHappiness.DataContext = olio;
+            prbHunger.DataContext = olio;
         }
         public void GiveFood()
         {
