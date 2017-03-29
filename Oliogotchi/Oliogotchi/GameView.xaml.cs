@@ -13,6 +13,7 @@ Joona Hautamäki K1647
 @ JAMK 
 ********************************************************** */
 
+using System.Diagnostics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +27,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace Oliogotchi
 {
@@ -42,6 +44,8 @@ namespace Oliogotchi
         private int happiness = 50;
         private int habitatTrash = 0;
         private int habitatCleanliness = 100;
+        private DispatcherTimer timer;
+        private int easiness = 1; //timerin ajastin aika ms
 
         Creature olio = new Creature();
 
@@ -59,8 +63,15 @@ namespace Oliogotchi
             CreateCreature();       // Luo uuden lemmikkiolion - TODO: tehtävä erillinen haku tallennetulle oliolle
             CreateHabitat();        // Luo uuden elinympäristön - TODO: tehtävä erillinen haku tallennetulle elinympäristölle
 
-            GiveFood(); // TESTIVAIHE
-            Clean();    // TESTIVAIHE
+            //GiveFood(); // TESTIVAIHE
+            //Clean();    // TESTIVAIHE
+
+
+            timer = new DispatcherTimer();
+            timer.Interval = new TimeSpan(0, 0, 0, easiness);
+            timer.Tick += new EventHandler(timer_Tick);
+
+            timer.Start();
         }
         public void CreateHabitat()         // Luo uuden elinympäristön
         {
@@ -111,7 +122,20 @@ namespace Oliogotchi
         }
         public void Living()
         {
+            prbHappiness.Dispatcher.Invoke(() => prbHappiness.Value = happiness--, DispatcherPriority.Background);
+            prbCleanliness.Dispatcher.Invoke(() => prbCleanliness.Value = cleanliness--, DispatcherPriority.Background);
+            prbHunger.Dispatcher.Invoke(() => prbHunger.Value = hunger--, DispatcherPriority.Background);
+            txbFooter.Text = "onnellisuus: " + olio.Happiness.ToString() + ", nälkä: " + olio.Hunger.ToString() + ", puhtaus: " + olio.Cleanliness.ToString();
+        }
 
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            if (olio.Hunger > 0 && olio.Happiness > 0 && olio.Cleanliness > 0)
+            {
+                Living();
+            }
+            else Die();
+            
         }
 
         private void btnMainMenu_Click(object sender, RoutedEventArgs e)
@@ -121,6 +145,11 @@ namespace Oliogotchi
             MainWindow menu = new MainWindow(x, y);
             menu.Show();
             this.Close();
+        }
+
+        private void btnPlayGame_Click(object sender, RoutedEventArgs e)
+        {
+            prbHunger.Dispatcher.Invoke(() => prbHunger.Value = hunger++, DispatcherPriority.Background);
         }
     }
 }

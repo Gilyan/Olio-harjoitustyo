@@ -49,7 +49,7 @@
                     <Button x:Name="btnSettings" Grid.Row="3" Grid.Column="0" Content="Asetukset" Margin="0,0,0,10" Width="100" Height="20" FontFamily="Perpetua Titling MT" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     
                     <Button x:Name="btnGiveFood" Grid.Row="0" Grid.Column="2" Content="Anna kasviksia" Margin="0,0,0,10" Width="100" Height="20" FontFamily="Perpetua Titling MT" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <Button x:Name="btnPlayGame" Grid.Row="1" Grid.Column="2" Content="Anna lihaa" Margin="0,0,0,10" Width="100" Height="20" FontFamily="Perpetua Titling MT" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Button x:Name="btnPlayGame" Grid.Row="1" Grid.Column="2" Content="Anna lihaa" Margin="0,0,0,10" Width="100" Height="20" FontFamily="Perpetua Titling MT" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center" Click="btnPlayGame_Click"/>
                     <Button x:Name="btnSOMETHING" Grid.Row="2" Grid.Column="2" Content="Pelaa peliä" Margin="0,0,0,10" Width="100" Height="20" FontFamily="Perpetua Titling MT" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     <Button x:Name="btnMainMenu" Grid.Row="3" Grid.Column="2" Content="Päävalikko" Margin="0,0,0,10" Width="100" Height="20" FontFamily="Perpetua Titling MT" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center" Click="btnMainMenu_Click"/>
                 </Grid>
