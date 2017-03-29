@@ -22,9 +22,9 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <ProgressBar x:Name="prbHappiness" Grid.Row="0" Grid.Column="0" Height="20" Width="200" Value="{Binding Happiness}" Foreground="#FF5483FF" SmallChange="1"/>
-                    <ProgressBar x:Name="prbHunger" Grid.Row="0" Grid.Column="1" Height="20" Width="200" Value="{Binding Hunger}" Foreground="#FF5483FF" SmallChange="1"/>
-                    <ProgressBar x:Name="prbCleanliness" Grid.Row="0" Grid.Column="2" Height="20" Width="200" Value="{Binding Cleanliness}" Foreground="#FF5483FF"/>
+                    <ProgressBar x:Name="prbHappiness" Grid.Row="0" Grid.Column="0" Height="20" Width="200" Value="{Binding Path=Happiness}" Foreground="#FFF9EE0B" SmallChange="1" Background="#FFF5F4CC"/>
+                    <ProgressBar x:Name="prbHunger" Grid.Row="0" Grid.Column="1" Height="20" Width="200" Value="{Binding Hunger}" Foreground="#FFF73111" SmallChange="1" Background="#FFF0C1B7"/>
+                    <ProgressBar x:Name="prbCleanliness" Grid.Row="0" Grid.Column="2" Height="20" Width="200" Value="{Binding Cleanliness}" Foreground="#FF1EF945" Background="#FFCEF5D5"/>
                 </Grid>
         </StackPanel>
             <StackPanel >

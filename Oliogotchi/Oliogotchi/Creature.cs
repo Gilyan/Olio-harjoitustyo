@@ -13,17 +13,30 @@ Joona Hautamäki K1647
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Oliogotchi
 {
-    class Creature
+    class Creature : INotifyPropertyChanged
     {
+        private int happiness;
         public int Age { get; set; }
         public int Hunger { get; set; }
-        public int Happiness { get; set; }
+        public int Happiness
+        {
+            get { return happiness; }
+            set
+                {
+                    if (happiness != value)
+                        {
+                            happiness = value;
+                            RaisePropertyChanged(happiness.ToString());
+                        }
+                    }
+                }
         public int Cleanliness { get; set; }
 
         public void Evolve()
@@ -39,6 +52,15 @@ namespace Oliogotchi
         public void ChangeName()
         {
 
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;       // Event
+        private void RaisePropertyChanged(string property)              // Metodi
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(property));
+            }
         }
     }
 }
