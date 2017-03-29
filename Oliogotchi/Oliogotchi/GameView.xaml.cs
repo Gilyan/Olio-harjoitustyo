@@ -66,7 +66,7 @@ namespace Oliogotchi
             //GiveFood(); // TESTIVAIHE
             //Clean();    // TESTIVAIHE
 
-
+            //timerin alustaminen
             timer = new DispatcherTimer();
             timer.Interval = new TimeSpan(0, 0, 0, easiness);
             timer.Tick += new EventHandler(timer_Tick);
@@ -120,7 +120,7 @@ namespace Oliogotchi
         {
             txbFooter.Text = "Lemmikkisi kuoli. Voi kuinka surullista. Hanki seuraavaksi vaikka kivi.";
         }
-        public void Living()
+        public void Living() //olio elää ja päivittää tietoja progress bariin ja footteriin lukuarvot
         {
             prbHappiness.Dispatcher.Invoke(() => prbHappiness.Value = happiness--, DispatcherPriority.Background);
             prbCleanliness.Dispatcher.Invoke(() => prbCleanliness.Value = cleanliness--, DispatcherPriority.Background);
@@ -128,7 +128,7 @@ namespace Oliogotchi
             txbFooter.Text = "onnellisuus: " + olio.Happiness.ToString() + ", nälkä: " + olio.Hunger.ToString() + ", puhtaus: " + olio.Cleanliness.ToString();
         }
 
-        private void timer_Tick(object sender, EventArgs e)
+        private void timer_Tick(object sender, EventArgs e) // timeri missä tapahtuu niin sanottu pelin "eläminen", elää kunnes jokin 0
         {
             if (olio.Hunger > 0 && olio.Happiness > 0 && olio.Cleanliness > 0)
             {
@@ -147,7 +147,7 @@ namespace Oliogotchi
             this.Close();
         }
 
-        private void btnPlayGame_Click(object sender, RoutedEventArgs e)
+        private void btnPlayGame_Click(object sender, RoutedEventArgs e)  //Anna ruokaa napin tapahtuma
         {
             prbHunger.Dispatcher.Invoke(() => prbHunger.Value = hunger++, DispatcherPriority.Background);
         }
