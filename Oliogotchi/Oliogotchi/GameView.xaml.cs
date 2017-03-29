@@ -73,6 +73,7 @@ namespace Oliogotchi
 
             prbHappiness.DataContext = olio;
             prbHunger.DataContext = olio;
+            prbCleanliness.DataContext = olio;
 
             txbFooter.Text = "Uusi lemmikki luotu, Pidä siitä hyvää huolta!";
         }
