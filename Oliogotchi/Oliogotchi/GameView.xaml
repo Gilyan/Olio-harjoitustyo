@@ -23,11 +23,11 @@
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
                     <ProgressBar x:Name="prbHappiness" Grid.Row="0" Grid.Column="0" Height="20" Width="200" Value="{Binding Path=Happiness}" Foreground="#FFF9EE0B" SmallChange="1" Background="#FFF5F4CC"/>
-                    <TextBlock x:Name="txbHappiness" Grid.Row="0" Grid.Column="0" Text="Onnellisuus" Margin="0" Width="90" Height="15" FontFamily="Perpetua Titling MT" FontSize="12" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                    <TextBlock x:Name="txbHappiness" Grid.Row="0" Grid.Column="0" Text="Happiness" Margin="0" Width="70" Height="15" FontFamily="Perpetua Titling MT" FontSize="12" VerticalAlignment="Center" HorizontalAlignment="Center" />
                     <ProgressBar x:Name="prbHunger" Grid.Row="0" Grid.Column="1" Height="20" Width="200" Value="{Binding Hunger}" Foreground="#FFF73111" SmallChange="1" Background="#FFF0C1B7"/>
-                    <TextBlock x:Name="txbHunger" Grid.Row="0" Grid.Column="1" Text="Nälkä" Margin="0" Width="50" Height="15" FontFamily="Perpetua Titling MT" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    <TextBlock x:Name="txbHunger" Grid.Row="0" Grid.Column="1" Text="Hunger" Margin="0" Width="55" Height="15" FontFamily="Perpetua Titling MT" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center" />
                     <ProgressBar x:Name="prbCleanliness" Grid.Row="0" Grid.Column="2" Height="20" Width="200" Value="{Binding Cleanliness}" Foreground="#FF23DE44" Background="#FFCEF5D5"/>
-                    <TextBlock x:Name="txbCleanliness" Grid.Row="0" Grid.Column="2" Text="Siisteys" Margin="0" Width="50" Height="15" FontFamily="Perpetua Titling MT" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    <TextBlock x:Name="txbCleanliness" Grid.Row="0" Grid.Column="2" Text="Cleanliness" Margin="0" Width="80" Height="15" FontFamily="Perpetua Titling MT" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center" />
                 </Grid>
             </StackPanel>
             <StackPanel>
