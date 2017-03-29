@@ -60,6 +60,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Animation.cs" />
+    <Compile Include="Creature.cs" />
+    <Compile Include="Habitat.cs" />
     <Compile Include="SettingsView.xaml.cs">
       <DependentUpon>SettingsView.xaml</DependentUpon>
     </Compile>
@@ -115,7 +117,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Resources\valiaikaistaustakuva.jpg" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\1.png" />
     <Resource Include="Resources\2.png" />

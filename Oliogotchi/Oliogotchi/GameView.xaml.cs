@@ -34,12 +34,14 @@ namespace Oliogotchi
     /// </summary>
     public partial class GameView : Window
     {
-        private int clean;
-        private int hunger;
-        private int happiness;
-        private int habitatTrash;
-        private int habitatCleanliness;
-        private int muuttuja;
+        private int vegeCounter = 0;
+        private int meatCounter = 0;
+        private int cleanliness = 50;
+        private int hunger = 50;
+        private int happiness = 50;
+        private int habitatTrash = 0;
+        private int habitatCleanliness = 100;
+        private string habitatName = "";
 
 
         public GameView()
@@ -57,7 +59,12 @@ namespace Oliogotchi
         {
 
         }
-        public void Play()
+        public void PlayRockPaperScissors()
+        {
+
+        }
+
+        public void PlayFetchBall()
         {
 
         }

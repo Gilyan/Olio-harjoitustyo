@@ -8,6 +8,9 @@
         mc:Ignorable="d"
         Title="Pelinäkymä" Height="600" Width="800" ResizeMode="NoResize">
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="Resources/valiaikaistaustakuva.jpg" Opacity="0.5" />
+        </Grid.Background>
         <StackPanel Orientation="Vertical">
         <StackPanel>
             <Grid Height="50" Margin="0">

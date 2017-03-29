@@ -8,6 +8,9 @@
         mc:Ignorable="d"
         Title="Settings" Height="600" Width="800" ResizeMode="NoResize">
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="Resources/valiaikaistaustakuva.jpg" Opacity="0.5" />
+        </Grid.Background>
         <StackPanel Orientation="Vertical">
             <TextBlock x:Name="txbTitle" TextWrapping="Wrap" Text="Asetukset" Width="200" Height="40" FontFamily="Perpetua Titling MT" FontSize="30" HorizontalAlignment="Left" Margin="30,30,0,0" />
             <Button x:Name="btnChangeName" Content="Muuta olion nimeä" Width="200" Height="30" FontFamily="Perpetua Titling MT" FontSize="14" HorizontalAlignment="Left" Margin="40,30,0,0" />
