@@ -63,7 +63,7 @@ namespace Oliogotchi
             CreateCreature();       // Luo uuden lemmikkiolion - TODO: tehtävä erillinen haku tallennetulle oliolle
             CreateHabitat();        // Luo uuden elinympäristön - TODO: tehtävä erillinen haku tallennetulle elinympäristölle
 
-            //GiveFood(); // TESTIVAIHE
+            //GiveMeat(); // TESTIVAIHE
             //Clean();    // TESTIVAIHE
 
             //timerin alustaminen
@@ -93,7 +93,7 @@ namespace Oliogotchi
 
             txbFooter.Text = "Uusi lemmikki luotu. Pidä siitä hyvää huolta!";
         }
-        public void GiveFood()
+        public void GiveMeat()
         {
             olio.Hunger += 40;      // TESTIVAIHE
             olio.Happiness -= 30;   // TESTIVAIHE
@@ -147,9 +147,18 @@ namespace Oliogotchi
             this.Close();
         }
 
-        private void btnPlayGame_Click(object sender, RoutedEventArgs e)  //Anna ruokaa napin tapahtuma
+        private void btnGiveMeat_Click(object sender, RoutedEventArgs e)  //Anna ruokaa napin tapahtuma
         {
             prbHunger.Dispatcher.Invoke(() => prbHunger.Value = hunger++, DispatcherPriority.Background);
+        }
+
+        private void btnSettings_Click(object sender, RoutedEventArgs e)
+        {
+            double x = this.Left;
+            double y = this.Top;
+            SettingsView settings = new SettingsView(x, y);
+            settings.Show();
+            this.Close();
         }
     }
 }

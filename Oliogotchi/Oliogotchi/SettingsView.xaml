@@ -12,9 +12,17 @@
             <ImageBrush ImageSource="Resources/ocean.png" Opacity="0.5" />
         </Grid.Background>
         <StackPanel Orientation="Vertical">
-            <TextBlock x:Name="txbTitle" TextWrapping="Wrap" Text="Asetukset" Width="200" Height="40" FontFamily="Perpetua Titling MT" FontSize="30" HorizontalAlignment="Left" Margin="30,30,0,0" />
-            <Button x:Name="btnDeletePet" Content="Poista olio" Width="200" Height="30" FontFamily="Perpetua Titling MT" FontSize="14" HorizontalAlignment="Left" Margin="40,30,0,0" />
-            <Button x:Name="btnMainMenu" Content="Päävalikko" Width="200" Height="30" FontFamily="Perpetua Titling MT" FontSize="14" HorizontalAlignment="Left" Margin="40,30,0,0" Click="btnMainMenu_Click" />
+            <TextBlock x:Name="txbTitle" TextWrapping="Wrap" Text="Asetukset" Width="250" Height="40" FontFamily="Perpetua Titling MT" FontSize="40" HorizontalAlignment="Left" Margin="30,30,0,0" />
+            <Button x:Name="btnDeletePet" Content="TÄNNE POISTA OLIO-KUVA" Width="200" Height="50" HorizontalAlignment="Left" Margin="40,30,0,0"  BorderThickness="0" >
+                <Button.Background>
+                    <ImageBrush ImageSource="Resources/main.png" Stretch="Uniform"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="btnMainMenu" Width="200" Height="50" HorizontalAlignment="Left" Margin="40,30,0,0" Click="btnMainMenu_Click" BorderThickness="0" >
+                <Button.Background>
+                    <ImageBrush ImageSource="Resources/main.png" Stretch="Uniform"/>
+                </Button.Background>
+            </Button>
         </StackPanel>
         <DockPanel VerticalAlignment="Bottom">
             <StatusBar>

@@ -9,7 +9,7 @@
         Title="Pelinäkymä" Height="600" Width="800" ResizeMode="NoResize">
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="Resources/ocean.png" Opacity="0.5" />
+            <ImageBrush ImageSource="Resources/plain.png" Opacity="0.5" />
         </Grid.Background>
         <StackPanel Orientation="Vertical">
             <StackPanel>
@@ -46,12 +46,28 @@
                     <Button x:Name="btnShower" Grid.Row="0" Grid.Column="0" Content="Pese" Margin="0,0,0,10" Width="100" Height="20" FontFamily="Perpetua Titling MT" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     <Button x:Name="btnPet" Grid.Row="1" Grid.Column="0" Content="Silitä" Margin="0,0,0,10" Width="100" Height="20" FontFamily="Perpetua Titling MT" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     <Button x:Name="btnEvolve" Grid.Row="2" Grid.Column="0" Content="Kehity" Margin="0,0,0,10" Width="100" Height="20" FontFamily="Perpetua Titling MT" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <Button x:Name="btnSettings" Grid.Row="3" Grid.Column="0" Content="Asetukset" Margin="0,0,0,10" Width="100" Height="20" FontFamily="Perpetua Titling MT" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    
-                    <Button x:Name="btnGiveFood" Grid.Row="0" Grid.Column="2" Content="Anna kasviksia" Margin="0,0,0,10" Width="100" Height="20" FontFamily="Perpetua Titling MT" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <Button x:Name="btnPlayGame" Grid.Row="1" Grid.Column="2" Content="Anna lihaa" Margin="0,0,0,10" Width="100" Height="20" FontFamily="Perpetua Titling MT" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center" Click="btnPlayGame_Click"/>
-                    <Button x:Name="btnSOMETHING" Grid.Row="2" Grid.Column="2" Content="Pelaa peliä" Margin="0,0,0,10" Width="100" Height="20" FontFamily="Perpetua Titling MT" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <Button x:Name="btnMainMenu" Grid.Row="3" Grid.Column="2" Content="Päävalikko" Margin="0,0,0,10" Width="100" Height="20" FontFamily="Perpetua Titling MT" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center" Click="btnMainMenu_Click"/>
+                    <Button x:Name="btnSettings" Grid.Row="3" Grid.Column="0" Margin="0,0,0,10" Width="150" Height="50" FontFamily="Perpetua Titling MT" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center" BorderThickness="0" Click="btnSettings_Click">
+                        <Button.Background>
+                            <ImageBrush ImageSource="Resources/settings.png" Stretch="Uniform"/>
+                        </Button.Background>
+                    </Button>
+
+                    <Button x:Name="btnGiveVeggie" Grid.Row="0" Grid.Column="2" Margin="0,0,0,10" Width="100" Height="60" FontFamily="Perpetua Titling MT" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center" BorderThickness="0">
+                        <Button.Background>
+                            <ImageBrush ImageSource="Resources/veggie.png" Stretch="Uniform"/>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="btnGiveMeat" Grid.Row="1" Grid.Column="2" Margin="0,0,0,10" Width="100" Height="60" FontFamily="Perpetua Titling MT" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center" Click="btnGiveMeat_Click" BorderThickness="0">
+                        <Button.Background>
+                            <ImageBrush ImageSource="Resources/meat.png" Stretch="Uniform"/>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="btnPlayGame" Grid.Row="2" Grid.Column="2" Content="Pelaa peliä" Margin="0,0,0,10" Width="100" Height="20" FontFamily="Perpetua Titling MT" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    <Button x:Name="btnMainMenu" Grid.Row="3" Grid.Column="2" Margin="0,0,0,10" Width="150" Height="50" FontFamily="Perpetua Titling MT" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center" Click="btnMainMenu_Click" BorderThickness="0" >
+                        <Button.Background>
+                            <ImageBrush ImageSource="Resources/main.png" Stretch="Uniform"/>
+                        </Button.Background>
+                    </Button>
 
                     <Image Source="Resources/placeholderslime.png" Grid.Row="3" Grid.Column="1"  Opacity="1" />
                 </Grid>
