@@ -43,18 +43,19 @@ namespace Oliogotchi
         private int habitatCleanliness = 100;
 
 
-        public GameView()
-        {
-            InitializeComponent();
-            CreateCreature();
-            CreateHabitat();
-        }
+        //public GameView()
+        //{
+        //    InitializeComponent();
+        //}
 
-        public GameView(double x, double y)
+        public GameView(double x, double y)     // Ylikuormitetaan
         {
             InitializeComponent();
             this.Left = x;
             this.Top = y;
+
+            CreateCreature();
+            CreateHabitat();
         }
         public void CreateHabitat()
         {
