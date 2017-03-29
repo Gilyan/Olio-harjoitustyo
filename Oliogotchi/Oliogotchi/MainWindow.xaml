@@ -11,11 +11,27 @@
         <Grid.Background>
             <ImageBrush ImageSource="Resources/bg.png" Opacity="0.5" />
         </Grid.Background>
-        <StackPanel VerticalAlignment="Bottom" Margin="0,0,0,50" Width="200" Height="160">
-            <Button x:Name="btnJatka" Content="Jatka" Margin="0,0,0,10" Width="200" Height="30" FontFamily="Perpetua Titling MT" FontSize="14" Click="btnJatka_Click"/>
-            <Button x:Name="btnUusi" Content="Uusi peli" Margin="0,0,0,10" Width="200" Height="30" FontFamily="Perpetua Titling MT" FontSize="14" Click="btnUusi_Click"/>
-            <Button x:Name="btnLopeta" Content="Lopeta" Margin="0,0,0,10" Width="200" Height="30" FontFamily="Perpetua Titling MT" FontSize="14" Click="btnLopeta_Click"/>
-            <Button x:Name="btnAsetukset" Content="Asetukset" Margin="0,0,0,10" Width="200" Height="30" FontFamily="Perpetua Titling MT" FontSize="14" Click="btnAsetukset_Click"/>
+        <StackPanel VerticalAlignment="Bottom" Margin="0,0,0,50" Width="200" Height="240">
+            <Button x:Name="btnJatka" Margin="0,0,0,10" Width="200" Height="50" Click="btnJatka_Click" BorderThickness="0">
+                <Button.Background>
+                    <ImageBrush ImageSource="Resources/load.png" Stretch="Uniform"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="btnUusi" Margin="0,0,0,10" Width="200" Height="50" Click="btnUusi_Click" BorderThickness="0">
+                <Button.Background>
+                    <ImageBrush ImageSource="Resources/start.png" Stretch="Uniform"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="btnLopeta" Margin="0,0,0,10" Width="200" Height="50" Click="btnLopeta_Click" BorderThickness="0">
+                <Button.Background>
+                    <ImageBrush ImageSource="Resources/quit.png" Stretch="Uniform"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="btnAsetukset" Margin="0,0,0,10" Width="200" Height="50" Click="btnAsetukset_Click" BorderThickness="0">
+                <Button.Background>
+                    <ImageBrush ImageSource="Resources/settings.png" Stretch="Uniform"/>
+                </Button.Background>
+            </Button>
         </StackPanel>
         <DockPanel VerticalAlignment="Bottom">
             <StatusBar>
