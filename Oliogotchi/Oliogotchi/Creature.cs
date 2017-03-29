@@ -35,8 +35,8 @@ namespace Oliogotchi
                             happiness = value;
                             RaisePropertyChanged(happiness.ToString());
                         }
-                    }
                 }
+        }
         public int Cleanliness { get; set; }
 
         public void Evolve()

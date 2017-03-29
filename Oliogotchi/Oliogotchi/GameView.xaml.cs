@@ -48,7 +48,6 @@ namespace Oliogotchi
             InitializeComponent();
             CreateCreature();
             CreateHabitat();
-            
         }
 
         public GameView(double x, double y)
@@ -73,6 +72,8 @@ namespace Oliogotchi
 
             prbHappiness.DataContext = olio;
             prbHunger.DataContext = olio;
+
+            txbFooter.Text = "Uusi lemmikki luotu, Pidä siitä hyvää huolta!";
         }
         public void GiveFood()
         {
