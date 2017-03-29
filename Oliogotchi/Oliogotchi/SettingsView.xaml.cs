@@ -39,7 +39,7 @@ namespace Oliogotchi
         //    InitializeComponent();
         //}
 
-        public SettingsView(double x, double y)
+        public SettingsView(double x, double y)     // Ylikuormitetaan, että saadaan ikkunan paikka oikein
         {
             InitializeComponent();
             this.Left = x;

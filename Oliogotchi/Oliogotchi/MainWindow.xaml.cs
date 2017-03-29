@@ -42,7 +42,7 @@ namespace Oliogotchi
             InitializeComponent();
         }
 
-        public MainWindow(double x, double y)
+        public MainWindow(double x, double y)       // Ylikuormitetaan, että saadaan ikkunan paikka oikein
         {
             InitializeComponent();
             this.Left = x;

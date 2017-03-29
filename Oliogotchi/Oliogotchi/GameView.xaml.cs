@@ -34,6 +34,7 @@ namespace Oliogotchi
     /// </summary>
     public partial class GameView : Window
     {
+        // Määritetään alkuarvoja muuttujille
         private int vegeCounter = 0;
         private int meatCounter = 0;
         private int cleanliness = 50;
@@ -42,30 +43,34 @@ namespace Oliogotchi
         private int habitatTrash = 0;
         private int habitatCleanliness = 100;
 
+        Creature olio = new Creature();
 
         //public GameView()
         //{
         //    InitializeComponent();
         //}
 
-        public GameView(double x, double y)     // Ylikuormitetaan
+        public GameView(double x, double y)     // Ylikuormitetaan, että saadaan ikkunan paikka oikein
         {
             InitializeComponent();
             this.Left = x;
             this.Top = y;
 
-            CreateCreature();
-            CreateHabitat();
+            CreateCreature();       // Luo uuden lemmikkiolion - TODO: tehtävä erillinen haku tallennetulle oliolle
+            CreateHabitat();        // Luo uuden elinympäristön - TODO: tehtävä erillinen haku tallennetulle elinympäristölle
+
+            GiveFood(); // TESTIVAIHE
+            Clean();    // TESTIVAIHE
         }
-        public void CreateHabitat()
+        public void CreateHabitat()         // Luo uuden elinympäristön
         {
             Habitat tausta = new Habitat();
             tausta.Cleanliness = habitatCleanliness;
             tausta.Trash = habitatTrash;
         }
-        public void CreateCreature()
+        public void CreateCreature()        // Luo uuden lemmikkiolion
         {
-            Creature olio = new Creature();
+            
             olio.Age = 0;
             olio.Happiness = happiness;
             olio.Hunger = hunger;
@@ -75,11 +80,12 @@ namespace Oliogotchi
             prbHunger.DataContext = olio;
             prbCleanliness.DataContext = olio;
 
-            txbFooter.Text = "Uusi lemmikki luotu, Pidä siitä hyvää huolta!";
+            txbFooter.Text = "Uusi lemmikki luotu. Pidä siitä hyvää huolta!";
         }
         public void GiveFood()
         {
-
+            olio.Hunger += 40;      // TESTIVAIHE
+            olio.Happiness -= 30;   // TESTIVAIHE
         }
         public void PlayRockPaperScissors()
         {
@@ -92,7 +98,8 @@ namespace Oliogotchi
         }
         public void Clean()
         {
-
+            olio.Cleanliness -= 40;     // TESTIVAIHE
+            olio.Happiness -= 20;       // TESTIVAIHE
         }
         public void Evolve()
         {
@@ -100,11 +107,7 @@ namespace Oliogotchi
         }
         public void Die()
         {
-
-        }
-        public void ChangeName()
-        {
-
+            txbFooter.Text = "Lemmikkisi kuoli. Voi kuinka surullista. Hanki seuraavaksi vaikka kivi.";
         }
         public void Living()
         {
