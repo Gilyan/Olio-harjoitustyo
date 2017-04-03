@@ -34,6 +34,7 @@ namespace Oliogotchi
 
         private void btnPlayStone_Click(object sender, RoutedEventArgs e)
         {
+            kumpiPeli = true;
             btnGoPlay.Visibility = System.Windows.Visibility.Visible;
             txbGameInfo.Text = "Choose rock, paper or scissors. Rules are as always:\n- Rock beats scissors \n- Scissors bear paper \n- Paper beats rock \n\nIf you win, Olio loses 5 happiness. If Olio wins, Olio gains 20 happiness.";
         }
