@@ -62,6 +62,15 @@
     <Compile Include="Animation.cs" />
     <Compile Include="Creature.cs" />
     <Compile Include="Habitat.cs" />
+    <Compile Include="PlayBallView.xaml.cs">
+      <DependentUpon>PlayBallView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PlayGamesView.xaml.cs">
+      <DependentUpon>PlayGamesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PlayStoneView.xaml.cs">
+      <DependentUpon>PlayStoneView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SettingsView.xaml.cs">
       <DependentUpon>SettingsView.xaml</DependentUpon>
     </Compile>
@@ -85,6 +94,18 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="PlayBallView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PlayGamesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PlayStoneView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SettingsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -154,6 +175,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\plain.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\scissors.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\stars.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

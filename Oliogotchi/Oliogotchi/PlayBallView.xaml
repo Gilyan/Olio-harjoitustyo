@@ -1,0 +1,24 @@
+﻿<Window x:Class="Oliogotchi.PlayBallView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Oliogotchi"
+        mc:Ignorable="d"
+        Title="Throw Ball" Height="600" Width="800" ResizeMode="NoResize">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="Resources/stars.png" Opacity="0.5" />
+        </Grid.Background>
+        
+        <!-- TÄNNE KOODIA-->
+        
+        <DockPanel VerticalAlignment="Bottom">
+            <StatusBar>
+                <StatusBarItem Height="20">
+                    <TextBlock x:Name="txbFooter" Text="Valitse haluamasi peli." FontSize="12"/>
+                </StatusBarItem>
+            </StatusBar>
+        </DockPanel>
+    </Grid>
+</Window>

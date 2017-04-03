@@ -160,5 +160,14 @@ namespace Oliogotchi
             settings.Show();
             this.Close();
         }
+
+        private void btnPlayGame_Click(object sender, RoutedEventArgs e)
+        {
+            double x = this.Left;
+            double y = this.Top;
+            PlayGamesView pelit = new PlayGamesView(x, y);
+            pelit.Show();
+            this.Close();
+        }
     }
 }
