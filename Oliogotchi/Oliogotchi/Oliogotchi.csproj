@@ -206,6 +206,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\meat\" />
+    <Folder Include="Resources\slime\" />
     <Folder Include="Resources\vege\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

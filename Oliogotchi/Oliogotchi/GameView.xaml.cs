@@ -86,6 +86,7 @@ namespace Oliogotchi
             olio.Happiness = happiness;
             olio.Hunger = hunger;
             olio.Cleanliness = cleanliness;
+            olio.Image = "Resources/slime/";
 
             prbHappiness.DataContext = olio;
             prbHunger.DataContext = olio;

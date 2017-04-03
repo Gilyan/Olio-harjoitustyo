@@ -37,6 +37,7 @@ namespace Oliogotchi
         //                }
         //        }
         //}
+        public string Image { get; set; }
         public int Cleanliness { get; set; }
 
         public void Evolve()
