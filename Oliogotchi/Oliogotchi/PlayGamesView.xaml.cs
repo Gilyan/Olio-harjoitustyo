@@ -34,14 +34,13 @@ namespace Oliogotchi
 
         private void btnPlayStone_Click(object sender, RoutedEventArgs e)
         {
-            kumpiPeli = 1;
             btnGoPlay.Visibility = System.Windows.Visibility.Visible;
             txbGameInfo.Text = "Choose rock, paper or scissors. Rules are as always:\n- Rock beats scissors \n- Scissors bear paper \n- Paper beats rock \n\nIf you win, Olio loses 5 happiness. If Olio wins, Olio gains 20 happiness.";
         }
 
         private void btnPlayBall_Click(object sender, RoutedEventArgs e)
         {
-            kumpiPeli = 2;
+            kumpiPeli = false;
             btnGoPlay.Visibility = System.Windows.Visibility.Visible;
             txbGameInfo.Text = "Tänne pallon heitto -pelin ohjeet";
         }
@@ -56,7 +55,7 @@ namespace Oliogotchi
                 kiviSaksetPaperi.Show();
                 this.Close();
             }
-            else    // Pallonheitto
+            else                // Pallonheitto
             {
                 double x = this.Left;
                 double y = this.Top;
