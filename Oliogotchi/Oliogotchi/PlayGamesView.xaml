@@ -24,7 +24,7 @@
                     </Button.Background>
                 </Button>
             </StackPanel>
-            <TextBlock x:Name="txbGameInfo" TextWrapping="Wrap" Text="" Width="700" Height="150" FontFamily="Perpetua Titling MT" FontSize="12" Margin="50,50,0,0" HorizontalAlignment="Left"/>
+            <TextBlock x:Name="txbGameInfo" TextWrapping="Wrap" Width="700" Height="150" FontFamily="Perpetua Titling MT" FontSize="16" Margin="50,50,0,0" HorizontalAlignment="Left"/>
             <Button x:Name="btnGoPlay" Margin="0,0,100,10" Width="200" Height="50" HorizontalAlignment="Right" VerticalAlignment="Center" BorderThickness="0" Click="btnGoPlay_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="Resources/play.png" Stretch="Uniform"/>

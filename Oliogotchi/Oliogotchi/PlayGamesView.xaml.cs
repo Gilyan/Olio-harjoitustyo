@@ -23,7 +23,7 @@ namespace Oliogotchi
         //{
         //    InitializeComponent();
         //}
-        int kumpiPeli = 0;
+        bool kumpiPeli = true;
         public PlayGamesView(double x, double y)     // Ylikuormitetaan, että saadaan ikkunan paikka oikein
         {
             InitializeComponent();
@@ -36,7 +36,7 @@ namespace Oliogotchi
         {
             kumpiPeli = 1;
             btnGoPlay.Visibility = System.Windows.Visibility.Visible;
-            txbGameInfo.Text = "Tänne kivi-sakset-paperi -pelin ohjeet";
+            txbGameInfo.Text = "Choose rock, paper or scissors. Rules are as always:\n- Rock beats scissors \n- Scissors bear paper \n- Paper beats rock \n\nIf you win, Olio loses 5 happiness. If Olio wins, Olio gains 20 happiness.";
         }
 
         private void btnPlayBall_Click(object sender, RoutedEventArgs e)
@@ -48,7 +48,7 @@ namespace Oliogotchi
 
         private void btnGoPlay_Click(object sender, RoutedEventArgs e)
         {
-            if (kumpiPeli == 1)      // Kivi-sakset-paperi
+            if (kumpiPeli)      // Kivi-sakset-paperi
             {
                 double x = this.Left;
                 double y = this.Top;
@@ -56,7 +56,7 @@ namespace Oliogotchi
                 kiviSaksetPaperi.Show();
                 this.Close();
             }
-            else if (kumpiPeli == 2)     // Pallonheitto
+            else    // Pallonheitto
             {
                 double x = this.Left;
                 double y = this.Top;
@@ -64,7 +64,6 @@ namespace Oliogotchi
                 haePallo.Show();
                 this.Close();
             }
-            else;
         }
     }
 }
