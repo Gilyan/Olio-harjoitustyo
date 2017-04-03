@@ -43,64 +43,102 @@ namespace Oliogotchi
             }
 
         }
-        public static void Test(M plaChoice, M comChoice)
+        public void Test(M plaChoice, M comChoice)
         {
             string txt;
+            int luku;
             if (plaChoice == comChoice)
             {
-                txt = "Tasapeli!";
-                MessageBox.Show(txt);
+                txt = "Tasapeli! Olio valitsi saman esineen kuin sinä!";
+                luku = 0;
+                Run(txt, luku);
             }
-            else if (plaChoice == M.paper && comChoice == M.rock)
+            switch (plaChoice)
             {
-                txt = "Voitit pelin!";
-                MessageBox.Show(txt);
+                case M.rock:
+                    if (plaChoice == M.rock && comChoice == M.scissor)
+                    {
+                        txt = "Voitit pelin! Olio valtsi " + comChoice.ToString() + ", nyt olion iloisuus laskee 5 pistettä";
+                        luku = 5;
+                        Run(txt, luku);
+                    }
+                    else if (plaChoice == M.rock && comChoice == M.paper)
+                    {
+                        txt = "Hävisit! Olio valtsi " + comChoice.ToString() + ", nyt olion iloisuus nousee 20 pistettä";
+                        luku = 20;
+                        Run(txt, luku);
+                    }
+                    break;
+                case M.paper:
+                    if (plaChoice == M.paper && comChoice == M.rock)
+                    {
+                        txt = "Voitit pelin! Olio valtsi " + comChoice.ToString() + ", nyt olion iloisuus laskee 5 pistettä";
+                        luku = 5;
+                        Run(txt, luku);
+                    }
+                    else if (plaChoice == M.paper && comChoice == M.scissor)
+                    {
+                        txt = "Hävisit! Olio valtsi " + comChoice.ToString() + ", nyt olion iloisuus nousee 20 pistettä";
+                        luku = 20;
+                        Run(txt, luku);
+                    }
+                    break;
+                case M.scissor:
+                    if (plaChoice == M.scissor && comChoice == M.paper)
+                    {
+                        txt = "Voitit pelin! Olio valtsi " + comChoice.ToString() + ", nyt olion iloisuus laskee 5 pistettä";
+                        luku = 5;
+                        Run(txt, luku);
+                    }
+                    else if (plaChoice == M.scissor && comChoice == M.rock)
+                    {
+                        txt = "Hävisit! Olio valtsi " + comChoice.ToString() + ", nyt olion iloisuus nousee 20 pistettä";
+                        luku = 20;
+                        Run(txt, luku);
+                    }
+                    break;
+                default:
+                    break;
             }
-            else if (plaChoice == M.paper && comChoice == M.scissor)
+        }
+        public void Run(string teksti, int luku)
+        {
+            txbGameInfo.Text = teksti;
+            if (MessageBox.Show("Haluatko jatkaa?", "Oliogotchi", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
-                txt = "Hävisit!";
-                MessageBox.Show(txt);
+                btnRock.Visibility = System.Windows.Visibility.Visible;
+                btnPaper.Visibility = System.Windows.Visibility.Visible;
+                btnScissor.Visibility = System.Windows.Visibility.Visible;
             }
-            else if (plaChoice == M.rock && comChoice == M.scissor)
+            else
             {
-                txt = "Voitit pelin!";
-                MessageBox.Show(txt);
+                this.Close();
             }
-            else if (plaChoice == M.rock && comChoice == M.paper)
-            {
-                txt = "Hävisit!";
-                MessageBox.Show(txt);
-            }
-            else if (plaChoice == M.scissor && comChoice == M.paper)
-            {
-                txt = "Voitit pelin!";
-                MessageBox.Show(txt);
-            }
-            else if (plaChoice == M.scissor && comChoice == M.rock)
-            {
-                txt = "Hävisit!";
-                MessageBox.Show(txt);
-            }
-
         }
         private void btnRock_Click(object sender, RoutedEventArgs e)
         {
+            btnPaper.Visibility = System.Windows.Visibility.Hidden;
+            btnScissor.Visibility = System.Windows.Visibility.Hidden;
             Computer Comp = new Computer();
             M computerChoice = Comp.Choice();
             M playerChoice = M.rock;
             Test(playerChoice, computerChoice);
-
         }
         private void btnPaper_Click(object sender, RoutedEventArgs e)
         {
+            btnRock.Visibility = System.Windows.Visibility.Hidden;
+            btnScissor.Visibility = System.Windows.Visibility.Hidden;
             Computer Comp = new Computer();
             M computerChoice = Comp.Choice();
             M playerChoice = M.paper;
             Test(playerChoice, computerChoice);
 
+
         }
         private void btnScissor_Click(object sender, RoutedEventArgs e)
         {
+            btnRock.Visibility = System.Windows.Visibility.Hidden;
+            btnPaper.Visibility = System.Windows.Visibility.Hidden;
             Computer Comp = new Computer();
             M computerChoice = Comp.Choice();
             M playerChoice = M.scissor;

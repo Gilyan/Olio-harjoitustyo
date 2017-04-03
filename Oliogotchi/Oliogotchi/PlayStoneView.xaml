@@ -30,7 +30,7 @@
                     </Button.Background>
                 </Button>
             </StackPanel>
-            <TextBlock x:Name="txbGameInfo" TextWrapping="Wrap" Text="tänne tekstiä" Width="700" Height="150" FontFamily="Perpetua Titling MT" FontSize="16" Margin="50,50,0,0" HorizontalAlignment="Left"/>
+            <TextBlock x:Name="txbGameInfo" TextWrapping="Wrap" Text="Koita voittaa oliosi kivi, paperi, sakset- pelissä! Paina kiveä, paperia tai saksia kisataksesi oliota vastaan!" Width="700" Height="150" FontFamily="Perpetua Titling MT" FontSize="16" Margin="50,50,0,0" HorizontalAlignment="Left"/>
         </StackPanel>
 
         <DockPanel VerticalAlignment="Bottom">
