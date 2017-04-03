@@ -12,65 +12,65 @@
             <ImageBrush ImageSource="Resources/plain.png" Opacity="0.5" />
         </Grid.Background>
         <StackPanel Orientation="Vertical">
-            <StackPanel>
-                <Grid Height="50" Margin="0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    <ProgressBar x:Name="prbHappiness" Grid.Row="0" Grid.Column="0" Height="20" Width="200" Value="{Binding Path=Happiness}" Foreground="#FFF9EE0B" SmallChange="1" Background="#FFF5F4CC"/>
-                    <TextBlock x:Name="txbHappiness" Grid.Row="0" Grid.Column="0" Text="Happiness" Margin="0" Width="70" Height="15" FontFamily="Perpetua Titling MT" FontSize="12" VerticalAlignment="Center" HorizontalAlignment="Center" />
-                    <ProgressBar x:Name="prbHunger" Grid.Row="0" Grid.Column="1" Height="20" Width="200" Value="{Binding Hunger}" Foreground="#FFF73111" SmallChange="1" Background="#FFF0C1B7"/>
-                    <TextBlock x:Name="txbHunger" Grid.Row="0" Grid.Column="1" Text="Hunger" Margin="0" Width="55" Height="15" FontFamily="Perpetua Titling MT" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center" />
-                    <ProgressBar x:Name="prbCleanliness" Grid.Row="0" Grid.Column="2" Height="20" Width="200" Value="{Binding Cleanliness}" Foreground="#FF23DE44" Background="#FFCEF5D5"/>
-                    <TextBlock x:Name="txbCleanliness" Grid.Row="0" Grid.Column="2" Text="Cleanliness" Margin="0" Width="80" Height="15" FontFamily="Perpetua Titling MT" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center" />
-                </Grid>
+            <StackPanel Height="40" Margin="0" Orientation="Horizontal">    <!-- Yläpalkin statusbarit -->
+                <ProgressBar x:Name="prbHappiness" Height="20" Width="200" Value="{Binding Path=Happiness}" Foreground="#FFF9EE0B" SmallChange="1" Background="#FFF5F4CC" Margin="50,0,40,5" VerticalAlignment="Bottom"/>
+                <ProgressBar x:Name="prbHunger" Height="20" Width="200" Value="{Binding Hunger}" Foreground="#FFF73111" SmallChange="1" Background="#FFF0C1B7" Margin="0,0,40,5" VerticalAlignment="Bottom"/>
+                <ProgressBar x:Name="prbCleanliness" Height="20" Width="200" Value="{Binding Cleanliness}" Foreground="#FF23DE44" Background="#FFCEF5D5" Margin="0,0,50,5" VerticalAlignment="Bottom"/>
             </StackPanel>
-            <StackPanel>
-                <Grid Height="500" Margin="0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="400"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    <Button x:Name="btnShower" Grid.Row="0" Grid.Column="0" Content="Pese" Margin="0,0,0,10" Width="100" Height="20" FontFamily="Perpetua Titling MT" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center" Click="btnShower_Click"/>
-                    <Button x:Name="btnPet" Grid.Row="1" Grid.Column="0" Content="Silitä" Margin="0,0,0,10" Width="100" Height="20" FontFamily="Perpetua Titling MT" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center" Click="btnPet_Click"/>
-                    <Button x:Name="btnEvolve" Grid.Row="2" Grid.Column="0" Content="Kehity" Margin="0,0,0,10" Width="100" Height="20" FontFamily="Perpetua Titling MT" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <Button x:Name="btnSettings" Grid.Row="3" Grid.Column="0" Margin="0,0,0,10" Width="150" Height="50" FontFamily="Perpetua Titling MT" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center" BorderThickness="0" Click="btnSettings_Click">
+            <StackPanel Margin="0" Orientation="Horizontal">   <!-- Yläpalkin tekstit -->
+                <TextBlock x:Name="txbHappiness" Text="Happiness" Margin="120,0,0,0" Width="70" Height="15" FontFamily="Perpetua Titling MT" FontSize="12" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                <TextBlock x:Name="txbHunger" Text="Hunger" Margin="180,0,0,0" Width="55" Height="15" FontFamily="Perpetua Titling MT" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <TextBlock x:Name="txbCleanliness" Text="Cleanliness" Margin="170,0,0,0" Width="80" Height="15" FontFamily="Perpetua Titling MT" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Height="495">
+                <StackPanel Width="200">   <!-- Vasemman valikkopalkin kuvakkeet -->
+                    <Button x:Name="btnShower" Width="70" Height="70" HorizontalAlignment="Center" VerticalAlignment="Center" Click="btnShower_Click" BorderThickness="0" Margin="0,55,0,0" >
                         <Button.Background>
-                            <ImageBrush ImageSource="Resources/settings.png" Stretch="Uniform"/>
+                            <ImageBrush ImageSource="Resources/wash.png" Stretch="Uniform"/>
                         </Button.Background>
                     </Button>
-
-                    <Button x:Name="btnGiveVeggie" Grid.Row="0" Grid.Column="2" Margin="0,0,0,10" Width="100" Height="60" FontFamily="Perpetua Titling MT" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center" BorderThickness="0" Click="btnGiveVeggie_Click">
+                    <Button x:Name="btnPet" Width="90" Height="60" HorizontalAlignment="Center" VerticalAlignment="Center" Click="btnPet_Click" BorderThickness="0" Margin="0,55,0,0" >
+                    <Button.Background>
+                        <ImageBrush ImageSource="Resources/pet.png" Stretch="Uniform"/>
+                    </Button.Background>
+                </Button>
+                <Button x:Name="btnEvolve" Width="60" Height="70" HorizontalAlignment="Center" VerticalAlignment="Center" BorderThickness="0" Margin="0,55,0,0" >
+                    <Button.Background>
+                        <ImageBrush ImageSource="Resources/evo.png" Stretch="Uniform"/>
+                    </Button.Background>
+                </Button>
+                <Button x:Name="btnSettings" Margin="0,55,0,10" Width="150" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center" BorderThickness="0" Click="btnSettings_Click">
+                    <Button.Background>
+                        <ImageBrush ImageSource="Resources/settings.png" Stretch="Uniform"/>
+                    </Button.Background>
+                </Button>
+            </StackPanel>
+                <StackPanel Width="395" VerticalAlignment="Bottom">   <!-- Olion kuvan paikka -->
+                    <Image Source="Resources/placeholderslime.png" Height="200" Opacity="1" VerticalAlignment="Bottom" />
+                </StackPanel>
+                <StackPanel Width="200">   <!-- Oikean valikkopalkin kuvakkeet -->
+                    <Button x:Name="btnGiveVeggie" Margin="0,55,0,10" Width="70" Height="60" VerticalAlignment="Center" BorderThickness="0" Click="btnGiveVeggie_Click">
                         <Button.Background>
                             <ImageBrush ImageSource="Resources/veggie.png" Stretch="Uniform"/>
                         </Button.Background>
                     </Button>
-                    <Button x:Name="btnGiveMeat" Grid.Row="1" Grid.Column="2" Margin="0,0,0,10" Width="100" Height="60" FontFamily="Perpetua Titling MT" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center" Click="btnGiveMeat_Click" BorderThickness="0">
+                    <Button x:Name="btnGiveMeat" Margin="0,50,0,10" Width="70" Height="60" VerticalAlignment="Center" Click="btnGiveMeat_Click" BorderThickness="0">
                         <Button.Background>
                             <ImageBrush ImageSource="Resources/meat.png" Stretch="Uniform"/>
                         </Button.Background>
                     </Button>
-                    <Button x:Name="btnPlayGame" Grid.Row="2" Grid.Column="2" Content="Pelaa peliä" Margin="0,0,0,10" Width="100" Height="20" FontFamily="Perpetua Titling MT" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center" Click="btnPlayGame_Click" />
-                    <Button x:Name="btnMainMenu" Grid.Row="3" Grid.Column="2" Margin="0,0,0,10" Width="150" Height="50" FontFamily="Perpetua Titling MT" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center" Click="btnMainMenu_Click" BorderThickness="0" >
+                    <Button x:Name="btnPlayGame" Margin="0,50,0,10" Width="80" Height="70" VerticalAlignment="Center" Click="btnPlayGame_Click" BorderThickness="0">
+                        <Button.Background>
+                            <ImageBrush ImageSource="Resources/games.png" Stretch="Uniform"/>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="btnMainMenu" Margin="0,45,0,10" Width="150" Height="50" VerticalAlignment="Center" Click="btnMainMenu_Click" BorderThickness="0" >
                         <Button.Background>
                             <ImageBrush ImageSource="Resources/main.png" Stretch="Uniform"/>
                         </Button.Background>
                     </Button>
+                </StackPanel>
 
-                    <Image Source="Resources/placeholderslime.png" Grid.Row="3" Grid.Column="1"  Opacity="1" />
-                </Grid>
             </StackPanel>
         </StackPanel>
         <DockPanel VerticalAlignment="Bottom">

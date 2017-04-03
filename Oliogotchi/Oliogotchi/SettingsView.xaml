@@ -9,16 +9,16 @@
         Title="Settings" Height="600" Width="800" ResizeMode="NoResize">
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="Resources/ocean.png" Opacity="0.5" />
+            <ImageBrush ImageSource="Resources/stars.png" Opacity="0.5" />
         </Grid.Background>
         <StackPanel Orientation="Vertical">
             <TextBlock x:Name="txbTitle" TextWrapping="Wrap" Text="Asetukset" Width="250" Height="40" FontFamily="Perpetua Titling MT" FontSize="40" HorizontalAlignment="Left" Margin="30,30,0,0" />
-            <Button x:Name="btnDeletePet" Content="TÄNNE POISTA OLIO-KUVA" Width="200" Height="50" HorizontalAlignment="Left" Margin="40,30,0,0"  BorderThickness="0" >
+            <Button x:Name="btnDeletePet" Width="180" Height="50" HorizontalAlignment="Left" Margin="40,30,0,0"  BorderThickness="0" >
                 <Button.Background>
-                    <ImageBrush ImageSource="Resources/main.png" Stretch="Uniform"/>
+                    <ImageBrush ImageSource="Resources/drop.png" Stretch="Uniform"/>
                 </Button.Background>
             </Button>
-            <Button x:Name="btnMainMenu" Width="200" Height="50" HorizontalAlignment="Left" Margin="40,30,0,0" Click="btnMainMenu_Click" BorderThickness="0" >
+            <Button x:Name="btnMainMenu" Width="180" Height="50" HorizontalAlignment="Left" Margin="40,30,0,0" Click="btnMainMenu_Click" BorderThickness="0" >
                 <Button.Background>
                     <ImageBrush ImageSource="Resources/main.png" Stretch="Uniform"/>
                 </Button.Background>
