@@ -30,5 +30,13 @@ namespace Oliogotchi
             this.Left = x;
             this.Top = y;
         }
+        private Point firstPoint = new Point();
+
+        int x = 0;
+        int y = 0;
+        private void movObj_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            
+        }
     }
 }

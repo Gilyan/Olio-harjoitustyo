@@ -4,13 +4,15 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Oliogotchi"
+
         mc:Ignorable="d"
         Title="Throw Ball" Height="600" Width="800" ResizeMode="NoResize">
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="Resources/stars.png" Opacity="0.5" />
         </Grid.Background>
-        
+        <Image x:Name="movObj" Source="Resources/ball.png" Margin="385,467,315,25" MouseDown="movObj_MouseDown"></Image>
+        <Image Source="Resources/placeholderslime.png" Margin="235,472,465,20"></Image>
         <!-- TÄNNE KOODIA-->
         
         <DockPanel VerticalAlignment="Bottom">
