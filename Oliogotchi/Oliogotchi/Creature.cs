@@ -22,7 +22,7 @@ namespace Oliogotchi
 {
     class Creature // : INotifyPropertyChanged
     {
-        private int happiness;
+        //private int happiness;
         public int Age { get; set; }
         public int Hunger { get; set; }
         public int Happiness { get; set; }
