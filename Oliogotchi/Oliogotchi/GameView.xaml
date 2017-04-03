@@ -43,8 +43,8 @@
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <Button x:Name="btnShower" Grid.Row="0" Grid.Column="0" Content="Pese" Margin="0,0,0,10" Width="100" Height="20" FontFamily="Perpetua Titling MT" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <Button x:Name="btnPet" Grid.Row="1" Grid.Column="0" Content="Silitä" Margin="0,0,0,10" Width="100" Height="20" FontFamily="Perpetua Titling MT" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Button x:Name="btnShower" Grid.Row="0" Grid.Column="0" Content="Pese" Margin="0,0,0,10" Width="100" Height="20" FontFamily="Perpetua Titling MT" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center" Click="btnShower_Click"/>
+                    <Button x:Name="btnPet" Grid.Row="1" Grid.Column="0" Content="Silitä" Margin="0,0,0,10" Width="100" Height="20" FontFamily="Perpetua Titling MT" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center" Click="btnPet_Click"/>
                     <Button x:Name="btnEvolve" Grid.Row="2" Grid.Column="0" Content="Kehity" Margin="0,0,0,10" Width="100" Height="20" FontFamily="Perpetua Titling MT" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     <Button x:Name="btnSettings" Grid.Row="3" Grid.Column="0" Margin="0,0,0,10" Width="150" Height="50" FontFamily="Perpetua Titling MT" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center" BorderThickness="0" Click="btnSettings_Click">
                         <Button.Background>
@@ -52,7 +52,7 @@
                         </Button.Background>
                     </Button>
 
-                    <Button x:Name="btnGiveVeggie" Grid.Row="0" Grid.Column="2" Margin="0,0,0,10" Width="100" Height="60" FontFamily="Perpetua Titling MT" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center" BorderThickness="0">
+                    <Button x:Name="btnGiveVeggie" Grid.Row="0" Grid.Column="2" Margin="0,0,0,10" Width="100" Height="60" FontFamily="Perpetua Titling MT" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center" BorderThickness="0" Click="btnGiveVeggie_Click">
                         <Button.Background>
                             <ImageBrush ImageSource="Resources/veggie.png" Stretch="Uniform"/>
                         </Button.Background>
