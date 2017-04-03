@@ -25,7 +25,11 @@
                 </Button>
             </StackPanel>
             <TextBlock x:Name="txbGameInfo" TextWrapping="Wrap" Text="" Width="700" Height="150" FontFamily="Perpetua Titling MT" FontSize="12" Margin="50,50,0,0" HorizontalAlignment="Left"/>
-            <Button x:Name="btnGoPlay" Content="OK, pelataan!" Margin="0,0,100,10" Width="100" Height="20" FontFamily="Perpetua Titling MT" FontSize="12" HorizontalAlignment="Right" VerticalAlignment="Center" />
+            <Button x:Name="btnGoPlay" Margin="0,0,100,10" Width="200" Height="50" HorizontalAlignment="Right" VerticalAlignment="Center" BorderThickness="0">
+                <Button.Background>
+                    <ImageBrush ImageSource="Resources/play.png" Stretch="Uniform"/>
+                </Button.Background>
+            </Button>
         </StackPanel>
         <DockPanel VerticalAlignment="Bottom">
             <StatusBar>
