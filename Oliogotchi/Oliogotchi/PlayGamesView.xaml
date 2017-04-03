@@ -20,7 +20,7 @@
                 </Button>
                 <Button x:Name="btnPlayBall" Width="200" Height="150" HorizontalAlignment="Left" Margin="100,50,0,0" Click="btnMainMenu_Click" BorderThickness="0" >
                     <Button.Background>
-                        <ImageBrush ImageSource="Resources/main.png" Stretch="Uniform"/>
+                        <ImageBrush ImageSource="Resources/ball.png" Stretch="Uniform"/>
                     </Button.Background>
                 </Button>
             </StackPanel>

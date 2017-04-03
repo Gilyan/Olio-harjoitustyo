@@ -98,15 +98,7 @@ namespace Oliogotchi
             olio.Hunger += 40;      // TESTIVAIHE
             olio.Happiness -= 30;   // TESTIVAIHE
         }
-        public void PlayRockPaperScissors()
-        {
 
-        }
-
-        public void PlayFetchBall()
-        {
-
-        }
         public void Evolve()
         {
 
@@ -208,7 +200,7 @@ namespace Oliogotchi
             double y = this.Top;
             PlayGamesView pelit = new PlayGamesView(x, y);
             pelit.Show();
-            this.Close();
+            //this.Close();
         }
     }
 }
