@@ -64,7 +64,6 @@ namespace Oliogotchi
                 haePallo.Show();
                 this.Close();
             }
-            else;
         }
     }
 }
