@@ -25,7 +25,17 @@ namespace Oliogotchi
 
     class CreatureAnimation
     {
+        private int i { get; set; }
+        public string FrameLocation { get; set; }
         // https://programmingwithkinect.wordpress.com/2013/04/09/sprite-animation-in-wpf-c/
-        // "Resources/Olio/" + i + ".png" <-- spriten kuville polku
+
+        public void CreatureFetch(Creature olio)
+        {
+            for (i = 0; i < 4; i++)
+            {
+                string FrameLocation = olio.Image + "Run/" + i + ".png"; // kuvan polku
+
+            }
+        }
     }
 }
