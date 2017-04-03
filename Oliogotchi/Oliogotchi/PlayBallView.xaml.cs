@@ -19,9 +19,16 @@ namespace Oliogotchi
     /// </summary>
     public partial class PlayBallView : Window
     {
-        public PlayBallView()
+        //public PlayBallView()
+        //{
+        //    InitializeComponent();
+        //}
+
+        public PlayBallView(double x, double y)     // Ylikuormitetaan, että saadaan ikkunan paikka oikein
         {
             InitializeComponent();
+            this.Left = x;
+            this.Top = y;
         }
     }
 }

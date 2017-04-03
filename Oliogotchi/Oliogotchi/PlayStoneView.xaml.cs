@@ -29,8 +29,7 @@ namespace Oliogotchi
         {
             InitializeComponent();
             this.Left = x;
-            this.Top = y;
-            
+            this.Top = y;         
         }
 
         class Computer
