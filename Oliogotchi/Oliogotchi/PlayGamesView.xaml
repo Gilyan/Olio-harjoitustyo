@@ -18,14 +18,14 @@
                         <ImageBrush ImageSource="Resources/scissors.png" Stretch="Uniform"/>
                     </Button.Background>
                 </Button>
-                <Button x:Name="btnPlayBall" Width="200" Height="150" HorizontalAlignment="Left" Margin="100,50,0,0" Click="btnMainMenu_Click" BorderThickness="0" >
+                <Button x:Name="btnPlayBall" Width="200" Height="150" HorizontalAlignment="Left" Margin="100,50,0,0" Click="btnPlayBall_Click" BorderThickness="0" >
                     <Button.Background>
                         <ImageBrush ImageSource="Resources/ball.png" Stretch="Uniform"/>
                     </Button.Background>
                 </Button>
             </StackPanel>
             <TextBlock x:Name="txbGameInfo" TextWrapping="Wrap" Text="" Width="700" Height="150" FontFamily="Perpetua Titling MT" FontSize="12" Margin="50,50,0,0" HorizontalAlignment="Left"/>
-            <Button x:Name="btnGoPlay" Margin="0,0,100,10" Width="200" Height="50" HorizontalAlignment="Right" VerticalAlignment="Center" BorderThickness="0">
+            <Button x:Name="btnGoPlay" Margin="0,0,100,10" Width="200" Height="50" HorizontalAlignment="Right" VerticalAlignment="Center" BorderThickness="0" Click="btnGoPlay_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="Resources/play.png" Stretch="Uniform"/>
                 </Button.Background>
