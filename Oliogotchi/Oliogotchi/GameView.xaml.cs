@@ -48,6 +48,7 @@ namespace Oliogotchi
         private int easiness = 1; //timerin ajastin aika ms
 
         Creature olio = new Creature();
+        Habitat tausta = new Habitat();
 
         //public GameView()
         //{
@@ -75,7 +76,6 @@ namespace Oliogotchi
         }
         public void CreateHabitat()         // Luo uuden elinympäristön
         {
-            Habitat tausta = new Habitat();
             tausta.Cleanliness = habitatCleanliness;
             tausta.Trash = habitatTrash;
         }
@@ -107,11 +107,6 @@ namespace Oliogotchi
         {
 
         }
-        public void Clean()
-        {
-            olio.Cleanliness -= 40;     // TESTIVAIHE
-            olio.Happiness -= 20;       // TESTIVAIHE
-        }
         public void Evolve()
         {
 
@@ -120,12 +115,39 @@ namespace Oliogotchi
         {
             txbFooter.Text = "Lemmikkisi kuoli. Voi kuinka surullista. Hanki seuraavaksi vaikka kivi.";
         }
+        public void HabitatLiving()
+        {
+            tausta.Cleanliness--;
+            if (tausta.Cleanliness < 10)
+            {
+                prbCleanliness.Dispatcher.Invoke(() => prbCleanliness.Value = cleanliness--, DispatcherPriority.Background);
+                prbHappiness.Dispatcher.Invoke(() => prbHappiness.Value = happiness--, DispatcherPriority.Background);
+                tausta.Trash++;
+            }
+            else if (tausta.Cleanliness == 20)
+            {
+                tausta.Trash++;
+            }
+            else if (tausta.Cleanliness == 30)
+            {
+                tausta.Trash++;
+            }
+            else if (tausta.Cleanliness == 40)
+            {
+                tausta.Trash++;
+            }
+            else if (tausta.Cleanliness == 50)
+            {
+                tausta.Trash++;
+            }
+        }
         public void Living() //olio elää ja päivittää tietoja progress bariin ja footteriin lukuarvot
         {
             prbHappiness.Dispatcher.Invoke(() => prbHappiness.Value = happiness--, DispatcherPriority.Background);
             prbCleanliness.Dispatcher.Invoke(() => prbCleanliness.Value = cleanliness--, DispatcherPriority.Background);
             prbHunger.Dispatcher.Invoke(() => prbHunger.Value = hunger--, DispatcherPriority.Background);
-            txbFooter.Text = "onnellisuus: " + olio.Happiness.ToString() + ", nälkä: " + olio.Hunger.ToString() + ", puhtaus: " + olio.Cleanliness.ToString();
+            txbFooter.Text = "onnellisuus: " + olio.Happiness.ToString() + ", nälkä: " + olio.Hunger.ToString() + ", puhtaus: " + olio.Cleanliness.ToString()
+                             + ", ympäristön puhtaus: " + tausta.Cleanliness + ", roskien määrä: " + tausta.Trash;
         }
 
         private void timer_Tick(object sender, EventArgs e) // timeri missä tapahtuu niin sanottu pelin "eläminen", elää kunnes jokin 0
@@ -133,6 +155,7 @@ namespace Oliogotchi
             if (olio.Hunger > 0 && olio.Happiness > 0 && olio.Cleanliness > 0)
             {
                 Living();
+                HabitatLiving();
             }
             else Die();
             
@@ -147,11 +170,6 @@ namespace Oliogotchi
             this.Close();
         }
 
-        private void btnGiveMeat_Click(object sender, RoutedEventArgs e)  //Anna ruokaa napin tapahtuma
-        {
-            prbHunger.Dispatcher.Invoke(() => prbHunger.Value = hunger++, DispatcherPriority.Background);
-        }
-
         private void btnSettings_Click(object sender, RoutedEventArgs e)
         {
             double x = this.Left;
@@ -159,6 +177,33 @@ namespace Oliogotchi
             SettingsView settings = new SettingsView(x, y);
             settings.Show();
             this.Close();
+        }
+
+        private void btnGiveVeggie_Click(object sender, RoutedEventArgs e)
+        {
+            prbHunger.Dispatcher.Invoke(() => prbHunger.Value = hunger++, DispatcherPriority.Background);
+            vegeCounter++;
+        }
+        private void btnGiveMeat_Click(object sender, RoutedEventArgs e)  //Anna ruokaa napin tapahtuma
+        {
+            prbHunger.Dispatcher.Invoke(() => prbHunger.Value = hunger++, DispatcherPriority.Background);
+            meatCounter++;
+        }
+
+        private void btnShower_Click(object sender, RoutedEventArgs e)
+        {
+            prbCleanliness.Dispatcher.Invoke(() => prbCleanliness.Value = cleanliness++, DispatcherPriority.Background);
+            prbHappiness.Dispatcher.Invoke(() => prbHappiness.Value = happiness++, DispatcherPriority.Background);
+        }
+
+        private void btnPet_Click(object sender, RoutedEventArgs e)
+        {
+            prbHappiness.Dispatcher.Invoke(() => prbHappiness.Value = happiness++, DispatcherPriority.Background);
+        }
+
+        private void btnPlayGame_Click(object sender, RoutedEventArgs e)
+        {
+            timer.Stop();
         }
     }
 }
