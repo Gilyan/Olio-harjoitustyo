@@ -25,11 +25,18 @@
                 </Button>
             </StackPanel>
             <TextBlock x:Name="txbGameInfo" TextWrapping="Wrap" Width="700" Height="150" FontFamily="Perpetua Titling MT" FontSize="16" Margin="50,50,0,0" HorizontalAlignment="Left"/>
-            <Button x:Name="btnGoPlay" Margin="0,0,100,10" Width="200" Height="50" HorizontalAlignment="Right" VerticalAlignment="Center" BorderThickness="0" Click="btnGoPlay_Click">
-                <Button.Background>
-                    <ImageBrush ImageSource="Resources/play.png" Stretch="Uniform"/>
-                </Button.Background>
-            </Button>
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="btnBack" Margin="40,10,0,10" Width="200" Height="50" BorderThickness="0" Click="btnBack_Click">
+                    <Button.Background>
+                        <ImageBrush ImageSource="Resources/back.png" Stretch="Uniform"/>
+                    </Button.Background>
+                </Button>
+                <Button x:Name="btnGoPlay" Margin="310,10,0,10" Width="200" Height="50" BorderThickness="0" Click="btnGoPlay_Click">
+                    <Button.Background>
+                        <ImageBrush ImageSource="Resources/play.png" Stretch="Uniform"/>
+                    </Button.Background>
+                </Button>
+            </StackPanel>
         </StackPanel>
         <DockPanel VerticalAlignment="Bottom">
             <StatusBar>

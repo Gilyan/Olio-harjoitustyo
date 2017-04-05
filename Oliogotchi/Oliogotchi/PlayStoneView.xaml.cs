@@ -29,7 +29,9 @@ namespace Oliogotchi
         {
             InitializeComponent();
             this.Left = x;
-            this.Top = y;         
+            this.Top = y;
+            btnAgain.Visibility = System.Windows.Visibility.Hidden;
+            btnBack.Visibility = System.Windows.Visibility.Hidden;
         }
 
         class Computer
@@ -49,7 +51,7 @@ namespace Oliogotchi
             int luku;
             if (plaChoice == comChoice)
             {
-                txt = "Tasapeli! Olio valitsi saman esineen kuin sinä!";
+                txt = "DRAW! \n\nOlio chose the same as you!";
                 luku = 0;
                 Run(txt, luku);
             }
@@ -58,13 +60,13 @@ namespace Oliogotchi
                 case M.rock:
                     if (plaChoice == M.rock && comChoice == M.scissor)
                     {
-                        txt = "Voitit pelin! Olio valtsi " + comChoice.ToString() + ", nyt olion iloisuus laskee 5 pistettä";
+                        txt = "YOU WON! \n\nOlio chose " + comChoice.ToString() + ", Olio loses 5 happiness points.";
                         luku = 5;
                         Run(txt, luku);
                     }
                     else if (plaChoice == M.rock && comChoice == M.paper)
                     {
-                        txt = "Hävisit! Olio valtsi " + comChoice.ToString() + ", nyt olion iloisuus nousee 20 pistettä";
+                        txt = "YOU LOST! \n\nOlio chose " + comChoice.ToString() + ", Olio gains 20 happiness points.";
                         luku = 20;
                         Run(txt, luku);
                     }
@@ -72,13 +74,13 @@ namespace Oliogotchi
                 case M.paper:
                     if (plaChoice == M.paper && comChoice == M.rock)
                     {
-                        txt = "Voitit pelin! Olio valtsi " + comChoice.ToString() + ", nyt olion iloisuus laskee 5 pistettä";
+                        txt = "YOU WON! \n\nOlio chose " + comChoice.ToString() + ", Olio loses 5 happiness points.";
                         luku = 5;
                         Run(txt, luku);
                     }
                     else if (plaChoice == M.paper && comChoice == M.scissor)
                     {
-                        txt = "Hävisit! Olio valtsi " + comChoice.ToString() + ", nyt olion iloisuus nousee 20 pistettä";
+                        txt = "YOU LOST! \n\nOlio chose " + comChoice.ToString() + ", Olio gains 20 happiness points.";
                         luku = 20;
                         Run(txt, luku);
                     }
@@ -86,13 +88,13 @@ namespace Oliogotchi
                 case M.scissor:
                     if (plaChoice == M.scissor && comChoice == M.paper)
                     {
-                        txt = "Voitit pelin! Olio valtsi " + comChoice.ToString() + ", nyt olion iloisuus laskee 5 pistettä";
+                        txt = "YOU WON! \n\nOlio chose " + comChoice.ToString() + ", Olio loses 5 happiness points.";
                         luku = 5;
                         Run(txt, luku);
                     }
                     else if (plaChoice == M.scissor && comChoice == M.rock)
                     {
-                        txt = "Hävisit! Olio valtsi " + comChoice.ToString() + ", nyt olion iloisuus nousee 20 pistettä";
+                        txt = "YOU LOST! \n\nOlio chose " + comChoice.ToString() + ", Olio gains 20 happiness points.";
                         luku = 20;
                         Run(txt, luku);
                     }
@@ -104,16 +106,18 @@ namespace Oliogotchi
         public void Run(string teksti, int luku)
         {
             txbGameInfo.Text = teksti;
-            if (MessageBox.Show("Haluatko jatkaa?", "Oliogotchi", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
-            {
-                btnRock.Visibility = System.Windows.Visibility.Visible;
-                btnPaper.Visibility = System.Windows.Visibility.Visible;
-                btnScissor.Visibility = System.Windows.Visibility.Visible;
-            }
-            else
-            {
-                this.Close();
-            }
+            //if (MessageBox.Show("Haluatko jatkaa?", "Oliogotchi", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            //{
+            //    btnRock.Visibility = System.Windows.Visibility.Visible;
+            //    btnPaper.Visibility = System.Windows.Visibility.Visible;
+            //    btnScissor.Visibility = System.Windows.Visibility.Visible;
+            //}
+            //else
+            //{
+            //    this.Close();
+            //}
+            btnAgain.Visibility = System.Windows.Visibility.Visible;
+            btnBack.Visibility = System.Windows.Visibility.Visible;
         }
         private void btnRock_Click(object sender, RoutedEventArgs e)
         {
@@ -144,6 +148,21 @@ namespace Oliogotchi
             M playerChoice = M.scissor;
             Test(playerChoice, computerChoice);
 
+        }
+
+        private void btnAgain_Click(object sender, RoutedEventArgs e)
+        {
+            btnRock.Visibility = System.Windows.Visibility.Visible;
+            btnPaper.Visibility = System.Windows.Visibility.Visible;
+            btnScissor.Visibility = System.Windows.Visibility.Visible;
+            btnAgain.Visibility = System.Windows.Visibility.Hidden;
+            btnBack.Visibility = System.Windows.Visibility.Hidden;
+            txbGameInfo.Text = "";
+        }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }
