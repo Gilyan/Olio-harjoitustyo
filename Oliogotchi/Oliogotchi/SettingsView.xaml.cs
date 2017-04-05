@@ -2,8 +2,9 @@
 Oliogotchin asetussivu.
 
 Toiminta: Asetuksien kautta voi 
-- vaihtaa olion nimeä
 - poistaa olion
+
+Main Menu -napista pääsee takaisin päävalikkoon.
 
 Luotu 27.3.2017
 

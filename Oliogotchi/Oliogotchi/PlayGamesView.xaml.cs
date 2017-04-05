@@ -1,4 +1,22 @@
-﻿using System;
+﻿/* **********************************************************
+Olion kanssa pelattavien pelien pääsivu.
+
+Toiminta: Pelivalikon kautta voit valita, haluatko pelata
+- kivi-sakset-paperi -peliä olion kanssa
+- heittää palloa, jota olio voi hakea
+
+Näet pelien ohjeet, kun haluttu peli on klikattu.
+Back-napista pääset takaisin pääpeliin.
+
+Luotu 3.4.2017
+
+Minttu Mäkäläinen K8517
+Kioto Hiirola K8252
+Joona Hautamäki K1647 
+@ JAMK 
+********************************************************** */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,20 +47,20 @@ namespace Oliogotchi
             InitializeComponent();
             this.Left = x;
             this.Top = y;
-            btnGoPlay.Visibility = System.Windows.Visibility.Hidden;
+            btnGoPlay.Visibility = System.Windows.Visibility.Hidden;        // Piilotetaan pelin aloittava nappi
         }
 
         private void btnPlayStone_Click(object sender, RoutedEventArgs e)
         {
             kumpiPeli = true;
-            btnGoPlay.Visibility = System.Windows.Visibility.Visible;
+            btnGoPlay.Visibility = System.Windows.Visibility.Visible;       // Pelin aloittava nappi näkyville
             txbGameInfo.Text = "Choose rock, paper or scissors. Rules are as always:\n- Rock beats scissors \n- Scissors beats paper \n- Paper beats rock \n\nIf you win, Olio loses 5 happiness points. If Olio wins, Olio gains 20 happiness points.";
         }
 
         private void btnPlayBall_Click(object sender, RoutedEventArgs e)
         {
             kumpiPeli = false;
-            btnGoPlay.Visibility = System.Windows.Visibility.Visible;
+            btnGoPlay.Visibility = System.Windows.Visibility.Visible;       // Pelin aloittava nappi näkyville
             txbGameInfo.Text = "Tänne pallon heitto -pelin ohjeet";
         }
 

@@ -1,4 +1,23 @@
-﻿using System;
+﻿/* **********************************************************
+Kivi-sakset-paperi -peli.
+
+Toiminta: Voit pelata kivi-sakset-paperi -peliä olion kanssa.
+Klikkaa haluamaasi vaihtoehtoa.
+Olion valinta random-generaattorin mukaan.
+
+Jos Olio voittaa -> arvoa "luku" nostetaan 20:llä.
+Jos Olio häviää -> arvoa "luku" lasketaan 5:llä.
+"luku" lisätään pääpelin arvoon Happiness joka kierroksen lopussa.
+
+Luotu 3.4.2017
+
+Minttu Mäkäläinen K8517
+Kioto Hiirola K8252
+Joona Hautamäki K1647 
+@ JAMK 
+********************************************************** */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,7 +33,7 @@ using System.Windows.Shapes;
 
 namespace Oliogotchi
 {
-    public enum M
+    public enum M       // Määritetään kontrollit
     {
         rock,
         paper,
@@ -30,7 +49,7 @@ namespace Oliogotchi
             InitializeComponent();
             this.Left = x;
             this.Top = y;
-            btnAgain.Visibility = System.Windows.Visibility.Hidden;
+            btnAgain.Visibility = System.Windows.Visibility.Hidden;     // Piilotetaan valikkonapit (Again, Back)
             btnBack.Visibility = System.Windows.Visibility.Hidden;
         }
 
@@ -38,7 +57,7 @@ namespace Oliogotchi
         {
             Random rand = new Random();
 
-            public M Choice()
+            public M Choice()               // Randomgeneraattori Olion valintaa varten
             {
                 M element = (M)rand.Next(3);
                 return element;
@@ -49,7 +68,7 @@ namespace Oliogotchi
         {
             string txt;
             int luku;
-            if (plaChoice == comChoice)
+            if (plaChoice == comChoice)     // Tasapeli
             {
                 txt = "DRAW! \n\nOlio chose the same as you!";
                 luku = 0;
@@ -57,7 +76,7 @@ namespace Oliogotchi
             }
             switch (plaChoice)
             {
-                case M.rock:
+                case M.rock:        // Valittu vaihtoehto : kivi
                     if (plaChoice == M.rock && comChoice == M.scissor)
                     {
                         txt = "YOU WON! \n\nOlio chose " + comChoice.ToString() + ", Olio loses 5 happiness points.";
@@ -71,7 +90,7 @@ namespace Oliogotchi
                         Run(txt, luku);
                     }
                     break;
-                case M.paper:
+                case M.paper:       // Valittu vaihtoehto : paperi
                     if (plaChoice == M.paper && comChoice == M.rock)
                     {
                         txt = "YOU WON! \n\nOlio chose " + comChoice.ToString() + ", Olio loses 5 happiness points.";
@@ -85,7 +104,7 @@ namespace Oliogotchi
                         Run(txt, luku);
                     }
                     break;
-                case M.scissor:
+                case M.scissor:     // Valittu vaihtoehto : sakset
                     if (plaChoice == M.scissor && comChoice == M.paper)
                     {
                         txt = "YOU WON! \n\nOlio chose " + comChoice.ToString() + ", Olio loses 5 happiness points.";
@@ -106,22 +125,13 @@ namespace Oliogotchi
         public void Run(string teksti, int luku)
         {
             txbGameInfo.Text = teksti;
-            //if (MessageBox.Show("Haluatko jatkaa?", "Oliogotchi", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
-            //{
-            //    btnRock.Visibility = System.Windows.Visibility.Visible;
-            //    btnPaper.Visibility = System.Windows.Visibility.Visible;
-            //    btnScissor.Visibility = System.Windows.Visibility.Visible;
-            //}
-            //else
-            //{
-            //    this.Close();
-            //}
-            btnAgain.Visibility = System.Windows.Visibility.Visible;
+
+            btnAgain.Visibility = System.Windows.Visibility.Visible;    // Valikkonapit aktiiviseksi (Again, Back)
             btnBack.Visibility = System.Windows.Visibility.Visible;
         }
         private void btnRock_Click(object sender, RoutedEventArgs e)
         {
-            btnPaper.Visibility = System.Windows.Visibility.Hidden;
+            btnPaper.Visibility = System.Windows.Visibility.Hidden;     // Piilotetaan ei-valitut vaihtoehdot
             btnScissor.Visibility = System.Windows.Visibility.Hidden;
             Computer Comp = new Computer();
             M computerChoice = Comp.Choice();
@@ -130,7 +140,7 @@ namespace Oliogotchi
         }
         private void btnPaper_Click(object sender, RoutedEventArgs e)
         {
-            btnRock.Visibility = System.Windows.Visibility.Hidden;
+            btnRock.Visibility = System.Windows.Visibility.Hidden;      // Piilotetaan ei-valitut vaihtoehdot
             btnScissor.Visibility = System.Windows.Visibility.Hidden;
             Computer Comp = new Computer();
             M computerChoice = Comp.Choice();
@@ -141,7 +151,7 @@ namespace Oliogotchi
         }
         private void btnScissor_Click(object sender, RoutedEventArgs e)
         {
-            btnRock.Visibility = System.Windows.Visibility.Hidden;
+            btnRock.Visibility = System.Windows.Visibility.Hidden;      // Piilotetaan ei-valitut vaihtoehdot
             btnPaper.Visibility = System.Windows.Visibility.Hidden;
             Computer Comp = new Computer();
             M computerChoice = Comp.Choice();
@@ -152,15 +162,15 @@ namespace Oliogotchi
 
         private void btnAgain_Click(object sender, RoutedEventArgs e)
         {
-            btnRock.Visibility = System.Windows.Visibility.Visible;
+            btnRock.Visibility = System.Windows.Visibility.Visible;     // Kaikki vaihtoehdot näkyville valintaa varten
             btnPaper.Visibility = System.Windows.Visibility.Visible;
             btnScissor.Visibility = System.Windows.Visibility.Visible;
-            btnAgain.Visibility = System.Windows.Visibility.Hidden;
+            btnAgain.Visibility = System.Windows.Visibility.Hidden;     // Piilotetaan valikkonapit (Again, Back)
             btnBack.Visibility = System.Windows.Visibility.Hidden;
             txbGameInfo.Text = "";
         }
 
-        private void btnBack_Click(object sender, RoutedEventArgs e)
+        private void btnBack_Click(object sender, RoutedEventArgs e)    // Siirrytään takaisin pääpelin puolelle
         {
             this.Close();
         }
