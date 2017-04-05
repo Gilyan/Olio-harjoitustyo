@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace Oliogotchi
 {
@@ -19,91 +20,55 @@ namespace Oliogotchi
     /// </summary>
     public partial class PlayBallView : Window
     {
-        //public PlayBallView()
-        //{
-        //    InitializeComponent();
-        //}
+        Point p = new Point();
+        DispatcherTimer timer = new DispatcherTimer();
+
 
         public PlayBallView(double x, double y)     // Ylikuormitetaan, että saadaan ikkunan paikka oikein
         {
             InitializeComponent();
+            timer.Tick += new EventHandler(timer_Tick);
+            timer.Interval = new TimeSpan(0, 0, 0, 0, 10);
+            timer.Start();
             this.Left = x;
             this.Top = y;
         }
 
- //    Image img = Resource/ball.png;
- //
- //    Canvas.SetLeft(img, Left); // Default Left when adding the image = 0
- //    Canvas.SetTop(img, Top); // Default Top when adding the image = 0
- //
- //    MyCanvas.Children.Add(img);
- //    OnPropertyChanged("MyCanvas");
- //
- //    img.AllowDrop = true;
- //    img.PreviewMouseLeftButtonDown += this.MouseLeftButtonDown;
- //    img.PreviewMouseMove += this.MouseMove;
- //    img.PreviewMouseLeftButtonUp += this.PreviewMouseLeftButtonUp;
- //
- //
- //    private object movingObject;
- //    private double firstXPos, firstYPos;
- //    private void MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
- //    {
- //        // In this event, we get the current mouse position on the control to use it in the MouseMove event.
- //        Image img = sender as Image;
- //        Canvas canvas = img.Parent as Canvas;
- //
- //        firstXPos = e.GetPosition(img).X;
- //        firstYPos = e.GetPosition(img).Y;
- //
- //        movingObject = sender;
- //
- //        // Put the image currently being dragged on top of the others
- //        int top = Canvas.GetZIndex(img);
- //        foreach (Image child in canvas.Children)
- //            if (top < Canvas.GetZIndex(child))
- //                top = Canvas.GetZIndex(child);
- //        Canvas.SetZIndex(img, top + 1);
- //    }
- //    private void PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
- //    {
- //        Image img = sender as Image;
- //        Canvas canvas = img.Parent as Canvas;
- //
- //        movingObject = null;
- //
- //        // Put the image currently being dragged on top of the others
- //        int top = Canvas.GetZIndex(img);
- //        foreach (Image child in canvas.Children)
- //            if (top > Canvas.GetZIndex(child))
- //                top = Canvas.GetZIndex(child);
- //        Canvas.SetZIndex(img, top + 1);
- //    }
- //    private void MouseMove(object sender, MouseEventArgs e)
- //    {
- //        if (e.LeftButton == MouseButtonState.Pressed && sender == movingObject)
- //        {
- //            Image img = sender as Image;
- //            Canvas canvas = img.Parent as Canvas;
- //
- //            double newLeft = e.GetPosition(canvas).X - firstXPos - canvas.Margin.Left;
- //            // newLeft inside canvas right-border?
- //            if (newLeft > canvas.Margin.Left + canvas.ActualWidth - img.ActualWidth)
- //                newLeft = canvas.Margin.Left + canvas.ActualWidth - img.ActualWidth;
- //            // newLeft inside canvas left-border?
- //            else if (newLeft < canvas.Margin.Left)
- //                newLeft = canvas.Margin.Left;
- //            img.SetValue(Canvas.LeftProperty, newLeft);
- //
- //            double newTop = e.GetPosition(canvas).Y - firstYPos - canvas.Margin.Top;
- //            // newTop inside canvas bottom-border?
- //            if (newTop > canvas.Margin.Top + canvas.ActualHeight - img.ActualHeight)
- //                newTop = canvas.Margin.Top + canvas.ActualHeight - img.ActualHeight;
- //            // newTop inside canvas top-border?
- //            else if (newTop < canvas.Margin.Top)
- //                newTop = canvas.Margin.Top;
- //            img.SetValue(Canvas.TopProperty, newTop);
- //        }
- //    }
-     }
+        private void Img_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            timer.Stop();
+            Img.CaptureMouse();
+            p = e.GetPosition(ImageHolder);
+        }
+
+        private void Img_MouseMove(object sender, MouseEventArgs e)
+        {
+            Point x = e.GetPosition(ImageHolder);
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                Canvas.SetLeft(Img, Canvas.GetLeft(Img) + (x.X - p.X));
+                Canvas.SetTop(Img, Canvas.GetTop(Img) + (x.Y - p.Y));
+            }
+            p = x;
+        }
+
+        private void Img_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            timer.Start();
+            Img.ReleaseMouseCapture();
+        }
+        void timer_Tick(object sender, EventArgs e)
+        {
+            long ball1Pos = Convert.ToInt64(Img.GetValue(Canvas.TopProperty));
+            if (ball1Pos > 485)
+            {
+                timer.Stop();
+            }
+            else
+            {
+                timer.Start();
+                Canvas.SetTop(Img, ball1Pos + 5);
+            }
+        }
+    }
 }
