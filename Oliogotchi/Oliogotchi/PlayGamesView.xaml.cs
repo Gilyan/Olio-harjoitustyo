@@ -54,7 +54,7 @@ namespace Oliogotchi
         {
             kumpiPeli = true;
             btnGoPlay.Visibility = System.Windows.Visibility.Visible;       // Pelin aloittava nappi näkyville
-            txbGameInfo.Text = "Choose rock, paper or scissors. Rules are as always:\n- Rock beats scissors \n- Scissors beats paper \n- Paper beats rock \n\nIf you win, Olio loses 5 happiness points. If Olio wins, Olio gains 20 happiness points.";
+            txbGameInfo.Text = "Choose rock, paper or scissors. Rules are as always:\n- Rock beats scissors \n- Scissors beats paper \n- Paper beats rock \n\nIf you win, Olio loses 5 happiness points. \nIf Olio wins, Olio gains 20 happiness points.";
         }
 
         private void btnPlayBall_Click(object sender, RoutedEventArgs e)

@@ -7,12 +7,26 @@
 
         mc:Ignorable="d"
         Title="Throw Ball" Height="600" Width="800" ResizeMode="NoResize">
+    <Window.Resources>
+        <Style x:Key="Nappula" TargetType="Button">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid Background="{TemplateBinding Background}">
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="Resources/stars.png" Opacity="0.5" />
         </Grid.Background>
         <Image Source="Resources/placeholderslime.png" Margin="235,472,465,20"></Image>
         <!-- TÄNNE KOODIA-->
+        <!-- JOONA: olio + pallo pitäisi saada stackpanelin sisälle, jotta alhaalle jää nappuloille tilaa -->
 
         <Canvas Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" HorizontalAlignment="Stretch"
             VerticalAlignment="Stretch" x:Name="ImageHolder" >
@@ -22,8 +36,15 @@
                Cursor="Hand" Canvas.Top="363" Height="50" Width="50" Source="Resources/bounce.png"
                x:Name="Img">
             </Image>
-
         </Canvas>
+
+        <StackPanel Height="140" Orientation="Horizontal" VerticalAlignment="Bottom">
+            <Button x:Name="btnBack" Style="{StaticResource Nappula}" Margin="40,10,0,10" Width="200" Height="50" BorderThickness="0" Click="btnBack_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="Resources/back.png" Stretch="Uniform"/>
+                </Button.Background>
+            </Button>
+        </StackPanel>
 
         <DockPanel VerticalAlignment="Bottom">
             <StatusBar>

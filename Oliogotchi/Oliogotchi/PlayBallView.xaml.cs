@@ -70,5 +70,10 @@ namespace Oliogotchi
                 Canvas.SetTop(Img, ball1Pos + 5);
             }
         }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -64,9 +64,6 @@ namespace Oliogotchi
             CreateCreature();       // Luo uuden lemmikkiolion - TODO: tehtävä erillinen haku tallennetulle oliolle
             CreateHabitat();        // Luo uuden elinympäristön - TODO: tehtävä erillinen haku tallennetulle elinympäristölle
 
-            //GiveMeat(); // TESTIVAIHE
-            //Clean();    // TESTIVAIHE
-
             //timerin alustaminen
             timer = new DispatcherTimer();
             timer.Interval = new TimeSpan(0, 0, 0, easiness);
@@ -186,7 +183,7 @@ namespace Oliogotchi
         private void btnShower_Click(object sender, RoutedEventArgs e)
         {
             prbCleanliness.Dispatcher.Invoke(() => prbCleanliness.Value = cleanliness++, DispatcherPriority.Background);
-            prbHappiness.Dispatcher.Invoke(() => prbHappiness.Value = happiness++, DispatcherPriority.Background);
+            // prbHappiness.Dispatcher.Invoke(() => prbHappiness.Value = happiness++, DispatcherPriority.Background);
         }
 
         private void btnPet_Click(object sender, RoutedEventArgs e)

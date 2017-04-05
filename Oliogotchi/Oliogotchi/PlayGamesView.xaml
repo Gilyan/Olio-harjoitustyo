@@ -6,6 +6,19 @@
         xmlns:local="clr-namespace:Oliogotchi"
         mc:Ignorable="d"
         Title="Play Games" Height="600" Width="800" ResizeMode="NoResize">
+    <Window.Resources>
+        <Style x:Key="Nappula" TargetType="Button">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid Background="{TemplateBinding Background}">
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="Resources/stars.png" Opacity="0.5" />
@@ -13,12 +26,12 @@
         <StackPanel Orientation="Vertical">
             <TextBlock x:Name="txbTitle" TextWrapping="Wrap" Text="Play Games with Olio" Width="600" Height="40" FontFamily="Perpetua Titling MT" FontSize="40" HorizontalAlignment="Left" Margin="30,30,0,0" />
             <StackPanel Orientation="Horizontal">
-                <Button x:Name="btnPlayStone" Content="" Width="200" Height="150" HorizontalAlignment="Left" Margin="100,50,0,0"  BorderThickness="0" Click="btnPlayStone_Click" >
+                <Button x:Name="btnPlayStone" Style="{StaticResource Nappula}" Width="200" Height="150" HorizontalAlignment="Left" Margin="100,50,0,0"  BorderThickness="0" Click="btnPlayStone_Click" >
                     <Button.Background>
                         <ImageBrush ImageSource="Resources/scissors.png" Stretch="Uniform"/>
                     </Button.Background>
                 </Button>
-                <Button x:Name="btnPlayBall" Width="200" Height="150" HorizontalAlignment="Left" Margin="100,50,0,0" Click="btnPlayBall_Click" BorderThickness="0" >
+                <Button x:Name="btnPlayBall" Style="{StaticResource Nappula}" Width="200" Height="150" HorizontalAlignment="Left" Margin="100,50,0,0" Click="btnPlayBall_Click" BorderThickness="0" >
                     <Button.Background>
                         <ImageBrush ImageSource="Resources/ball.png" Stretch="Uniform"/>
                     </Button.Background>
@@ -26,12 +39,12 @@
             </StackPanel>
             <TextBlock x:Name="txbGameInfo" TextWrapping="Wrap" Width="700" Height="150" FontFamily="Perpetua Titling MT" FontSize="16" Margin="50,50,0,0" HorizontalAlignment="Left"/>
             <StackPanel Orientation="Horizontal">
-                <Button x:Name="btnBack" Margin="40,10,0,10" Width="200" Height="50" BorderThickness="0" Click="btnBack_Click">
+                <Button x:Name="btnBack" Style="{StaticResource Nappula}" Margin="40,10,0,10" Width="200" Height="50" BorderThickness="0" Click="btnBack_Click">
                     <Button.Background>
                         <ImageBrush ImageSource="Resources/back.png" Stretch="Uniform"/>
                     </Button.Background>
                 </Button>
-                <Button x:Name="btnGoPlay" Margin="310,10,0,10" Width="200" Height="50" BorderThickness="0" Click="btnGoPlay_Click">
+                <Button x:Name="btnGoPlay" Style="{StaticResource Nappula}" Margin="310,10,0,10" Width="200" Height="50" BorderThickness="0" Click="btnGoPlay_Click">
                     <Button.Background>
                         <ImageBrush ImageSource="Resources/play.png" Stretch="Uniform"/>
                     </Button.Background>
