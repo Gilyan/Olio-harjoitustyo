@@ -20,48 +20,13 @@ using System.Threading.Tasks;
 
 namespace Oliogotchi
 {
-    class Creature // : INotifyPropertyChanged
+    [Serializable]          // Sarjallisestaan luokka, jotta voidaan kirjoittaa tiedostoon
+    class Creature
     {
-        //private int happiness;
         public int Age { get; set; }
         public int Hunger { get; set; }
         public int Happiness { get; set; }
-        //{
-        //    get { return happiness; }
-        //    set
-        //        {
-        //            if (happiness != value)
-        //                {
-        //                    happiness = value;
-        //                    RaisePropertyChanged(happiness.ToString());
-        //                }
-        //        }
-        //}
         public string Image { get; set; }
         public int Cleanliness { get; set; }
-
-        public void Evolve()
-        {
-
-        }
-
-        public void Die()
-        {
-
-        }
-
-        public void ChangeName()
-        {
-
-        }
-
-        //public event PropertyChangedEventHandler PropertyChanged;       // Event
-        //private void RaisePropertyChanged(string property)              // Metodi
-        //{
-        //    if (PropertyChanged != null)
-        //    {
-        //        PropertyChanged(this, new PropertyChangedEventArgs(property));
-        //    }
-        //}
     }
 }

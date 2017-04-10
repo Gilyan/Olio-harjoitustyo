@@ -19,6 +19,7 @@ using System.Threading.Tasks;
 
 namespace Oliogotchi
 {
+    [Serializable]          // Sarjallisestaan luokka, jotta voidaan kirjoittaa tiedostoon
     class Habitat
     {
         public int Trash { get; set; }
