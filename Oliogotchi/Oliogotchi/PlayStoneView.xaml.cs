@@ -126,10 +126,7 @@ namespace Oliogotchi
         }
         public void Run(string teksti, int luku)
         {
-            if (GameView.happiness < 100 && GameView.happiness > 0)
-            {
-                GameView.happiness += luku;
-            }
+            points += luku;
             txbGameInfo.Text = teksti;
             btnAgain.Visibility = System.Windows.Visibility.Visible;    // Valikkonapit aktiiviseksi (Again, Back)
             btnBack.Visibility = System.Windows.Visibility.Visible;

@@ -39,12 +39,13 @@ namespace Oliogotchi
     /// </summary>
     public partial class GameView : Window
     {
+        public static PlayStoneView testi = new PlayStoneView(15,15);       // joona leikkii
         // Määritetään alkuarvoja muuttujille
         private int vegeCounter = 0;
         private int meatCounter = 0;
         private int cleanliness = 50;
         private int hunger = 50;
-        public static int happiness = 50;
+        public int happiness = 50;
         private int habitatTrash = 0;
         private int habitatCleanliness = 100;
         public static DispatcherTimer timer;
