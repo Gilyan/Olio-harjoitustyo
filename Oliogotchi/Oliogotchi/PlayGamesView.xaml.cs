@@ -86,6 +86,7 @@ namespace Oliogotchi
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
+            GameView.timer.Start();
             this.Close();
         }
     }

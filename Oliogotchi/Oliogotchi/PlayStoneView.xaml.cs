@@ -44,11 +44,13 @@ namespace Oliogotchi
     /// </summary>
     public partial class PlayStoneView : Window
     {
+        
         public PlayStoneView(double x, double y)       // Ylikuormitetaan, että saadaan ikkunan paikka oikein
         {
             InitializeComponent();
             this.Left = x;
             this.Top = y;
+
             btnAgain.Visibility = System.Windows.Visibility.Hidden;     // Piilotetaan valikkonapit (Again, Back)
             btnBack.Visibility = System.Windows.Visibility.Hidden;
         }
@@ -80,7 +82,7 @@ namespace Oliogotchi
                     if (plaChoice == M.rock && comChoice == M.scissor)
                     {
                         txt = "YOU WON! \n\nOlio chose " + comChoice.ToString() + ", Olio loses 5 happiness points.";
-                        luku = 5;
+                        luku = -5;
                         Run(txt, luku);
                     }
                     else if (plaChoice == M.rock && comChoice == M.paper)
@@ -94,7 +96,7 @@ namespace Oliogotchi
                     if (plaChoice == M.paper && comChoice == M.rock)
                     {
                         txt = "YOU WON! \n\nOlio chose " + comChoice.ToString() + ", Olio loses 5 happiness points.";
-                        luku = 5;
+                        luku = -5;
                         Run(txt, luku);
                     }
                     else if (plaChoice == M.paper && comChoice == M.scissor)
@@ -108,7 +110,7 @@ namespace Oliogotchi
                     if (plaChoice == M.scissor && comChoice == M.paper)
                     {
                         txt = "YOU WON! \n\nOlio chose " + comChoice.ToString() + ", Olio loses 5 happiness points.";
-                        luku = 5;
+                        luku = -5;
                         Run(txt, luku);
                     }
                     else if (plaChoice == M.scissor && comChoice == M.rock)
@@ -125,7 +127,7 @@ namespace Oliogotchi
         public void Run(string teksti, int luku)
         {
             txbGameInfo.Text = teksti;
-
+            GameView.happiness += luku;
             btnAgain.Visibility = System.Windows.Visibility.Visible;    // Valikkonapit aktiiviseksi (Again, Back)
             btnBack.Visibility = System.Windows.Visibility.Visible;
         }
@@ -172,6 +174,7 @@ namespace Oliogotchi
 
         private void btnBack_Click(object sender, RoutedEventArgs e)    // Siirrytään takaisin pääpelin puolelle
         {
+            GameView.timer.Start();
             this.Close();
         }
     }

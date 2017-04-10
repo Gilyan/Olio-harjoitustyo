@@ -41,10 +41,10 @@ namespace Oliogotchi
         private int meatCounter = 0;
         private int cleanliness = 50;
         private int hunger = 50;
-        private int happiness = 50;
+        public static int happiness = 50;
         private int habitatTrash = 0;
         private int habitatCleanliness = 100;
-        private DispatcherTimer timer;
+        public static DispatcherTimer timer;
         private int easiness = 1; //timerin ajastin aika ms
 
         Creature olio = new Creature();
@@ -140,7 +140,7 @@ namespace Oliogotchi
                              + ", ympäristön puhtaus: " + tausta.Cleanliness + ", roskien määrä: " + tausta.Trash;
         }
 
-        private void timer_Tick(object sender, EventArgs e) // timeri missä tapahtuu niin sanottu pelin "eläminen", elää kunnes jokin 0
+        public void timer_Tick(object sender, EventArgs e) // timeri missä tapahtuu niin sanottu pelin "eläminen", elää kunnes jokin 0
         {
             if (olio.Hunger > 0 && olio.Happiness > 0 && olio.Cleanliness > 0)
             {
