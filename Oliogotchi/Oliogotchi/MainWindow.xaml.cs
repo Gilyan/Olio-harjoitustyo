@@ -38,13 +38,12 @@ namespace Oliogotchi
     /// </summary>
     public partial class MainWindow : Window
     {
-        public static bool IsNewGame = true;
+        //public static int IsNewGame;
         string mydocpath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
         public MainWindow()
         {
             InitializeComponent();
         }
-
         public MainWindow(double x, double y)       // Ylikuormitetaan, että saadaan ikkunan paikka oikein
         {
             InitializeComponent();
@@ -54,27 +53,26 @@ namespace Oliogotchi
 
         private void btnJatka_Click(object sender, RoutedEventArgs e)
         {
+            //IsNewGame = 0;
             double x = this.Left;
             double y = this.Top;
-            GameView game = new GameView(x, y);
-            game.IsNewGame = false;
+            GameView game = new GameView(x, y, false);
             game.Show();
             this.Close();
         }
 
         void btnUusi_Click(object sender, RoutedEventArgs e)
         {
+            //IsNewGame = 1;
             double x = this.Left;
             double y = this.Top;
-            GameView game = new GameView(x, y);
-            game.IsNewGame = true;
+            GameView game = new GameView(x, y, true);
             game.Show();
             this.Close();
         }
 
         private void btnLopeta_Click(object sender, RoutedEventArgs e)
         {
-            // TALLENNUSMETODIN HAKU TÄNNE
             Application.Current.Shutdown();
         }
 

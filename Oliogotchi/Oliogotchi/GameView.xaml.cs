@@ -39,9 +39,10 @@ namespace Oliogotchi
     /// </summary>
     public partial class GameView : Window
     {
-        // Määritetään alkuarvoja muuttujille
-        public bool IsNewGame { get; set; }
+        private bool isNewGame;
 
+        // Määritetään alkuarvoja muuttujille
+        //public int checkButton;
         private int vegeCounter = 0;
         private int meatCounter = 0;
         private int cleanliness = 50;
@@ -58,16 +59,17 @@ namespace Oliogotchi
         string myDocPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
         IFormatter formatter = new BinaryFormatter();       // Käytetään binäärimuotoa
 
-        public GameView(double x, double y)     // Ylikuormitetaan, että saadaan ikkunan paikka oikein
+        public GameView(double x, double y, bool isnewgame)     // Ylikuormitetaan, että saadaan ikkunan paikka oikein
         {
             InitializeComponent();
             this.Left = x;
             this.Top = y;
 
+            isNewGame = isnewgame;
+
             CheckIfNew();
 
-            //timerin alustaminen
-            timer = new DispatcherTimer();
+            timer = new DispatcherTimer();          // Timerin alustaminen
             timer.Interval = new TimeSpan(0, 0, 0, easiness);
             timer.Tick += new EventHandler(timer_Tick);
 
@@ -76,15 +78,15 @@ namespace Oliogotchi
 
         private void CheckIfNew()       // Tarkistetaan onko valittu uusi peli, vai ladataanko vanha tiedostosta
         {
-            if (IsNewGame)              // Luodaan uusi peli
+            if (isNewGame)               // Luodaan uusi peli
             {
                 olio = new Creature();
                 tausta = new Habitat();
 
-                CreateCreature();       // Luo uuden lemmikkiolion alkuarvoilla
-                CreateHabitat();        // Luo uuden elinympäristön alkuarvoilla
+                CreateCreature();               // Luo uuden lemmikkiolion alkuarvoilla
+                CreateHabitat();                // Luo uuden elinympäristön alkuarvoilla
             }
-            else                        // Ladataan tallennetut arvot tiedostosta
+            else          // Ladataan tallennetut arvot tiedostosta
             {
                 Stream lueTiedostosta;
 
@@ -101,12 +103,12 @@ namespace Oliogotchi
                 catch (Exception ex)
                 {
 
-                    txbFooter.Text = ex.Message + ", aloitettu uusi peli";
-                    olio = new Creature();
-                    tausta = new Habitat();
+                    //txbFooter.Text = ex.Message + ", aloitettu uusi peli";
+                    //olio = new Creature();
+                    //tausta = new Habitat();
 
-                    CreateCreature();       // Luo uuden lemmikkiolion alkuarvoilla
-                    CreateHabitat();        // Luo uuden elinympäristön alkuarvoilla
+                    //CreateCreature();       // Luo uuden lemmikkiolion alkuarvoilla
+                    //CreateHabitat();        // Luo uuden elinympäristön alkuarvoilla
                 }
             }
         }
@@ -202,6 +204,7 @@ namespace Oliogotchi
 
         private void btnSettings_Click(object sender, RoutedEventArgs e)
         {
+            Tallenna();
             double x = this.Left;
             double y = this.Top;
             SettingsView settings = new SettingsView(x, y);
