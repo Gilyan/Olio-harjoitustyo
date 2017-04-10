@@ -17,6 +17,7 @@ Joona Hautamäki K1647
 
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,6 +38,8 @@ namespace Oliogotchi
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static bool IsNewGame = true;
+        string mydocpath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
         public MainWindow()
         {
             InitializeComponent();
@@ -51,19 +54,20 @@ namespace Oliogotchi
 
         private void btnJatka_Click(object sender, RoutedEventArgs e)
         {
-            // HAE TALLENNUS TÄNNE
             double x = this.Left;
             double y = this.Top;
             GameView game = new GameView(x, y);
+            game.IsNewGame = false;
             game.Show();
             this.Close();
         }
 
-        private void btnUusi_Click(object sender, RoutedEventArgs e)
+        void btnUusi_Click(object sender, RoutedEventArgs e)
         {
             double x = this.Left;
             double y = this.Top;
             GameView game = new GameView(x, y);
+            game.IsNewGame = true;
             game.Show();
             this.Close();
         }
