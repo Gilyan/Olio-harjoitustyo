@@ -26,8 +26,6 @@
         </Grid.Background>
         <Image Source="Resources/placeholderslime.png" Margin="235,472,465,20"></Image>
         <!-- TÄNNE KOODIA-->
-        <!-- JOONA: olio + pallo pitäisi saada stackpanelin sisälle, jotta alhaalle jää nappuloille tilaa -->
-
         <Canvas Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" HorizontalAlignment="Stretch"
             VerticalAlignment="Stretch" x:Name="ImageHolder" >
 
