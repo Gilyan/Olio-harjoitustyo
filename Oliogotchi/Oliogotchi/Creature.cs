@@ -22,21 +22,22 @@ namespace Oliogotchi
 {
     class Creature // : INotifyPropertyChanged
     {
-        //private int happiness;
+        private int happiness;
+        public int Happiness
+        {
+            get { return happiness; }
+            set
+            {
+                if (value >= 0 && value <= 100) { happiness = value; }
+                else if (value < 0)
+                {
+                    happiness = 0;
+                }
+                else happiness = 100;
+            }
+        }
         public int Age { get; set; }
         public int Hunger { get; set; }
-        public int Happiness { get; set; }
-        //{
-        //    get { return happiness; }
-        //    set
-        //        {
-        //            if (happiness != value)
-        //                {
-        //                    happiness = value;
-        //                    RaisePropertyChanged(happiness.ToString());
-        //                }
-        //        }
-        //}
         public string Image { get; set; }
         public int Cleanliness { get; set; }
 

@@ -126,8 +126,11 @@ namespace Oliogotchi
         }
         public void Run(string teksti, int luku)
         {
+            if (GameView.happiness < 100 && GameView.happiness > 0)
+            {
+                GameView.happiness += luku;
+            }
             txbGameInfo.Text = teksti;
-            GameView.happiness += luku;
             btnAgain.Visibility = System.Windows.Visibility.Visible;    // Valikkonapit aktiiviseksi (Again, Back)
             btnBack.Visibility = System.Windows.Visibility.Visible;
         }
@@ -135,6 +138,9 @@ namespace Oliogotchi
         {
             btnPaper.Visibility = System.Windows.Visibility.Hidden;     // Piilotetaan ei-valitut vaihtoehdot
             btnScissor.Visibility = System.Windows.Visibility.Hidden;
+            btnPaper.IsEnabled = false;
+            btnRock.IsEnabled = false;
+            btnScissor.IsEnabled = false;
             Computer Comp = new Computer();
             M computerChoice = Comp.Choice();
             M playerChoice = M.rock;
@@ -144,6 +150,9 @@ namespace Oliogotchi
         {
             btnRock.Visibility = System.Windows.Visibility.Hidden;      // Piilotetaan ei-valitut vaihtoehdot
             btnScissor.Visibility = System.Windows.Visibility.Hidden;
+            btnPaper.IsEnabled = false;
+            btnRock.IsEnabled = false;
+            btnScissor.IsEnabled = false;
             Computer Comp = new Computer();
             M computerChoice = Comp.Choice();
             M playerChoice = M.paper;
@@ -155,6 +164,9 @@ namespace Oliogotchi
         {
             btnRock.Visibility = System.Windows.Visibility.Hidden;      // Piilotetaan ei-valitut vaihtoehdot
             btnPaper.Visibility = System.Windows.Visibility.Hidden;
+            btnPaper.IsEnabled = false;
+            btnRock.IsEnabled = false;
+            btnScissor.IsEnabled = false;
             Computer Comp = new Computer();
             M computerChoice = Comp.Choice();
             M playerChoice = M.scissor;
@@ -164,6 +176,9 @@ namespace Oliogotchi
 
         private void btnAgain_Click(object sender, RoutedEventArgs e)
         {
+            btnPaper.IsEnabled = true;
+            btnRock.IsEnabled = true;
+            btnScissor.IsEnabled = true;
             btnRock.Visibility = System.Windows.Visibility.Visible;     // Kaikki vaihtoehdot näkyville valintaa varten
             btnPaper.Visibility = System.Windows.Visibility.Visible;
             btnScissor.Visibility = System.Windows.Visibility.Visible;
