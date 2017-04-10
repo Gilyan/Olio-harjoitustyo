@@ -66,18 +66,8 @@ namespace Oliogotchi
 
             isNewGame = isnewgame;
 
-            try
-            {
-                CheckIfNew();
-            }
-            catch (Exception ex)
-            {
-                //MainWindow menu = new MainWindow(x, y);
-                //menu.Show();
-                this.Close();
-                //txbFooter.Text = ex.Message + "Ladattavaa tiedostoa ei löytynyt, aloita uusi peli.";
-            }
-
+            CheckIfNew();
+           
             timer = new DispatcherTimer();          // Timerin alustaminen
             timer.Interval = new TimeSpan(0, 0, 0, easiness);
             timer.Tick += new EventHandler(timer_Tick);
@@ -99,14 +89,13 @@ namespace Oliogotchi
             {
                 Stream lueTiedostosta;
 
-                    lueTiedostosta = new FileStream(myDocPath + @"olio.bin", FileMode.Open, FileAccess.Read, FileShare.None);
-                    olio = (Creature)formatter.Deserialize(lueTiedostosta);       // Luetaan tiedostosta ja muunnetaan objektiksi
-                    lueTiedostosta.Close();                         // Suljetaan tiedosto
+                lueTiedostosta = new FileStream(myDocPath + @"olio.bin", FileMode.Open, FileAccess.Read, FileShare.None);
+                olio = (Creature)formatter.Deserialize(lueTiedostosta);       // Luetaan tiedostosta ja muunnetaan objektiksi
+                lueTiedostosta.Close();                         // Suljetaan tiedosto
 
-                    lueTiedostosta = new FileStream(myDocPath + @"tausta.bin", FileMode.Open, FileAccess.Read, FileShare.None);
-                    tausta = (Habitat)formatter.Deserialize(lueTiedostosta);
-                    lueTiedostosta.Close();
-
+                lueTiedostosta = new FileStream(myDocPath + @"tausta.bin", FileMode.Open, FileAccess.Read, FileShare.None);
+                tausta = (Habitat)formatter.Deserialize(lueTiedostosta);
+                lueTiedostosta.Close();
             }
         }
         public void CreateHabitat()         // Luo uuden elinympäristön
