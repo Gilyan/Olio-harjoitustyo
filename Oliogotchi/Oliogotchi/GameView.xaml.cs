@@ -39,10 +39,7 @@ namespace Oliogotchi
     /// </summary>
     public partial class GameView : Window
     {
-        private bool isNewGame;
-
         // Määritetään alkuarvoja muuttujille
-        //public int checkButton;
         private int vegeCounter = 0;
         private int meatCounter = 0;
         private int cleanliness = 50;
@@ -51,13 +48,14 @@ namespace Oliogotchi
         private int habitatTrash = 0;
         private int habitatCleanliness = 100;
         public static DispatcherTimer timer;
-        private int easiness = 1; //timerin ajastin aika ms
+        private int easiness = 1;       // Timerin ajastinaika (ms)
+        private bool isNewGame;
 
         Creature olio;
         Habitat tausta;
 
         string myDocPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-        IFormatter formatter = new BinaryFormatter();       // Käytetään binäärimuotoa
+        IFormatter formatter = new BinaryFormatter();           // Käytetään binäärimuotoa
 
         public GameView(double x, double y, bool isnewgame)     // Ylikuormitetaan, että saadaan ikkunan paikka oikein
         {
@@ -67,7 +65,17 @@ namespace Oliogotchi
 
             isNewGame = isnewgame;
 
-            CheckIfNew();
+            try
+            {
+                CheckIfNew();
+            }
+            catch (Exception ex)
+            {
+                //MainWindow menu = new MainWindow(x, y);
+                //menu.Show();
+                this.Close();
+                //txbFooter.Text = ex.Message + "Ladattavaa tiedostoa ei löytynyt, aloita uusi peli.";
+            }
 
             timer = new DispatcherTimer();          // Timerin alustaminen
             timer.Interval = new TimeSpan(0, 0, 0, easiness);
@@ -90,8 +98,6 @@ namespace Oliogotchi
             {
                 Stream lueTiedostosta;
 
-                try
-                {
                     lueTiedostosta = new FileStream(myDocPath + @"olio.bin", FileMode.Open, FileAccess.Read, FileShare.None);
                     olio = (Creature)formatter.Deserialize(lueTiedostosta);       // Luetaan tiedostosta ja muunnetaan objektiksi
                     lueTiedostosta.Close();                         // Suljetaan tiedosto
@@ -99,17 +105,7 @@ namespace Oliogotchi
                     lueTiedostosta = new FileStream(myDocPath + @"tausta.bin", FileMode.Open, FileAccess.Read, FileShare.None);
                     tausta = (Habitat)formatter.Deserialize(lueTiedostosta);
                     lueTiedostosta.Close();
-                }
-                catch (Exception ex)
-                {
 
-                    //txbFooter.Text = ex.Message + ", aloitettu uusi peli";
-                    //olio = new Creature();
-                    //tausta = new Habitat();
-
-                    //CreateCreature();       // Luo uuden lemmikkiolion alkuarvoilla
-                    //CreateHabitat();        // Luo uuden elinympäristön alkuarvoilla
-                }
             }
         }
         public void CreateHabitat()         // Luo uuden elinympäristön

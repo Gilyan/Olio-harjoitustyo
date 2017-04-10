@@ -38,7 +38,6 @@ namespace Oliogotchi
     /// </summary>
     public partial class MainWindow : Window
     {
-        //public static int IsNewGame;
         string mydocpath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
         public MainWindow()
         {
@@ -53,7 +52,6 @@ namespace Oliogotchi
 
         private void btnJatka_Click(object sender, RoutedEventArgs e)
         {
-            //IsNewGame = 0;
             double x = this.Left;
             double y = this.Top;
             GameView game = new GameView(x, y, false);
@@ -63,7 +61,6 @@ namespace Oliogotchi
 
         void btnUusi_Click(object sender, RoutedEventArgs e)
         {
-            //IsNewGame = 1;
             double x = this.Left;
             double y = this.Top;
             GameView game = new GameView(x, y, true);
