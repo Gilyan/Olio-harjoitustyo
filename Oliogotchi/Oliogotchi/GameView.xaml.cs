@@ -91,7 +91,7 @@ namespace Oliogotchi
 
                 lueTiedostosta = new FileStream(myDocPath + @"olio.bin", FileMode.Open, FileAccess.Read, FileShare.None);
                 olio = (Creature)formatter.Deserialize(lueTiedostosta);       // Luetaan tiedostosta ja muunnetaan objektiksi
-                lueTiedostosta.Close();                         // Suljetaan tiedosto
+                lueTiedostosta.Close();         // Suljetaan tiedosto
 
                 lueTiedostosta = new FileStream(myDocPath + @"tausta.bin", FileMode.Open, FileAccess.Read, FileShare.None);
                 tausta = (Habitat)formatter.Deserialize(lueTiedostosta);
