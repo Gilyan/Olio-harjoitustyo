@@ -44,7 +44,13 @@ namespace Oliogotchi
     /// </summary>
     public partial class PlayStoneView : Window
     {
-        
+        public int points;
+        public int Pisteet {
+                    get { return points; }
+                    set {
+                if (value >= 0 && value <= 100) { points = value; }
+                else points = 0;  }
+                            }
         public PlayStoneView(double x, double y)       // Ylikuormitetaan, että saadaan ikkunan paikka oikein
         {
             InitializeComponent();
