@@ -39,7 +39,6 @@ namespace Oliogotchi
     /// </summary>
     public partial class GameView : Window
     {
-        public static PlayStoneView testi = new PlayStoneView(15,15);       // joona leikkii
         // Määritetään alkuarvoja muuttujille
         private int vegeCounter = 0;
         private int meatCounter = 0;
@@ -64,7 +63,7 @@ namespace Oliogotchi
             this.Left = x;
             this.Top = y;
 
-            isNewGame = isnewgame;
+            isNewGame = isnewgame;      // Tuodaan tieto napin painalluksesta MainWindowin puolelta paikalliseen muuttujaan
 
             CheckIfNew();
            
