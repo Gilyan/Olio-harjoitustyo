@@ -33,6 +33,8 @@ namespace Oliogotchi
             timer.Start();
             this.Left = x;
             this.Top = y;
+
+            btnAgain.Visibility = System.Windows.Visibility.Hidden;     // Uudelleenpelausnappula piiloon toistaiseksi
         }
 
         private void ball_MouseDown(object sender, MouseButtonEventArgs e)
@@ -58,6 +60,12 @@ namespace Oliogotchi
             ball.ReleaseMouseCapture();
         }
         int i, k, t;
+
+        private void btnAgain_Click(object sender, RoutedEventArgs e)       // Pelataan uudestaan!
+        {
+            // tänne pelin "resetointi"
+        }
+
         void timer_Tick(object sender, EventArgs e)
         {
             Random rnd = new Random();
@@ -107,6 +115,7 @@ namespace Oliogotchi
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
+            GameView.timer.Start();
             this.Close();
         }
     }

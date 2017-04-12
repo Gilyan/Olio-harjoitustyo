@@ -42,6 +42,11 @@
                     <ImageBrush ImageSource="Resources/back.png" Stretch="Uniform"/>
                 </Button.Background>
             </Button>
+            <Button x:Name="btnAgain" Style="{StaticResource Nappula}" Margin="310,10,0,10" Width="200" Height="50" BorderThickness="0" Click="btnAgain_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="Resources/again.png" Stretch="Uniform"/>
+                </Button.Background>
+            </Button>
         </StackPanel>
 
         <DockPanel VerticalAlignment="Bottom">
