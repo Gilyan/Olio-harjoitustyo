@@ -155,9 +155,13 @@ namespace Oliogotchi
         }
         public void Living()        // Olio elää ja päivittää tietoja progress bariin ja footteriin lukuarvot
         {
-            prbHappiness.Dispatcher.Invoke(() => prbHappiness.Value = olio.Happiness--, DispatcherPriority.Background);
-            prbCleanliness.Dispatcher.Invoke(() => prbCleanliness.Value = olio.Cleanliness--, DispatcherPriority.Background);
-            prbHunger.Dispatcher.Invoke(() => prbHunger.Value = olio.Hunger--, DispatcherPriority.Background);
+            olio.Happiness--;
+            olio.Cleanliness--;
+            olio.Hunger--;
+
+            prbHappiness.Dispatcher.Invoke(() => prbHappiness.Value = olio.Happiness, DispatcherPriority.Background);
+            prbCleanliness.Dispatcher.Invoke(() => prbCleanliness.Value = olio.Cleanliness, DispatcherPriority.Background);
+            prbHunger.Dispatcher.Invoke(() => prbHunger.Value = olio.Hunger, DispatcherPriority.Background);
             txbFooter.Text = "onnellisuus: " + olio.Happiness + ", nälkä: " + olio.Hunger + ", puhtaus: " + olio.Cleanliness
                              + ", ympäristön puhtaus: " + tausta.Cleanliness + ", roskien määrä: " + tausta.Trash;
         }
@@ -194,23 +198,27 @@ namespace Oliogotchi
 
         private void btnGiveVeggie_Click(object sender, RoutedEventArgs e)
         {
-            prbHunger.Dispatcher.Invoke(() => prbHunger.Value = hunger++, DispatcherPriority.Background);
+            olio.Hunger++;
+            prbHunger.Dispatcher.Invoke(() => prbHunger.Value = olio.Hunger, DispatcherPriority.Background);
             vegeCounter++;
         }
         private void btnGiveMeat_Click(object sender, RoutedEventArgs e)  //Anna ruokaa napin tapahtuma
         {
-            prbHunger.Dispatcher.Invoke(() => prbHunger.Value = hunger++, DispatcherPriority.Background);
+            olio.Hunger++;
+            prbHunger.Dispatcher.Invoke(() => prbHunger.Value = olio.Hunger, DispatcherPriority.Background);
             meatCounter++;
         }
 
         private void btnShower_Click(object sender, RoutedEventArgs e)
         {
-            prbCleanliness.Dispatcher.Invoke(() => prbCleanliness.Value = cleanliness++, DispatcherPriority.Background);
+            olio.Cleanliness++;
+            prbCleanliness.Dispatcher.Invoke(() => prbCleanliness.Value = olio.Cleanliness, DispatcherPriority.Background);
         }
 
         private void btnPet_Click(object sender, RoutedEventArgs e)
         {
-            prbHappiness.Dispatcher.Invoke(() => prbHappiness.Value = happiness++, DispatcherPriority.Background);
+            olio.Happiness++;
+            prbHappiness.Dispatcher.Invoke(() => prbHappiness.Value = olio.Happiness, DispatcherPriority.Background);
         }
 
         private void btnPlayGame_Click(object sender, RoutedEventArgs e)
