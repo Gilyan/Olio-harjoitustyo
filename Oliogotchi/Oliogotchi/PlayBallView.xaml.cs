@@ -57,16 +57,10 @@ namespace Oliogotchi
 
         private void ball_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            //timer.Start();
+            timer.Start();
             ball.ReleaseMouseCapture();
         }
         int i, k, t;
-
-        private void btnAgain_Click(object sender, RoutedEventArgs e)       // Pelataan uudestaan!
-        {
-            // tänne pelin "resetointi"
-        }
-
         void timer_Tick(object sender, EventArgs e)
         {
             Random rnd = new Random();
@@ -131,10 +125,18 @@ namespace Oliogotchi
             if (r1.IntersectsWith(r2))
             {
                 timer.Stop();
+                btnAgain.Visibility = Visibility.Visible;
             }
 
 
             txbFooter.Text = "i: " + i.ToString() + " k: " + k.ToString();
+        }
+        private void btnAgain_Click(object sender, RoutedEventArgs e)       // Pelataan uudestaan!
+        {
+            btnAgain.Visibility = Visibility.Hidden;
+            Canvas.SetTop(ball, 130);
+            Canvas.SetLeft(ball, 300);
+            timer.Start();
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
