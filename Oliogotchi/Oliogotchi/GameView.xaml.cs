@@ -86,21 +86,15 @@ namespace Oliogotchi
             }
             else          // Ladataan tallennetut arvot tiedostosta
             {
-                //Stream lueTiedostosta;
+                Stream lueTiedostosta;
 
-                //lueTiedostosta = new FileStream(myDocPath + @"olio.bin", FileMode.Open, FileAccess.Read, FileShare.None);
-                //olio = (Creature)formatter.Deserialize(lueTiedostosta);       // Luetaan tiedostosta ja muunnetaan objektiksi
-                //lueTiedostosta.Close();         // Suljetaan tiedosto
+                lueTiedostosta = new FileStream(myDocPath + @"olio.bin", FileMode.Open, FileAccess.Read, FileShare.None);
+                olio = (Creature)formatter.Deserialize(lueTiedostosta);       // Luetaan tiedostosta ja muunnetaan objektiksi
+                lueTiedostosta.Close();         // Suljetaan tiedosto
 
-                //lueTiedostosta = new FileStream(myDocPath + @"tausta.bin", FileMode.Open, FileAccess.Read, FileShare.None);
-                //tausta = (Habitat)formatter.Deserialize(lueTiedostosta);
-                //lueTiedostosta.Close();
-
-                olio = new Creature();
-                tausta = new Habitat();
-
-                CreateCreature();               // Luo uuden lemmikkiolion alkuarvoilla
-                CreateHabitat();                // Luo uuden elinympäristön alkuarvoilla
+                lueTiedostosta = new FileStream(myDocPath + @"tausta.bin", FileMode.Open, FileAccess.Read, FileShare.None);
+                tausta = (Habitat)formatter.Deserialize(lueTiedostosta);
+                lueTiedostosta.Close();
             }
         }
         public void CreateHabitat()         // Luo uuden elinympäristön
