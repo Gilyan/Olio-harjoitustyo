@@ -39,6 +39,7 @@ namespace Oliogotchi
 
         private void ball_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            timer.Start();
             ball.CaptureMouse();
             p = e.GetPosition(ImageHolder);
         }
@@ -56,7 +57,7 @@ namespace Oliogotchi
 
         private void ball_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            timer.Start();
+            //timer.Start();
             ball.ReleaseMouseCapture();
         }
         int i, k, t;
@@ -70,20 +71,28 @@ namespace Oliogotchi
         {
             Random rnd = new Random();
             long ball1Pos = Convert.ToInt64(ball.GetValue(Canvas.TopProperty));
+            long ball2Pos = Convert.ToInt64(ball.GetValue(Canvas.LeftProperty));
+            long slime1Pos = Convert.ToInt64(slime.GetValue(Canvas.TopProperty));
+            long slime2Pos = Convert.ToInt64(slime.GetValue(Canvas.LeftProperty));
+            if (ball1Pos > 500 || ball2Pos > 770 || ball2Pos < -10)
+            {
+                Canvas.SetTop(ball, 130);
+                Canvas.SetLeft(ball, 300);
+            }
             if (ball1Pos < 485)
             {
                 if (Mouse.LeftButton != MouseButtonState.Pressed)
                 {
-                    Canvas.SetTop(ball, ball1Pos + 5);
+                    Canvas.SetTop(ball, ball1Pos + 8);
                 }
             }
-            long slime1Pos = Convert.ToInt64(slime.GetValue(Canvas.LeftProperty));
-            if (slime1Pos >= 700)
+            
+            if (slime2Pos >= 700)
             {
                 Canvas.SetLeft(slime, 690);
                 t = 1;
             }
-            else if (slime1Pos <= -10)
+            else if (slime2Pos <= -10)
             {
                 Canvas.SetLeft(slime, 0);
                 t = 0;
@@ -99,7 +108,7 @@ namespace Oliogotchi
                 if (i >= 600 || t == 1)
                 {
                     k += 10;
-                    Canvas.SetLeft(slime, slime1Pos - 8);
+                    Canvas.SetLeft(slime, slime2Pos - 8);
                     if (k == 400)
                     {
                         i = 0;
@@ -107,9 +116,24 @@ namespace Oliogotchi
                 }
                 else
                 {
-                    Canvas.SetLeft(slime, slime1Pos + 8);
+                    Canvas.SetLeft(slime, slime2Pos + 8);
                 }
             }
+            var x1 = Canvas.GetLeft(ball);
+            var y1 = Canvas.GetTop(ball);
+            Rect r1 = new Rect(x1, y1, ball.ActualWidth - 40, ball.ActualHeight - 40);
+
+
+            var x2 = Canvas.GetLeft(slime);
+            var y2 = Canvas.GetTop(slime);
+            Rect r2 = new Rect(x2, y2, slime.ActualWidth - 40, slime.ActualHeight - 40);
+
+            if (r1.IntersectsWith(r2))
+            {
+                timer.Stop();
+            }
+
+
             txbFooter.Text = "i: " + i.ToString() + " k: " + k.ToString();
         }
 
