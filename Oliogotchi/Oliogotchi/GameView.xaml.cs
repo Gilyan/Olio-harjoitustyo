@@ -39,7 +39,6 @@ namespace Oliogotchi
     /// </summary>
     public partial class GameView : Window
     {
-        public static PlayStoneView testi = new PlayStoneView(15,15);       // joona leikkii
         // Määritetään alkuarvoja muuttujille
         private int vegeCounter = 0;
         private int meatCounter = 0;
@@ -64,7 +63,7 @@ namespace Oliogotchi
             this.Left = x;
             this.Top = y;
 
-            isNewGame = isnewgame;
+            isNewGame = isnewgame;      // Tuodaan tieto napin painalluksesta MainWindowin puolelta paikalliseen muuttujaan
 
             CheckIfNew();
            
@@ -87,15 +86,21 @@ namespace Oliogotchi
             }
             else          // Ladataan tallennetut arvot tiedostosta
             {
-                Stream lueTiedostosta;
+                //Stream lueTiedostosta;
 
-                lueTiedostosta = new FileStream(myDocPath + @"olio.bin", FileMode.Open, FileAccess.Read, FileShare.None);
-                olio = (Creature)formatter.Deserialize(lueTiedostosta);       // Luetaan tiedostosta ja muunnetaan objektiksi
-                lueTiedostosta.Close();         // Suljetaan tiedosto
+                //lueTiedostosta = new FileStream(myDocPath + @"olio.bin", FileMode.Open, FileAccess.Read, FileShare.None);
+                //olio = (Creature)formatter.Deserialize(lueTiedostosta);       // Luetaan tiedostosta ja muunnetaan objektiksi
+                //lueTiedostosta.Close();         // Suljetaan tiedosto
 
-                lueTiedostosta = new FileStream(myDocPath + @"tausta.bin", FileMode.Open, FileAccess.Read, FileShare.None);
-                tausta = (Habitat)formatter.Deserialize(lueTiedostosta);
-                lueTiedostosta.Close();
+                //lueTiedostosta = new FileStream(myDocPath + @"tausta.bin", FileMode.Open, FileAccess.Read, FileShare.None);
+                //tausta = (Habitat)formatter.Deserialize(lueTiedostosta);
+                //lueTiedostosta.Close();
+
+                olio = new Creature();
+                tausta = new Habitat();
+
+                CreateCreature();               // Luo uuden lemmikkiolion alkuarvoilla
+                CreateHabitat();                // Luo uuden elinympäristön alkuarvoilla
             }
         }
         public void CreateHabitat()         // Luo uuden elinympäristön
@@ -117,16 +122,6 @@ namespace Oliogotchi
             prbCleanliness.DataContext = olio;
 
             txbFooter.Text = "Uusi lemmikki luotu. Pidä siitä hyvää huolta!";
-        }
-        public void GiveMeat()
-        {
-            olio.Hunger += 40;      // TESTIVAIHE
-            olio.Happiness -= 30;   // TESTIVAIHE
-        }
-
-        public void Evolve()
-        {
-
         }
         public void Die()
         {
@@ -174,8 +169,7 @@ namespace Oliogotchi
                 Living();
                 HabitatLiving();
             }
-            else Die();
-            
+            else Die();  
         }
 
         private void btnMainMenu_Click(object sender, RoutedEventArgs e)

@@ -79,7 +79,7 @@
                 </Button>
             </StackPanel>
                 <StackPanel Width="395" VerticalAlignment="Bottom">   <!-- Olion kuvan paikka -->
-                    <Image Source="Resources/placeholderslime.png" Height="200" Opacity="1" VerticalAlignment="Bottom" />
+                    <Image Source="Resources/placeholderslime.png" Height="150" Opacity="1" VerticalAlignment="Bottom" Margin="0,0,0,40" />
                 </StackPanel>
                 <StackPanel Width="200">   <!-- Oikean valikkopalkin kuvakkeet -->
                     <Button x:Name="btnGiveVeggie" Style="{StaticResource Nappula}" Margin="0,55,0,10" Width="70" Height="60" VerticalAlignment="Center" BorderThickness="0" Click="btnGiveVeggie_Click">
