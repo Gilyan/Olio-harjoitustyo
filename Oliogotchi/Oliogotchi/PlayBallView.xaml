@@ -24,15 +24,15 @@
         <Grid.Background>
             <ImageBrush ImageSource="Resources/stars.png" Opacity="0.5" />
         </Grid.Background>
-        <Image Source="Resources/placeholderslime.png" Margin="235,472,465,20"></Image>
-        <!-- TÄNNE KOODIA-->
-        <Canvas Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" HorizontalAlignment="Stretch"
-            VerticalAlignment="Stretch" x:Name="ImageHolder" >
 
-            <Image Canvas.Left="499" MouseMove="Img_MouseMove"
-              MouseDown="Img_MouseDown" MouseUp="Img_MouseUp" Panel.ZIndex="0"
-               Cursor="Hand" Canvas.Top="363" Height="50" Width="50" Source="Resources/bounce.png"
-               x:Name="Img">
+        <!-- TÄNNE KOODIA-->
+        <Canvas HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch" x:Name="ImageHolder" Margin="0,0,0,20" >
+            <Image Source="Resources/placeholderslime.png" Canvas.Left="49" Canvas.Top="431" Height="120" Width="120" x:Name="slime"/>
+            <Image Canvas.Left="546" MouseMove="ball_MouseMove"
+              MouseDown="ball_MouseDown" MouseUp="ball_MouseUp" Panel.ZIndex="0"
+               Cursor="Hand" Canvas.Top="321" Height="50" Width="50" Source="Resources/bounce.png"
+               x:Name="ball" RenderTransformOrigin="-0.025,0.371">
             </Image>
         </Canvas>
 

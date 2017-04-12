@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -34,41 +35,74 @@ namespace Oliogotchi
             this.Top = y;
         }
 
-        private void Img_MouseDown(object sender, MouseButtonEventArgs e)
+        private void ball_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            timer.Stop();
-            Img.CaptureMouse();
+            ball.CaptureMouse();
             p = e.GetPosition(ImageHolder);
         }
 
-        private void Img_MouseMove(object sender, MouseEventArgs e)
+        private void ball_MouseMove(object sender, MouseEventArgs e)
         {
             Point x = e.GetPosition(ImageHolder);
             if (e.LeftButton == MouseButtonState.Pressed)
             {
-                Canvas.SetLeft(Img, Canvas.GetLeft(Img) + (x.X - p.X));
-                Canvas.SetTop(Img, Canvas.GetTop(Img) + (x.Y - p.Y));
+                Canvas.SetLeft(ball, Canvas.GetLeft(ball) + (x.X - p.X));
+                Canvas.SetTop(ball, Canvas.GetTop(ball) + (x.Y - p.Y));
             }
             p = x;
         }
 
-        private void Img_MouseUp(object sender, MouseButtonEventArgs e)
+        private void ball_MouseUp(object sender, MouseButtonEventArgs e)
         {
             timer.Start();
-            Img.ReleaseMouseCapture();
+            ball.ReleaseMouseCapture();
         }
+        int i, k, t;
         void timer_Tick(object sender, EventArgs e)
         {
-            long ball1Pos = Convert.ToInt64(Img.GetValue(Canvas.TopProperty));
-            if (ball1Pos > 485)
+            Random rnd = new Random();
+            long ball1Pos = Convert.ToInt64(ball.GetValue(Canvas.TopProperty));
+            if (ball1Pos < 485)
             {
-                timer.Stop();
+                if (Mouse.LeftButton != MouseButtonState.Pressed)
+                {
+                    Canvas.SetTop(ball, ball1Pos + 5);
+                }
+            }
+            long slime1Pos = Convert.ToInt64(slime.GetValue(Canvas.LeftProperty));
+            if (slime1Pos >= 700)
+            {
+                Canvas.SetLeft(slime, 690);
+                t = 1;
+            }
+            else if (slime1Pos <= -10)
+            {
+                Canvas.SetLeft(slime, 0);
+                t = 0;
+                i = 0;
             }
             else
             {
-                timer.Start();
-                Canvas.SetTop(Img, ball1Pos + 5);
+                if (i == 0)
+                {
+                    k = 0;
+                }
+                i += 10;
+                if (i >= 600 || t == 1)
+                {
+                    k += 10;
+                    Canvas.SetLeft(slime, slime1Pos - 8);
+                    if (k == 400)
+                    {
+                        i = 0;
+                    }
+                }
+                else
+                {
+                    Canvas.SetLeft(slime, slime1Pos + 8);
+                }
             }
+            txbFooter.Text = "i: " + i.ToString() + " k: " + k.ToString();
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
