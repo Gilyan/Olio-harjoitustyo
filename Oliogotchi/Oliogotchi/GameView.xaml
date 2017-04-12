@@ -20,12 +20,32 @@
             </Setter>
         </Style>
     </Window.Resources>
-    <Grid>
+    <Grid>        
         <Grid.Background>
             <ImageBrush ImageSource="Resources/plain.png" Opacity="0.5" />
         </Grid.Background>
+        <Rectangle Name="myTile2">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="Resources/slime/sheet.png"  AlignmentY="Top" ViewboxUnits="Absolute" Viewbox="0,0,400,400" Viewport=".0, .0, .5, .5" TileMode="FlipXY"/>
+            </Rectangle.Fill>
+            <Rectangle.Triggers>
+                <EventTrigger RoutedEvent="Rectangle.Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ParallelTimeline RepeatBehavior="Forever">
+                                <RectAnimation Storyboard.TargetProperty="(Rectangle.Fill).Viewbox" To="0,0,400,400" BeginTime="0:0:0.0" Duration="0:0:0"/>
+                                <RectAnimation Storyboard.TargetProperty="(Rectangle.Fill).Viewbox" To="400,0,400,400" BeginTime="0:0:0.3" Duration="0:0:0"/>
+                                <RectAnimation Storyboard.TargetProperty="(Rectangle.Fill).Viewbox" To="800,0,400,400" BeginTime="0:0:0.6" Duration="0:0:0"/>
+                                <RectAnimation Storyboard.TargetProperty="(Rectangle.Fill).Viewbox" To="800,0,400,400" BeginTime="0:0:0.9" Duration="0:0:0"/>
+                            </ParallelTimeline>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Rectangle.Triggers>
+        </Rectangle>
         <StackPanel Orientation="Vertical">
-            <StackPanel Height="40" Margin="0" Orientation="Horizontal">    <!-- Yläpalkin statusbarit -->
+            <StackPanel Height="40" Margin="0" Orientation="Horizontal">
+                <!-- Yläpalkin statusbarit -->
                 <ProgressBar x:Name="prbHappiness" Height="20" Width="200" Value="{Binding Path=Happiness}" Foreground="#FFF9EE0B" SmallChange="1" Background="#FFF5F4CC" Margin="50,0,40,5" VerticalAlignment="Bottom"/>
                 <ProgressBar x:Name="prbHunger" Height="20" Width="200" Value="{Binding Hunger}" Foreground="#FFF73111" SmallChange="1" Background="#FFF0C1B7" Margin="0,0,40,5" VerticalAlignment="Bottom"/>
                 <ProgressBar x:Name="prbCleanliness" Height="20" Width="200" Value="{Binding Cleanliness}" Foreground="#FF23DE44" Background="#FFCEF5D5" Margin="0,0,50,5" VerticalAlignment="Bottom"/>
