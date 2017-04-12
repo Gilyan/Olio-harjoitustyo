@@ -63,6 +63,8 @@ namespace Oliogotchi
             this.Left = x;
             this.Top = y;
 
+            btnEvolve.Visibility = System.Windows.Visibility.Hidden;    // Piilotetaan kehitysnappi toistaiseksi
+
             isNewGame = isnewgame;      // Tuodaan tieto napin painalluksesta MainWindowin puolelta paikalliseen muuttujaan
 
             CheckIfNew();
