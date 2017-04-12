@@ -202,7 +202,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\meat\" />
-    <Folder Include="Resources\slime\" />
     <Folder Include="Resources\vege\" />
   </ItemGroup>
   <ItemGroup>
@@ -220,6 +219,21 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\placeholderslime.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\slime\1.png" />
+    <Resource Include="Resources\slime\10.png" />
+    <Resource Include="Resources\slime\2.png" />
+    <Resource Include="Resources\slime\3.png" />
+    <Resource Include="Resources\slime\4.png" />
+    <Resource Include="Resources\slime\5.png" />
+    <Resource Include="Resources\slime\6.png" />
+    <Resource Include="Resources\slime\7.png" />
+    <Resource Include="Resources\slime\8.png" />
+    <Resource Include="Resources\slime\9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\slime\sheet.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
