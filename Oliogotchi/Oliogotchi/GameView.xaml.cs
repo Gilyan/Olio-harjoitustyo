@@ -83,6 +83,8 @@ namespace Oliogotchi
 
                 CreateCreature();               // Luo uuden lemmikkiolion alkuarvoilla
                 CreateHabitat();                // Luo uuden elinympäristön alkuarvoilla
+
+                Tallenna();
             }
             else          // Ladataan tallennetut arvot tiedostosta
             {
@@ -117,14 +119,21 @@ namespace Oliogotchi
 
             txbFooter.Text = "Uusi lemmikki luotu. Pidä siitä hyvää huolta!";
         }
-        public void Die()
+        public void Die()   // Lemmikki kuolee, footeriin infoa asiasta
         {
-            txbFooter.Text = "Lemmikkisi kuoli. Voi kuinka surullista. Hanki seuraavaksi vaikka kivi.";
+            timer.Stop();
+            MessageBox.Show("Lemmikkisi kuoli.Voi kuinka surullista. Hanki seuraavaksi vaikka kivi.");
+
+            double x = this.Left;
+            double y = this.Top;
+            MainWindow menu = new MainWindow(x, y);
+            menu.Show();
+            this.Close();
         }
-        public void HabitatLiving()
+        public void HabitatLiving()     // Taustan arvojen säätöä
         {
-            tausta.Cleanliness--;
-            if (tausta.Cleanliness < 10)
+            tausta.Cleanliness--;           // Taustan puhtaus laskee timerin mukaan
+            if (tausta.Cleanliness < 10)    // Roskien lisääminen
             {
                 prbCleanliness.Dispatcher.Invoke(() => prbCleanliness.Value = cleanliness--, DispatcherPriority.Background);
                 prbHappiness.Dispatcher.Invoke(() => prbHappiness.Value = happiness--, DispatcherPriority.Background);
@@ -147,12 +156,13 @@ namespace Oliogotchi
                 tausta.Trash++;
             }
         }
-        public void Living()        // Olio elää ja päivittää tietoja progress bariin ja footteriin lukuarvot
+        public void Living()        // Olio elää ja päivittää tietoja progress bariin ja footteriin syötetään lukuarvot
         {
-            olio.Happiness--;
+            olio.Happiness--;       // Olion kaikki arvot laskevat timerin mukaan
             olio.Cleanliness--;
             olio.Hunger--;
 
+            // Viedään arvot progress bareihin sekä footeriin
             prbHappiness.Dispatcher.Invoke(() => prbHappiness.Value = olio.Happiness, DispatcherPriority.Background);
             prbCleanliness.Dispatcher.Invoke(() => prbCleanliness.Value = olio.Cleanliness, DispatcherPriority.Background);
             prbHunger.Dispatcher.Invoke(() => prbHunger.Value = olio.Hunger, DispatcherPriority.Background);
@@ -160,7 +170,7 @@ namespace Oliogotchi
                              + ", ympäristön puhtaus: " + tausta.Cleanliness + ", roskien määrä: " + tausta.Trash;
         }
 
-        public void timer_Tick(object sender, EventArgs e) // Timer, missä tapahtuu olion "eläminen", elää kunnes jokin arvo = 0
+        public void timer_Tick(object sender, EventArgs e) // Timer, missä tapahtuu olion "eläminen". Olio elää kunnes jokin arvo = 0
         {
             if (olio.Hunger > 0 && olio.Happiness > 0 && olio.Cleanliness > 0)
             {
@@ -170,7 +180,7 @@ namespace Oliogotchi
             else Die();  
         }
 
-        private void btnMainMenu_Click(object sender, RoutedEventArgs e)
+        private void btnMainMenu_Click(object sender, RoutedEventArgs e)    // Päävalikkoon siirtyminen
         {
             Tallenna();
             double x = this.Left;
@@ -180,7 +190,7 @@ namespace Oliogotchi
             this.Close();
         }
 
-        private void btnSettings_Click(object sender, RoutedEventArgs e)
+        private void btnSettings_Click(object sender, RoutedEventArgs e)    // Asetuksiin siirtyminen
         {
             Tallenna();
             double x = this.Left;
@@ -190,32 +200,32 @@ namespace Oliogotchi
             this.Close();
         }
 
-        private void btnGiveVeggie_Click(object sender, RoutedEventArgs e)
+        private void btnGiveVeggie_Click(object sender, RoutedEventArgs e)  // Ruokitaan oliolle kasviksia
         {
             olio.Hunger++;
             prbHunger.Dispatcher.Invoke(() => prbHunger.Value = olio.Hunger, DispatcherPriority.Background);
             vegeCounter++;
         }
-        private void btnGiveMeat_Click(object sender, RoutedEventArgs e)  //Anna ruokaa napin tapahtuma
+        private void btnGiveMeat_Click(object sender, RoutedEventArgs e)    // Ruokitaan oliolle lihaa
         {
             olio.Hunger++;
             prbHunger.Dispatcher.Invoke(() => prbHunger.Value = olio.Hunger, DispatcherPriority.Background);
             meatCounter++;
         }
 
-        private void btnShower_Click(object sender, RoutedEventArgs e)
+        private void btnShower_Click(object sender, RoutedEventArgs e)      // Olion peseminen
         {
             olio.Cleanliness++;
             prbCleanliness.Dispatcher.Invoke(() => prbCleanliness.Value = olio.Cleanliness, DispatcherPriority.Background);
         }
 
-        private void btnPet_Click(object sender, RoutedEventArgs e)
+        private void btnPet_Click(object sender, RoutedEventArgs e)         // Olion silittäminen
         {
             olio.Happiness++;
             prbHappiness.Dispatcher.Invoke(() => prbHappiness.Value = olio.Happiness, DispatcherPriority.Background);
         }
 
-        private void btnPlayGame_Click(object sender, RoutedEventArgs e)
+        private void btnPlayGame_Click(object sender, RoutedEventArgs e)    // Olion kanssa pelattavien pelien valikkoon siirtyminen
         {
             timer.Stop();
             double x = this.Left;
@@ -225,16 +235,16 @@ namespace Oliogotchi
             //this.Close();
         }
 
-        private void Tallenna()
+        private void Tallenna()     // Tallennetaan olion sekä taustan tiedot binääritiedostoon
         {
             Stream tallennaTiedostoon;
 
             tallennaTiedostoon = new FileStream(myDocPath + @"olio.bin", FileMode.Create, FileAccess.Write, FileShare.None);
-            formatter.Serialize(tallennaTiedostoon, olio);      // Kirjoitetaan olio tiedostoon
-            tallennaTiedostoon.Close();                         // Suljetaan tiedosto
+            formatter.Serialize(tallennaTiedostoon, olio);
+            tallennaTiedostoon.Close();     // Suljetaan tiedosto
 
             tallennaTiedostoon = new FileStream(myDocPath + @"tausta.bin", FileMode.Create, FileAccess.Write, FileShare.None);
-            formatter.Serialize(tallennaTiedostoon, tausta);    // Kirjoitetaan tausta tiedostoon
+            formatter.Serialize(tallennaTiedostoon, tausta); 
             tallennaTiedostoon.Close();
         }
     }
