@@ -40,13 +40,13 @@ namespace Oliogotchi
     public partial class GameView : Window
     {
         // Määritetään alkuarvoja muuttujille
-        private int vegeCounter = 0;
-        private int meatCounter = 0;
-        private int cleanliness = 50;
-        private int hunger = 50;
-        public int happiness = 50;
-        private int habitatTrash = 0;
-        private int habitatCleanliness = 100;
+        private int vegeCounter;
+        private int meatCounter;
+        private int cleanliness;
+        private int hunger;
+        public int happiness;
+        private int habitatTrash;
+        private int habitatCleanliness;
         public static DispatcherTimer timer;
         private int easiness = 1;       // Timerin ajastinaika (ms)
         private bool isNewGame;
@@ -80,35 +80,57 @@ namespace Oliogotchi
         {
             if (isNewGame)               // Luodaan uusi peli
             {
-                olio = new Creature();
-                tausta = new Habitat();
-
-                CreateCreature();               // Luo uuden lemmikkiolion alkuarvoilla
-                CreateHabitat();                // Luo uuden elinympäristön alkuarvoilla
-
-                Tallenna();
+                CreateNewGame();        
             }
             else          // Ladataan tallennetut arvot tiedostosta
             {
                 Stream lueTiedostosta;
 
-                lueTiedostosta = new FileStream(myDocPath + @"olio.bin", FileMode.Open, FileAccess.Read, FileShare.None);
-                olio = (Creature)formatter.Deserialize(lueTiedostosta);       // Luetaan tiedostosta ja muunnetaan objektiksi
-                lueTiedostosta.Close();         // Suljetaan tiedosto
+                try
+                {
+                    lueTiedostosta = new FileStream(myDocPath + @"olio.bin", FileMode.Open, FileAccess.Read, FileShare.None);
+                    olio = (Creature)formatter.Deserialize(lueTiedostosta);       // Luetaan tiedostosta ja muunnetaan objektiksi
+                    lueTiedostosta.Close();         // Suljetaan tiedosto
 
-                lueTiedostosta = new FileStream(myDocPath + @"tausta.bin", FileMode.Open, FileAccess.Read, FileShare.None);
-                tausta = (Habitat)formatter.Deserialize(lueTiedostosta);
-                lueTiedostosta.Close();
+                    lueTiedostosta = new FileStream(myDocPath + @"tausta.bin", FileMode.Open, FileAccess.Read, FileShare.None);
+                    tausta = (Habitat)formatter.Deserialize(lueTiedostosta);
+                    lueTiedostosta.Close();
+                }
+                catch (Exception ex)    // Jos tallennustiedostoa ei löydy, luodaan uusi peli alkuarvoilla
+                {
+
+                    MessageBox.Show("Tallennustiedostoa ei löytynyt, luotu uusi peli!");
+                    CreateNewGame();
+                }
             }
+        }
+
+        public void CreateNewGame()         // Luo uuden olion alkuarvoilla
+        {
+            olio = new Creature();
+            tausta = new Habitat();
+
+            CreateCreature();
+            CreateHabitat();
+
+            Tallenna();
         }
         public void CreateHabitat()         // Luo uuden elinympäristön
         {
+            habitatTrash = 0;               // Alustetaan arvot
+            habitatCleanliness = 100;
+
             tausta.Cleanliness = habitatCleanliness;
             tausta.Trash = habitatTrash;
         }
         public void CreateCreature()        // Luo uuden lemmikkiolion
         {
-            
+            vegeCounter = 0;                // Alustetaan arvot
+            meatCounter = 0;
+            cleanliness = 50;
+            hunger = 50;
+            happiness = 50;
+
             olio.Age = 0;
             olio.Happiness = happiness;
             olio.Hunger = hunger;
@@ -185,6 +207,7 @@ namespace Oliogotchi
         private void btnMainMenu_Click(object sender, RoutedEventArgs e)    // Päävalikkoon siirtyminen
         {
             Tallenna();
+            timer.Stop();
             double x = this.Left;
             double y = this.Top;
             MainWindow menu = new MainWindow(x, y);
@@ -192,15 +215,16 @@ namespace Oliogotchi
             this.Close();
         }
 
-        private void btnSettings_Click(object sender, RoutedEventArgs e)    // Asetuksiin siirtyminen
-        {
-            Tallenna();
-            double x = this.Left;
-            double y = this.Top;
-            SettingsView settings = new SettingsView(x, y);
-            settings.Show();
-            this.Close();
-        }
+        //private void btnSettings_Click(object sender, RoutedEventArgs e)    // Asetuksiin siirtyminen
+        //{
+        //    Tallenna();
+        //    timer.Stop();
+        //    double x = this.Left;
+        //    double y = this.Top;
+        //    SettingsView settings = new SettingsView(x, y);
+        //    settings.Show();
+        //    this.Close();
+        //}
 
         private void btnGiveVeggie_Click(object sender, RoutedEventArgs e)  // Ruokitaan oliolle kasviksia
         {
