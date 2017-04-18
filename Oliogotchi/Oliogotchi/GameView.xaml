@@ -24,7 +24,7 @@
         <Grid.Background>
             <ImageBrush ImageSource="Resources/plain.png" Opacity="0.5" />
         </Grid.Background>
-        <Rectangle Name="imgOtus" Margin="200,200,200,0">
+        <Rectangle Name="imgOtus" Margin="100,120,250,50">
             <!-- Animaatiojuttuja jotka toimii vähintään hämysti -->
             <Rectangle.Fill>
                 <ImageBrush ImageSource="Resources/slime/sheet.png" AlignmentY="Top" ViewboxUnits="Absolute" Viewbox="200,30,400,400"/>
