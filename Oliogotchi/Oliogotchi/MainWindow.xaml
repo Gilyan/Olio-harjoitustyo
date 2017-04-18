@@ -40,11 +40,11 @@
                     <ImageBrush ImageSource="Resources/quit.png" Stretch="Uniform"/>
                 </Button.Background>
             </Button>
-            <Button x:Name="btnAsetukset" Style="{StaticResource Nappula}" Margin="0,0,0,10" Width="175" Height="50" Click="btnAsetukset_Click" BorderThickness="0">
+            <!-- <Button x:Name="btnAsetukset" Style="{StaticResource Nappula}" Margin="0,0,0,10" Width="175" Height="50" Click="btnAsetukset_Click" BorderThickness="0">
                 <Button.Background>
                     <ImageBrush ImageSource="Resources/settings.png" Stretch="Uniform"/>
                 </Button.Background>
-            </Button>
+            </Button> -->
         </StackPanel>
         <DockPanel VerticalAlignment="Bottom">
             <StatusBar>

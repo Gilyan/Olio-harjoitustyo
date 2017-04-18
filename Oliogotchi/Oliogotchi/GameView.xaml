@@ -77,11 +77,11 @@
                         <ImageBrush ImageSource="Resources/evo.png" Stretch="Uniform"/>
                     </Button.Background>
                 </Button>
-                    <Button x:Name="btnSettings" Style="{StaticResource Nappula}" Margin="0,55,0,10" Width="150" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center" BorderThickness="0" Click="btnSettings_Click">
+                <!-- <Button x:Name="btnSettings" Style="{StaticResource Nappula}" Margin="0,55,0,10" Width="150" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center" BorderThickness="0" Click="btnSettings_Click">
                     <Button.Background>
                         <ImageBrush ImageSource="Resources/settings.png" Stretch="Uniform"/>
                     </Button.Background>
-                </Button>
+                </Button> -->
             </StackPanel>
                 <StackPanel Width="395" VerticalAlignment="Bottom">   <!-- Olion kuvan paikka -->
                     <!-- <Image Source="Resources/placeholderslime.png" Height="150" Opacity="1" VerticalAlignment="Bottom" Margin="0,0,0,40" /> -->
