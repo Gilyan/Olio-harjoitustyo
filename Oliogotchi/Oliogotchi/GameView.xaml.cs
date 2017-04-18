@@ -38,7 +38,7 @@ namespace Oliogotchi
     /// Interaction logic for GameView.xaml
     /// </summary>
     public partial class GameView : Window
-    {
+    { 
         // Määritetään alkuarvoja muuttujille
         private int vegeCounter;
         private int meatCounter;
