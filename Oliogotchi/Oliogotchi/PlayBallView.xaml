@@ -25,14 +25,13 @@
             <ImageBrush ImageSource="Resources/stars.png" Opacity="0.5" />
         </Grid.Background>
 
-        <!-- TÄNNE KOODIA-->
         <Canvas HorizontalAlignment="Stretch"
             VerticalAlignment="Stretch" x:Name="ImageHolder" Margin="0,0,0,20" >
             <Image Source="Resources/placeholderslime2.png" Canvas.Left="226" Canvas.Top="431" Height="110" Width="120" x:Name="slime"/>
             <Image MouseMove="ball_MouseMove"
               MouseDown="ball_MouseDown" MouseUp="ball_MouseUp" Panel.ZIndex="0"
-               Cursor="Hand" Canvas.Top="282" Height="50" Width="50" Source="Resources/bounce.png"
-               x:Name="ball" Canvas.Left="424"/>
+               Cursor="Hand" Canvas.Top="141" Height="50" Width="50" Source="Resources/bounce.png"
+               x:Name="ball" Canvas.Left="392"/>
         </Canvas>
 
         <StackPanel Height="140" Orientation="Horizontal" VerticalAlignment="Top">

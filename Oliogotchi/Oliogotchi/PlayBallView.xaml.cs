@@ -22,8 +22,9 @@ namespace Oliogotchi
     public partial class PlayBallView : Window
     {
         Point p = new Point();
-        DispatcherTimer timer = new DispatcherTimer();
-
+        DispatcherTimer timer = new DispatcherTimer(DispatcherPriority.Render);
+        int i, k, t;
+        Random rnd = new Random();
 
         public PlayBallView(double x, double y)     // Ylikuormitetaan, että saadaan ikkunan paikka oikein
         {
@@ -60,33 +61,37 @@ namespace Oliogotchi
             timer.Start();
             ball.ReleaseMouseCapture();
         }
-        int i, k, t;
+
         void timer_Tick(object sender, EventArgs e)
         {
-            Random rnd = new Random();
             long ball1Pos = Convert.ToInt64(ball.GetValue(Canvas.TopProperty));
             long ball2Pos = Convert.ToInt64(ball.GetValue(Canvas.LeftProperty));
             long slime1Pos = Convert.ToInt64(slime.GetValue(Canvas.TopProperty));
             long slime2Pos = Convert.ToInt64(slime.GetValue(Canvas.LeftProperty));
-            if (ball1Pos > 500 || ball2Pos > 770 || ball2Pos < -10)
-            {
-                Canvas.SetTop(ball, 130);
-                Canvas.SetLeft(ball, 300);
-            }
-            if (ball1Pos < 485)
+            InsideTester(ball1Pos, ball2Pos);
+            BallGarvity(ball1Pos);
+            MoveSlime(slime2Pos);
+            CollisionTester();
+            //txbFooter.Text = "i: " + i.ToString() + " k: " + k.ToString();
+        }
+        private void BallGarvity(long ballTop)
+        {
+            if (ballTop < 485)
             {
                 if (Mouse.LeftButton != MouseButtonState.Pressed)
                 {
-                    Canvas.SetTop(ball, ball1Pos + 8);
+                    Canvas.SetTop(ball, ballTop + 8);
                 }
             }
-            
-            if (slime2Pos >= 700)
+        }
+        private void MoveSlime(long slimeLeft)
+        {
+            if (slimeLeft >= 700)
             {
                 Canvas.SetLeft(slime, 690);
                 t = 1;
             }
-            else if (slime2Pos <= -10)
+            else if (slimeLeft <= -10)
             {
                 Canvas.SetLeft(slime, 0);
                 t = 0;
@@ -102,7 +107,7 @@ namespace Oliogotchi
                 if (i >= 600 || t == 1)
                 {
                     k += 10;
-                    Canvas.SetLeft(slime, slime2Pos - 8);
+                    Canvas.SetLeft(slime, slimeLeft - 8);
                     if (k == 400)
                     {
                         i = 0;
@@ -110,11 +115,17 @@ namespace Oliogotchi
                 }
                 else
                 {
-                    Canvas.SetLeft(slime, slime2Pos + 8);
+                    Canvas.SetLeft(slime, slimeLeft + 8);
                 }
             }
-            CollisionTester();
-            txbFooter.Text = "i: " + i.ToString() + " k: " + k.ToString();
+        }
+        private void InsideTester(long ballTop, long ballLeft)
+        {
+            if (ballTop > 500 || ballLeft > 770 || ballLeft < -10)
+            {
+                Canvas.SetTop(ball, 130);
+                Canvas.SetLeft(ball, 300);
+            }
         }
         private void CollisionTester()
         {
@@ -129,6 +140,7 @@ namespace Oliogotchi
 
             if (r1.IntersectsWith(r2))
             {
+                ball.Visibility = Visibility.Hidden;
                 timer.Stop();
                 btnAgain.Visibility = Visibility.Visible;
                 ball.Visibility = Visibility.Hidden;
@@ -139,7 +151,7 @@ namespace Oliogotchi
             ball.Visibility = Visibility.Visible;
             btnAgain.Visibility = Visibility.Hidden;
             Canvas.SetTop(ball, 130);
-            Canvas.SetLeft(ball, 300);
+            Canvas.SetLeft(ball, rnd.Next(10, 734));
             timer.Start();
         }
 
