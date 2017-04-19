@@ -25,14 +25,15 @@ namespace Oliogotchi
     {
         private int vegeCounter;
         private int meatCounter;
-        // kapselointi käytössä ja olion statsiarvot pysyvät olion sisällä! tehkää itsellenne tarvittavat metodit jotta pääsette käsiksi niihin tai käyttäkää/muokatkaa olemassaolevia
-        public int Age { get; set; }
         private int hunger;
-        public int Hunger { get { return hunger; } set {; } }
         private int happiness;
-        public int Happiness { get { return happiness; } set {; } }
-        public string Image { get; set; }
         private int cleanliness;
+        
+        // Käytetään kapselointia, jotta olion arvot pysyvät olion sisällä
+        public int Age { get; set; }
+        public int Hunger { get { return hunger; } set {; } }
+        public int Happiness { get { return happiness; } set {; } }
+        public string Image { get; set; } 
         public int Cleanliness { get { return cleanliness; } set {; } }
 
         public void FillDefault()        // Luo uuden lemmikkiolion
@@ -84,7 +85,7 @@ namespace Oliogotchi
                 vegeCounter += 1;
             }
 
-            hunger += 5;
+            hunger += 1;
         }
 
         public void Evolve()

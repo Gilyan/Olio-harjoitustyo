@@ -125,7 +125,7 @@ namespace Oliogotchi
                 catch (Exception ex)    // Jos tallennustiedostoa ei löydy, luodaan uusi peli alkuarvoilla
                 {
 
-                    MessageBox.Show("Tallennustiedostoa ei löytynyt, luotu uusi peli!" + ex);
+                    MessageBox.Show("Tallennustiedostoa ei löytynyt, luotu uusi peli!");
                     CreateNewGame();
                 }
             }
@@ -196,10 +196,11 @@ namespace Oliogotchi
         }
         public void Living()        // Olio elää ja päivittää tietoja progress bariin ja footteriin syötetään lukuarvot
         {
-            olio.GetSad();       // Olion kaikki arvot laskevat timerin mukaan
+            olio.GetSad();          // Olion kaikki arvot laskevat timerin mukaan
             olio.GetDirty();
             olio.GetHungry();
             olio.Age++;
+
             // Viedään arvot progress bareihin sekä footeriin
             prbHappiness.Dispatcher.Invoke(() => prbHappiness.Value = olio.Happiness, DispatcherPriority.Background);
             prbCleanliness.Dispatcher.Invoke(() => prbCleanliness.Value = olio.Cleanliness, DispatcherPriority.Background);
