@@ -128,7 +128,7 @@ namespace Oliogotchi
                 catch (Exception ex)    // Jos tallennustiedostoa ei löydy, luodaan uusi peli alkuarvoilla
                 {
 
-                    MessageBox.Show("Tallennustiedostoa ei löytynyt, luotu uusi peli!" + ex);
+                    MessageBox.Show("Tallennustiedostoa ei löytynyt, luotu uusi peli!");
                     CreateNewGame();
                 }
             }
