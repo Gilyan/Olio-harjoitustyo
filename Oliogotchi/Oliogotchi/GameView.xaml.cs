@@ -5,6 +5,10 @@ Toiminta: Pelisivun kautta voi
 - pelata peliä
 - tänne juttuja lisättävä
 
+Silitysääni: https://www.freesound.org/people/deleted_user_7146007/sounds/383266/
+Ruokintaääni: https://www.freesound.org/people/Ondruska/sounds/360686/
+Pesuääni: https://www.freesound.org/people/JohnsonBrandEditing/sounds/173930/
+
 Luotu 27.3.2017
 
 Minttu Mäkäläinen K8517
@@ -283,6 +287,11 @@ namespace Oliogotchi
             {
                 olio.Wash();
             }
+
+            mediaPlayer.Open(new Uri(@"../../Resources/sound/water.mp3", UriKind.Relative));
+            mediaPlayer.Play();
+            mediaPlayer.Position = TimeSpan.Zero;   // Kelataan alkuun
+
             prbCleanliness.Dispatcher.Invoke(() => prbCleanliness.Value = olio.Cleanliness, DispatcherPriority.Background);
         }
 
