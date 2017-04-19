@@ -41,25 +41,13 @@ namespace Oliogotchi
         static int stonePoints;
         public static bool WasClicked
         {
-            get
-            {
-                return btnBackWasClicked;
-            }
-            set
-            {
-                btnBackWasClicked = value;
-            }
+            get { return btnBackWasClicked; }
+            set { btnBackWasClicked = value; }
         }
         public static int GetPoints
         {
-            get
-            {
-                return stonePoints;
-            }
-            set
-            {
-                stonePoints = value;
-            }
+            get { return stonePoints; }
+            set { stonePoints = value; }
         }
     }
     /// <summary>
@@ -210,22 +198,11 @@ namespace Oliogotchi
         }
         public void GetStonePoints() // Syöttää oliolle pisteet jos btnBackia on painettu PlayStoneViewissä
         {
-            //    if (Testi.WasClicked)
-            //    {
-            //        Testi.WasClicked = false;
-            //        if (olio.Happiness + Testi.GetPoints > 0 && olio.Happiness + Testi.GetPoints < 100)
-            //        {
-            //            olio.Happiness += Testi.GetPoints;
-            //        }
-            //        else if (olio.Happiness + Testi.GetPoints >= 100)
-            //        {
-            //            olio.Happiness = 100;
-            //        }
-            //        else
-            //        {
-            //            olio.Happiness = 0;
-            //        }
-            //    }
+            if (Testi.WasClicked)
+            {
+                Testi.WasClicked = false;
+                olio.StonePoints(Testi.GetPoints);
+            }
         }
         public void timer_Tick(object sender, EventArgs e) // Timer, missä tapahtuu olion "eläminen". Olio elää kunnes jokin arvo = 0
         {
