@@ -22,17 +22,36 @@ namespace Oliogotchi
     [Serializable]          // Sarjallisestaan luokka, jotta voidaan kirjoittaa tiedostoon
     class Habitat
     {
-        public int Trash { get; set; }
-        public int Cleanliness { get; set; }
+        private int habitatTrash;
+        public int Trash { get { return habitatTrash; } set {; } }
+
+        private int habitatCleanliness;
+        public int Cleanliness { get { return habitatCleanliness; } set {; } }
+
+        public void SetDefault()
+        {
+            habitatTrash = 0;               // Alustetaan arvot
+            habitatCleanliness = 100;
+        }
 
         public void RemoveTrash()
         {
-
+            habitatTrash -= 1;
         }
 
         public void AddTrash()
         {
+            habitatTrash += 1;
+        }
 
+        public void GetMessy()
+        {
+            habitatCleanliness -= 1;
+        }
+
+        public void Clean()
+        {
+            habitatCleanliness += 1;
         }
     }
 }

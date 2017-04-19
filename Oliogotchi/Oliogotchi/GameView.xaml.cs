@@ -34,22 +34,48 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Oliogotchi
 {
+    // Tätä kautta kivipaperisaksetpelin pisteet välittyy olion iloisuuteen
+    class Testi
+    {
+        static bool btnBackWasClicked = false;
+        static int stonePoints;
+        public static bool WasClicked
+        {
+            get
+            {
+                return btnBackWasClicked;
+            }
+            set
+            {
+                btnBackWasClicked = value;
+            }
+        }
+        public static int GetPoints
+        {
+            get
+            {
+                return stonePoints;
+            }
+            set
+            {
+                stonePoints = value;
+            }
+        }
+    }
     /// <summary>
     /// Interaction logic for GameView.xaml
     /// </summary>
     public partial class GameView : Window
     {
         // Määritetään alkuarvoja muuttujille
-        private int vegeCounter = 0;
-        private int meatCounter = 0;
-        private int cleanliness = 50;
-        private int hunger = 50;
-        public int happiness = 50;
-        private int habitatTrash = 0;
-        private int habitatCleanliness = 100;
+
+
         public static DispatcherTimer timer;
         private int easiness = 1;       // Timerin ajastinaika (ms)
         private bool isNewGame;
+        private bool gameIsPlayed = false;
+        private bool isMeat;
+
 
         Creature olio;
         Habitat tausta;
@@ -68,7 +94,7 @@ namespace Oliogotchi
             isNewGame = isnewgame;      // Tuodaan tieto napin painalluksesta MainWindowin puolelta paikalliseen muuttujaan
 
             CheckIfNew();
-           
+
             timer = new DispatcherTimer();          // Timerin alustaminen
             timer.Interval = new TimeSpan(0, 0, 0, easiness);
             timer.Tick += new EventHandler(timer_Tick);
@@ -80,47 +106,44 @@ namespace Oliogotchi
         {
             if (isNewGame)               // Luodaan uusi peli
             {
-                olio = new Creature();
-                tausta = new Habitat();
-
-                CreateCreature();               // Luo uuden lemmikkiolion alkuarvoilla
-                CreateHabitat();                // Luo uuden elinympäristön alkuarvoilla
-
-                Tallenna();
+                CreateNewGame();
             }
             else          // Ladataan tallennetut arvot tiedostosta
             {
                 Stream lueTiedostosta;
 
-                lueTiedostosta = new FileStream(myDocPath + @"olio.bin", FileMode.Open, FileAccess.Read, FileShare.None);
-                olio = (Creature)formatter.Deserialize(lueTiedostosta);       // Luetaan tiedostosta ja muunnetaan objektiksi
-                lueTiedostosta.Close();         // Suljetaan tiedosto
+                try
+                {
+                    lueTiedostosta = new FileStream(myDocPath + @"olio.bin", FileMode.Open, FileAccess.Read, FileShare.None);
+                    olio = (Creature)formatter.Deserialize(lueTiedostosta);       // Luetaan tiedostosta ja muunnetaan objektiksi
+                    lueTiedostosta.Close();         // Suljetaan tiedosto
 
-                lueTiedostosta = new FileStream(myDocPath + @"tausta.bin", FileMode.Open, FileAccess.Read, FileShare.None);
-                tausta = (Habitat)formatter.Deserialize(lueTiedostosta);
-                lueTiedostosta.Close();
+                    lueTiedostosta = new FileStream(myDocPath + @"tausta.bin", FileMode.Open, FileAccess.Read, FileShare.None);
+                    tausta = (Habitat)formatter.Deserialize(lueTiedostosta);
+                    lueTiedostosta.Close();
+                }
+                catch (Exception ex)    // Jos tallennustiedostoa ei löydy, luodaan uusi peli alkuarvoilla
+                {
+
+                    MessageBox.Show("Tallennustiedostoa ei löytynyt, luotu uusi peli!" + ex);
+                    CreateNewGame();
+                }
             }
+        }
+
+        public void CreateNewGame()         // Luo uuden olion alkuarvoilla
+        {
+            CreateCreature();
+            CreateHabitat();
+
+            Tallenna();
         }
         public void CreateHabitat()         // Luo uuden elinympäristön
         {
-            tausta.Cleanliness = habitatCleanliness;
-            tausta.Trash = habitatTrash;
+            tausta = new Habitat();
+            tausta.SetDefault();
         }
-        public void CreateCreature()        // Luo uuden lemmikkiolion
-        {
-            
-            olio.Age = 0;
-            olio.Happiness = happiness;
-            olio.Hunger = hunger;
-            olio.Cleanliness = cleanliness;
-            olio.Image = "Resources/slime/";
 
-            prbHappiness.DataContext = olio;
-            prbHunger.DataContext = olio;
-            prbCleanliness.DataContext = olio;
-
-            txbFooter.Text = "Uusi lemmikki luotu. Pidä siitä hyvää huolta!";
-        }
         public void Die()   // Lemmikki kuolee, footeriin infoa asiasta
         {
             timer.Stop();
@@ -132,59 +155,96 @@ namespace Oliogotchi
             menu.Show();
             this.Close();
         }
+        public void CreateCreature()
+        {
+            olio = new Creature();
+            olio.FillDefault();
+
+            prbHappiness.DataContext = olio.Happiness;
+            prbHunger.DataContext = olio.Hunger;
+            prbCleanliness.DataContext = olio.Cleanliness;
+
+            txbFooter.Text = "Uusi lemmikki luotu. Pidä siitä hyvää huolta!";
+        }
         public void HabitatLiving()     // Taustan arvojen säätöä
         {
-            tausta.Cleanliness--;           // Taustan puhtaus laskee timerin mukaan
+            tausta.GetMessy();           // Taustan puhtaus laskee timerin mukaan
             if (tausta.Cleanliness < 10)    // Roskien lisääminen
             {
-                prbCleanliness.Dispatcher.Invoke(() => prbCleanliness.Value = cleanliness--, DispatcherPriority.Background);
-                prbHappiness.Dispatcher.Invoke(() => prbHappiness.Value = happiness--, DispatcherPriority.Background);
-                tausta.Trash++;
+                olio.GetDirty();
+                olio.GetSad();
+                prbCleanliness.Dispatcher.Invoke(() => prbCleanliness.Value = olio.Cleanliness, DispatcherPriority.Background);
+                prbHappiness.Dispatcher.Invoke(() => prbHappiness.Value = olio.Happiness, DispatcherPriority.Background);
+                tausta.AddTrash();
             }
             else if (tausta.Cleanliness == 20)
             {
-                tausta.Trash++;
+                tausta.AddTrash();
             }
             else if (tausta.Cleanliness == 30)
             {
-                tausta.Trash++;
+                tausta.AddTrash();
             }
             else if (tausta.Cleanliness == 40)
             {
-                tausta.Trash++;
+                tausta.AddTrash();
             }
             else if (tausta.Cleanliness == 50)
             {
-                tausta.Trash++;
+                tausta.AddTrash();
             }
         }
         public void Living()        // Olio elää ja päivittää tietoja progress bariin ja footteriin syötetään lukuarvot
         {
-            olio.Happiness--;       // Olion kaikki arvot laskevat timerin mukaan
-            olio.Cleanliness--;
-            olio.Hunger--;
-
+            olio.GetSad();       // Olion kaikki arvot laskevat timerin mukaan
+            olio.GetDirty();
+            olio.GetHungry();
+            olio.Age++;
             // Viedään arvot progress bareihin sekä footeriin
             prbHappiness.Dispatcher.Invoke(() => prbHappiness.Value = olio.Happiness, DispatcherPriority.Background);
             prbCleanliness.Dispatcher.Invoke(() => prbCleanliness.Value = olio.Cleanliness, DispatcherPriority.Background);
             prbHunger.Dispatcher.Invoke(() => prbHunger.Value = olio.Hunger, DispatcherPriority.Background);
-            txbFooter.Text = "onnellisuus: " + olio.Happiness + ", nälkä: " + olio.Hunger + ", puhtaus: " + olio.Cleanliness
+            txbFooter.Text = "olion ikä: " + olio.Age + ", onnellisuus: " + olio.Happiness + ", nälkä: " + olio.Hunger + ", puhtaus: " + olio.Cleanliness
                              + ", ympäristön puhtaus: " + tausta.Cleanliness + ", roskien määrä: " + tausta.Trash;
         }
-
+        public void GetStonePoints() // Syöttää oliolle pisteet jos btnBackia on painettu PlayStoneViewissä
+        {
+            //    if (Testi.WasClicked)
+            //    {
+            //        Testi.WasClicked = false;
+            //        if (olio.Happiness + Testi.GetPoints > 0 && olio.Happiness + Testi.GetPoints < 100)
+            //        {
+            //            olio.Happiness += Testi.GetPoints;
+            //        }
+            //        else if (olio.Happiness + Testi.GetPoints >= 100)
+            //        {
+            //            olio.Happiness = 100;
+            //        }
+            //        else
+            //        {
+            //            olio.Happiness = 0;
+            //        }
+            //    }
+        }
         public void timer_Tick(object sender, EventArgs e) // Timer, missä tapahtuu olion "eläminen". Olio elää kunnes jokin arvo = 0
         {
             if (olio.Hunger > 0 && olio.Happiness > 0 && olio.Cleanliness > 0)
             {
                 Living();
                 HabitatLiving();
+                if (gameIsPlayed) //jos peliä on pelattu käy aliohjelmalta suorittamassa toiminnot ja alustaa tiedon onko peliä pelattu
+                {
+                    GetStonePoints();
+                    gameIsPlayed = false;
+                }
             }
-            else Die();  
+            else Die();
         }
 
         private void btnMainMenu_Click(object sender, RoutedEventArgs e)    // Päävalikkoon siirtyminen
         {
             Tallenna();
+            timer.Stop();
             double x = this.Left;
             double y = this.Top;
             MainWindow menu = new MainWindow(x, y);
@@ -192,43 +252,65 @@ namespace Oliogotchi
             this.Close();
         }
 
-        private void btnSettings_Click(object sender, RoutedEventArgs e)    // Asetuksiin siirtyminen
-        {
-            Tallenna();
-            double x = this.Left;
-            double y = this.Top;
-            SettingsView settings = new SettingsView(x, y);
-            settings.Show();
-            this.Close();
-        }
+        //private void btnSettings_Click(object sender, RoutedEventArgs e)    // Asetuksiin siirtyminen
+        //{
+        //    Tallenna();
+        //    timer.Stop();
+        //    double x = this.Left;
+        //    double y = this.Top;
+        //    SettingsView settings = new SettingsView(x, y);
+        //    settings.Show();
+        //    this.Close();
+        //}
 
         private void btnGiveVeggie_Click(object sender, RoutedEventArgs e)  // Ruokitaan oliolle kasviksia
         {
-            olio.Hunger++;
+            isMeat = false;
+            if (olio.Hunger <= 100)
+            {
+                olio.Feed(isMeat);
+            }
             prbHunger.Dispatcher.Invoke(() => prbHunger.Value = olio.Hunger, DispatcherPriority.Background);
-            vegeCounter++;
         }
         private void btnGiveMeat_Click(object sender, RoutedEventArgs e)    // Ruokitaan oliolle lihaa
         {
-            olio.Hunger++;
+            if (olio.Hunger <= 100)
+            {
+                isMeat = true;
+                olio.Feed(isMeat);
+            }
             prbHunger.Dispatcher.Invoke(() => prbHunger.Value = olio.Hunger, DispatcherPriority.Background);
-            meatCounter++;
         }
 
         private void btnShower_Click(object sender, RoutedEventArgs e)      // Olion peseminen
         {
-            olio.Cleanliness++;
+            if (tausta.Cleanliness > 50 && tausta.Trash > 0)
+            {
+                tausta.Clean();
+            }
+            if (tausta.Cleanliness <= 100)
+            {
+                tausta.Clean();
+            }
+            if (olio.Cleanliness <= 100)
+            {
+                olio.Wash();
+            }
             prbCleanliness.Dispatcher.Invoke(() => prbCleanliness.Value = olio.Cleanliness, DispatcherPriority.Background);
         }
 
         private void btnPet_Click(object sender, RoutedEventArgs e)         // Olion silittäminen
         {
-            olio.Happiness++;
+            if (olio.Happiness <= 100)
+            {
+                olio.Brush();
+            }
             prbHappiness.Dispatcher.Invoke(() => prbHappiness.Value = olio.Happiness, DispatcherPriority.Background);
         }
 
         private void btnPlayGame_Click(object sender, RoutedEventArgs e)    // Olion kanssa pelattavien pelien valikkoon siirtyminen
         {
+            gameIsPlayed = true;
             timer.Stop();
             double x = this.Left;
             double y = this.Top;
@@ -246,8 +328,13 @@ namespace Oliogotchi
             tallennaTiedostoon.Close();     // Suljetaan tiedosto
 
             tallennaTiedostoon = new FileStream(myDocPath + @"tausta.bin", FileMode.Create, FileAccess.Write, FileShare.None);
-            formatter.Serialize(tallennaTiedostoon, tausta); 
+            formatter.Serialize(tallennaTiedostoon, tausta);
             tallennaTiedostoon.Close();
+        }
+
+        private void Storyboard_Completed(object sender, EventArgs e)
+        {
+
         }
     }
 }

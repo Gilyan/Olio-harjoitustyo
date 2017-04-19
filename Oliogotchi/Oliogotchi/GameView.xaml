@@ -24,30 +24,32 @@
         <Grid.Background>
             <ImageBrush ImageSource="Resources/plain.png" Opacity="0.5" />
         </Grid.Background>
-        <Rectangle Name="imgOtus" Margin="100,120,250,50">
-            <!-- Animaatiojuttuja jotka toimii vähintään hämysti -->
-            <Rectangle.Fill>
-                <ImageBrush ImageSource="Resources/slime/sheet.png" AlignmentY="Top" ViewboxUnits="Absolute" Viewbox="200,30,400,400"/>
-            </Rectangle.Fill>
-            <Rectangle.Triggers>
-                <EventTrigger RoutedEvent="Rectangle.Loaded">
-                    <BeginStoryboard>
-                        <Storyboard>
-                            <ParallelTimeline RepeatBehavior="Forever">
-                                <RectAnimation Storyboard.TargetProperty="(Rectangle.Fill).Viewbox" To="0,0,500,400" BeginTime="0:0:0.0" Duration="0:0:0"/>
-                                <RectAnimation Storyboard.TargetProperty="(Rectangle.Fill).Viewbox" To="0,2,500,401" BeginTime="0:0:0.1" Duration="0:0:0"/>
-                                <RectAnimation Storyboard.TargetProperty="(Rectangle.Fill).Viewbox" To="0,4,500,403" BeginTime="0:0:0.2" Duration="0:0:0"/>
-                                <RectAnimation Storyboard.TargetProperty="(Rectangle.Fill).Viewbox" To="0,7,500,407" BeginTime="0:0:0.3" Duration="0:0:0"/>
-                                <RectAnimation Storyboard.TargetProperty="(Rectangle.Fill).Viewbox" To="0,4,500,411" BeginTime="0:0:0.4" Duration="0:0:0"/>
-                                <RectAnimation Storyboard.TargetProperty="(Rectangle.Fill).Viewbox" To="0,2,500,407" BeginTime="0:0:0.5" Duration="0:0:0"/>
-                                <RectAnimation Storyboard.TargetProperty="(Rectangle.Fill).Viewbox" To="0,0,500,403" BeginTime="0:0:0.6" Duration="0:0:0"/>
-                                <RectAnimation Storyboard.TargetProperty="(Rectangle.Fill).Viewbox" To="0,0,500,401" BeginTime="0:0:0.7" Duration="0:0:0"/>
-                            </ParallelTimeline>
-                        </Storyboard>
-                    </BeginStoryboard>
-                </EventTrigger>
-            </Rectangle.Triggers>
-        </Rectangle>
+        <StackPanel>
+            <Rectangle Name="imgOtus">
+                <!-- Animaatiojuttuja jotka toimii vähintään hämysti -->
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="Resources/slime/sheet.png" AlignmentY="Top" ViewboxUnits="Absolute" Viewbox="200,30,400,400"/>
+                </Rectangle.Fill>
+                <Rectangle.Triggers>
+                    <EventTrigger RoutedEvent="Rectangle.Loaded">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <ParallelTimeline RepeatBehavior="Forever">
+                                    <RectAnimation Storyboard.TargetProperty="(Rectangle.Fill).Viewbox" To="0,0,500,400" BeginTime="0:0:0.0" Duration="0:0:0"/>
+                                    <RectAnimation Storyboard.TargetProperty="(Rectangle.Fill).Viewbox" To="0,2,500,401" BeginTime="0:0:0.1" Duration="0:0:0"/>
+                                    <RectAnimation Storyboard.TargetProperty="(Rectangle.Fill).Viewbox" To="0,4,500,403" BeginTime="0:0:0.2" Duration="0:0:0"/>
+                                    <RectAnimation Storyboard.TargetProperty="(Rectangle.Fill).Viewbox" To="0,7,500,407" BeginTime="0:0:0.3" Duration="0:0:0"/>
+                                    <RectAnimation Storyboard.TargetProperty="(Rectangle.Fill).Viewbox" To="0,4,500,411" BeginTime="0:0:0.4" Duration="0:0:0"/>
+                                    <RectAnimation Storyboard.TargetProperty="(Rectangle.Fill).Viewbox" To="0,2,500,407" BeginTime="0:0:0.5" Duration="0:0:0"/>
+                                    <RectAnimation Storyboard.TargetProperty="(Rectangle.Fill).Viewbox" To="0,0,500,403" BeginTime="0:0:0.6" Duration="0:0:0"/>
+                                    <RectAnimation Storyboard.TargetProperty="(Rectangle.Fill).Viewbox" To="0,0,500,401" BeginTime="0:0:0.7" Duration="0:0:0"/>
+                                </ParallelTimeline>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Rectangle.Triggers>
+            </Rectangle>
+        </StackPanel>
         <StackPanel Orientation="Vertical">
             <StackPanel Height="40" Margin="0" Orientation="Horizontal">
                 <!-- Yläpalkin statusbarit -->
