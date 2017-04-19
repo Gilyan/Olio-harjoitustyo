@@ -190,9 +190,8 @@ namespace Oliogotchi
 
         private void btnBack_Click(object sender, RoutedEventArgs e)    // Siirrytään takaisin pääpelin puolelle
         {
-
-            Testi.WasClicked = true; //palauttaa tiedot, että back nappia on painettu
-            Testi.GetPoints = points; //vie oliolle peliltä saadut pisteet
+            Testi.WasClicked = true;    // Palauttaa tiedon, että back-nappia on painettu
+            Testi.GetPoints = points;   // Vie oliolle peliltä saadut pisteet
             GameView.timer.Start();
             this.Close();
         }

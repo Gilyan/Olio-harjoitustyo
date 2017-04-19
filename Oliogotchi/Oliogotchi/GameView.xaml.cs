@@ -194,7 +194,7 @@ namespace Oliogotchi
                 tausta.AddTrash();
             }
         }
-        public void Living()        // Olio elää ja päivittää tietoja progress bariin ja footteriin syötetään lukuarvot
+        public void Living()        // Olion eläminen
         {
             olio.GetSad();          // Olion kaikki arvot laskevat timerin mukaan
             olio.GetDirty();
@@ -233,10 +233,10 @@ namespace Oliogotchi
             {
                 Living();
                 HabitatLiving();
-                if (gameIsPlayed) //jos peliä on pelattu käy aliohjelmalta suorittamassa toiminnot ja alustaa tiedon onko peliä pelattu
+                if (gameIsPlayed)   // Jos minipeliä on pelattu, käydään suorittamassa aliohjelman toiminnot
                 {
                     GetStonePoints();
-                    gameIsPlayed = false;
+                    gameIsPlayed = false;       // Alustaa tiedon, onko peliä pelattu
                 }
             }
             else Die();
@@ -309,7 +309,7 @@ namespace Oliogotchi
             prbHappiness.Dispatcher.Invoke(() => prbHappiness.Value = olio.Happiness, DispatcherPriority.Background);
         }
 
-        private void btnPlayGame_Click(object sender, RoutedEventArgs e)    // Olion kanssa pelattavien pelien valikkoon siirtyminen
+        private void btnPlayGame_Click(object sender, RoutedEventArgs e)    // Olion kanssa pelattavien minipelien valikkoon siirtyminen
         {
             gameIsPlayed = true;
             timer.Stop();
@@ -317,7 +317,7 @@ namespace Oliogotchi
             double y = this.Top;
             PlayGamesView pelit = new PlayGamesView(x, y);
             pelit.Show();
-            //this.Close();
+            // this.Close();
         }
 
         private void Tallenna()     // Tallennetaan olion sekä taustan tiedot binääritiedostoon
