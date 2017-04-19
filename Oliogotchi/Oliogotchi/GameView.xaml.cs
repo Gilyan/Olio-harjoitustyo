@@ -261,6 +261,10 @@ namespace Oliogotchi
             {
                 isMeat = true;
                 olio.Feed(isMeat);
+
+                mediaPlayer.Open(new Uri(@"../../Resources/sound/munch.mp3", UriKind.Relative));
+                mediaPlayer.Play();
+                mediaPlayer.Position = TimeSpan.Zero;   // Kelataan alkuun
             }
             prbHunger.Dispatcher.Invoke(() => prbHunger.Value = olio.Hunger, DispatcherPriority.Background);
         }
@@ -287,6 +291,10 @@ namespace Oliogotchi
             if (olio.Happiness <= 100)
             {
                 olio.Brush();
+
+                mediaPlayer.Open(new Uri(@"../../Resources/sound/purr.mp3", UriKind.Relative));
+                mediaPlayer.Play();
+                mediaPlayer.Position = TimeSpan.Zero;   // Kelataan alkuun
             }
             prbHappiness.Dispatcher.Invoke(() => prbHappiness.Value = olio.Happiness, DispatcherPriority.Background);
         }
