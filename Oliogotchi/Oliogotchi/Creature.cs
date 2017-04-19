@@ -64,12 +64,12 @@ namespace Oliogotchi
 
         public void Wash()
         {
-            cleanliness += 10;
+            cleanliness += 1;
         }
 
         public void Brush()
         {
-            happiness += 10;
+            happiness += 1;
         }
 
         public void Feed(bool isMeat)

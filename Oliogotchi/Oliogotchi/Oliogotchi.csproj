@@ -81,7 +81,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Animation.cs" />
     <Compile Include="Creature.cs" />
     <Compile Include="Habitat.cs" />
     <Compile Include="PlayBallView.xaml.cs">
