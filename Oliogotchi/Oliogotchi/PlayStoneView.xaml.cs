@@ -44,12 +44,10 @@ namespace Oliogotchi
     /// </summary>
     public partial class PlayStoneView : Window
     {
-        public int points;
+        public int points = 0;
         public int Pisteet {
                     get { return points; }
-                    set {
-                if (value >= 0 && value <= 100) { points = value; }
-                else points = 0;  }
+                    set { points = value; }
                             }
         public PlayStoneView(double x, double y)       // Ylikuormitetaan, että saadaan ikkunan paikka oikein
         {
@@ -132,8 +130,8 @@ namespace Oliogotchi
         }
         public void Run(string teksti, int luku)
         {
-            points += luku;
-            txbGameInfo.Text = teksti;
+            points += luku; //Tallentaa muuttujaan saadut pisteet
+            txbGameInfo.Text = teksti; //textboxiin saatu teksti voitto, häviö vai tasapeli
             btnAgain.Visibility = System.Windows.Visibility.Visible;    // Valikkonapit aktiiviseksi (Again, Back)
             btnBack.Visibility = System.Windows.Visibility.Visible;
         }
@@ -192,6 +190,9 @@ namespace Oliogotchi
 
         private void btnBack_Click(object sender, RoutedEventArgs e)    // Siirrytään takaisin pääpelin puolelle
         {
+
+            Testi.WasClicked = true; //palauttaa tiedot, että back nappia on painettu
+            Testi.GetPoints = points; //vie oliolle peliltä saadut pisteet
             GameView.timer.Start();
             this.Close();
         }

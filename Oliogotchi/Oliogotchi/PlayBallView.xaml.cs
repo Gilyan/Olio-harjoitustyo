@@ -113,6 +113,11 @@ namespace Oliogotchi
                     Canvas.SetLeft(slime, slime2Pos + 8);
                 }
             }
+            CollisionTester();
+            txbFooter.Text = "i: " + i.ToString() + " k: " + k.ToString();
+        }
+        private void CollisionTester()
+        {
             var x1 = Canvas.GetLeft(ball);
             var y1 = Canvas.GetTop(ball);
             Rect r1 = new Rect(x1, y1, ball.ActualWidth - 40, ball.ActualHeight - 40);
@@ -127,9 +132,6 @@ namespace Oliogotchi
                 timer.Stop();
                 btnAgain.Visibility = Visibility.Visible;
             }
-
-
-            txbFooter.Text = "i: " + i.ToString() + " k: " + k.ToString();
         }
         private void btnAgain_Click(object sender, RoutedEventArgs e)       // Pelataan uudestaan!
         {
