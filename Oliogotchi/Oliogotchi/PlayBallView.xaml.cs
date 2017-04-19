@@ -131,10 +131,12 @@ namespace Oliogotchi
             {
                 timer.Stop();
                 btnAgain.Visibility = Visibility.Visible;
+                ball.Visibility = Visibility.Hidden;
             }
         }
         private void btnAgain_Click(object sender, RoutedEventArgs e)       // Pelataan uudestaan!
         {
+            ball.Visibility = Visibility.Visible;
             btnAgain.Visibility = Visibility.Hidden;
             Canvas.SetTop(ball, 130);
             Canvas.SetLeft(ball, 300);
