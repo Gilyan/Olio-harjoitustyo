@@ -31,6 +31,7 @@ using System.Windows.Threading;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
+using Microsoft.Win32;      // Äänelle
 
 namespace Oliogotchi
 {
@@ -57,19 +58,19 @@ namespace Oliogotchi
     {
         // Määritetään alkuarvoja muuttujille
 
-
         public static DispatcherTimer timer;
         private int easiness = 1;       // Timerin ajastinaika (ms)
         private bool isNewGame;
         private bool gameIsPlayed = false;
         private bool isMeat;
 
-
         Creature olio;
         Habitat tausta;
 
         string myDocPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
         IFormatter formatter = new BinaryFormatter();           // Käytetään binäärimuotoa
+
+        private MediaPlayer mediaPlayer = new MediaPlayer();    // Äänisoitin
 
         public GameView(double x, double y, bool isnewgame)     // Ylikuormitetaan, että saadaan ikkunan paikka oikein
         {
@@ -247,6 +248,10 @@ namespace Oliogotchi
             if (olio.Hunger <= 100)
             {
                 olio.Feed(isMeat);
+
+                mediaPlayer.Open(new Uri(@"../../Resources/sound/munch.mp3", UriKind.Relative));
+                mediaPlayer.Play();
+                mediaPlayer.Position = TimeSpan.Zero;   // Kelataan alkuun
             }
             prbHunger.Dispatcher.Invoke(() => prbHunger.Value = olio.Hunger, DispatcherPriority.Background);
         }
