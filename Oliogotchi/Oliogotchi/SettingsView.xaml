@@ -33,11 +33,11 @@
                     <TextBlock x:Name="txbPet" Text="With brush you can pet the Oliogotchi, it will be happier" TextWrapping="Wrap" Width="600" Height="20" FontFamily="Perpetua Titling MT" FontSize="16" Margin="50,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
-                    <Image x:Name="wash" Source="Resources/wash.png" Width="50" Margin="50,0,0,0" HorizontalAlignment="Left"/>
+                    <Image x:Name="wash" Source="Resources/wash.png" Width="45" Margin="50,0,0,0" HorizontalAlignment="Left"/>
                     <TextBlock x:Name="txbWash" Text="With bucket you can wash the Oliogotchi, it will be cleaner" TextWrapping="Wrap" Width="600" Height="20" FontFamily="Perpetua Titling MT" FontSize="16" Margin="50,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
-                    <Image x:Name="evo" Source="Resources/evo.png" Width="50" Margin="50,0,0,0" HorizontalAlignment="Left"/>
+                    <Image x:Name="evo" Source="Resources/evo.png" Width="40" Margin="50,0,0,0" HorizontalAlignment="Left"/>
                     <TextBlock x:Name="txbEvolve" Text="In time you can evolve your Oliogotchi to something different" TextWrapping="Wrap" Width="600" Height="20" FontFamily="Perpetua Titling MT" FontSize="16" Margin="50,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
@@ -47,6 +47,7 @@
                     </StackPanel>
                     <TextBlock x:Name="txbMinigames" Text="You can feed the Oliogotchi with meat or vegetable" TextWrapping="Wrap" Width="600" Height="20" FontFamily="Perpetua Titling MT" FontSize="16" Margin="50,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                 </StackPanel>
+                <TextBlock x:Name="txbLopuksi" Text="The evolved form depends on what you feed to your pet!" TextWrapping="Wrap" Width="700" Height="30" FontFamily="Perpetua Titling MT" FontSize="20" Margin="30,20,0,0" HorizontalAlignment="Center"/>
             </StackPanel>
             <Button x:Name="btnMainMenu" Style="{StaticResource Nappula}" Width="180" Height="50" HorizontalAlignment="Left" Margin="40,30,0,0" Click="btnMainMenu_Click" BorderThickness="0" >
                 <Button.Background>
@@ -57,7 +58,7 @@
         <DockPanel VerticalAlignment="Bottom">
             <StatusBar>
                 <StatusBarItem Height="20">
-                    <TextBlock x:Name="txbFooter" Text="Kaunis päivä tänään." FontSize="12"/>
+                    <TextBlock x:Name="txbFooter" Text="Peliohjeet." FontSize="12"/>
                 </StatusBarItem>
             </StatusBar>
         </DockPanel>
