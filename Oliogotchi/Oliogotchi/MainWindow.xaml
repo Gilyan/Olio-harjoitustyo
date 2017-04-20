@@ -42,7 +42,7 @@
             </Button>
             <Button x:Name="btnOhjeet" Style="{StaticResource Nappula}" Margin="0,0,0,10" Width="175" Height="50" Click="btnOhjeet_Click" BorderThickness="0">
                 <Button.Background>
-                    <ImageBrush ImageSource="Resources/settings.png" Stretch="Uniform"/>
+                    <ImageBrush ImageSource="Resources/instructions.png" Stretch="Uniform"/>
                 </Button.Background>
             </Button>
         </StackPanel>
