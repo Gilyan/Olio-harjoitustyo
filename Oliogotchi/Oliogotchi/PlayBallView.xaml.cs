@@ -38,7 +38,7 @@ namespace Oliogotchi
 
             btnAgain.Visibility = System.Windows.Visibility.Hidden;     // Uudelleenpelausnappula piiloon toistaiseksi
         }
-        /*
+        
         private void ball_MouseDown(object sender, MouseButtonEventArgs e)
         {
             timer.Start();
@@ -61,7 +61,7 @@ namespace Oliogotchi
         {
             timer.Start();
             ball.ReleaseMouseCapture();
-        } */
+        } 
 
         private void timer_Tick(object sender, EventArgs e)
         {

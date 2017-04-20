@@ -9,6 +9,8 @@ Jos Olio voittaa -> arvoa "luku" nostetaan 20:llä.
 Jos Olio häviää -> arvoa "luku" lasketaan 5:llä.
 "luku" lisätään pääpelin arvoon Happiness joka kierroksen lopussa.
 
+Peliäänet: https://www.freesound.org/people/MadamVicious/sounds/238641/
+
 Luotu 3.4.2017
 
 Minttu Mäkäläinen K8517
@@ -59,6 +61,8 @@ namespace Oliogotchi
             btnBack.Visibility = System.Windows.Visibility.Hidden;
         }
 
+        private MediaPlayer mediaPlayer = new MediaPlayer();    // Äänisoitin
+
         class Computer
         {
             Random rand = new Random();
@@ -88,12 +92,20 @@ namespace Oliogotchi
                         txt = "YOU WON! \n\nOlio chose " + comChoice.ToString() + ", Olio loses 5 happiness points.";
                         luku = -5;
                         Run(txt, luku);
+
+                        mediaPlayer.Open(new Uri(@"../../Resources/sound/noh.mp3", UriKind.Relative));
+                        mediaPlayer.Play();
+                        mediaPlayer.Position = TimeSpan.Zero;
                     }
                     else if (plaChoice == M.rock && comChoice == M.paper)
                     {
                         txt = "YOU LOST! \n\nOlio chose " + comChoice.ToString() + ", Olio gains 20 happiness points.";
                         luku = 20;
                         Run(txt, luku);
+
+                        mediaPlayer.Open(new Uri(@"../../Resources/sound/yay.mp3", UriKind.Relative));
+                        mediaPlayer.Play();
+                        mediaPlayer.Position = TimeSpan.Zero;
                     }
                     break;
                 case M.paper:       // Valittu vaihtoehto : paperi
@@ -102,12 +114,20 @@ namespace Oliogotchi
                         txt = "YOU WON! \n\nOlio chose " + comChoice.ToString() + ", Olio loses 5 happiness points.";
                         luku = -5;
                         Run(txt, luku);
+
+                        mediaPlayer.Open(new Uri(@"../../Resources/sound/noh.mp3", UriKind.Relative));
+                        mediaPlayer.Play();
+                        mediaPlayer.Position = TimeSpan.Zero;
                     }
                     else if (plaChoice == M.paper && comChoice == M.scissor)
                     {
                         txt = "YOU LOST! \n\nOlio chose " + comChoice.ToString() + ", Olio gains 20 happiness points.";
                         luku = 20;
                         Run(txt, luku);
+
+                        mediaPlayer.Open(new Uri(@"../../Resources/sound/yay.mp3", UriKind.Relative));
+                        mediaPlayer.Play();
+                        mediaPlayer.Position = TimeSpan.Zero;
                     }
                     break;
                 case M.scissor:     // Valittu vaihtoehto : sakset
@@ -116,12 +136,20 @@ namespace Oliogotchi
                         txt = "YOU WON! \n\nOlio chose " + comChoice.ToString() + ", Olio loses 5 happiness points.";
                         luku = -5;
                         Run(txt, luku);
+
+                        mediaPlayer.Open(new Uri(@"../../Resources/sound/noh.mp3", UriKind.Relative));
+                        mediaPlayer.Play();
+                        mediaPlayer.Position = TimeSpan.Zero;
                     }
                     else if (plaChoice == M.scissor && comChoice == M.rock)
                     {
                         txt = "YOU LOST! \n\nOlio chose " + comChoice.ToString() + ", Olio gains 20 happiness points.";
                         luku = 20;
                         Run(txt, luku);
+
+                        mediaPlayer.Open(new Uri(@"../../Resources/sound/yay.mp3", UriKind.Relative));
+                        mediaPlayer.Play();
+                        mediaPlayer.Position = TimeSpan.Zero;
                     }
                     break;
                 default:

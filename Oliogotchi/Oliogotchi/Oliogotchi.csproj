@@ -257,6 +257,8 @@
     <Resource Include="Resources\placeholderslime2.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\sound\noh.mp3" />
+    <Content Include="Resources\sound\yay.mp3" />
     <Resource Include="Resources\instruction.png" />
     <Content Include="Resources\sound\munch.mp3" />
     <Content Include="Resources\sound\purr.mp3" />
