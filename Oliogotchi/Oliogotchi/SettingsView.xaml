@@ -25,12 +25,29 @@
             <ImageBrush ImageSource="Resources/stars.png" Opacity="0.5" />
         </Grid.Background>
         <StackPanel Orientation="Vertical">
-            <TextBlock x:Name="txbTitle" TextWrapping="Wrap" Text="Asetukset" Width="250" Height="40" FontFamily="Perpetua Titling MT" FontSize="40" HorizontalAlignment="Left" Margin="30,30,0,0" />
-            <Button x:Name="btnDeletePet" Style="{StaticResource Nappula}" Width="180" Height="50" HorizontalAlignment="Left" Margin="40,30,0,0"  BorderThickness="0" >
-                <Button.Background>
-                    <ImageBrush ImageSource="Resources/drop.png" Stretch="Uniform"/>
-                </Button.Background>
-            </Button>
+            <TextBlock x:Name="txbTitle" TextWrapping="Wrap" Text="How to play?" Width="350" Height="40" FontFamily="Perpetua Titling MT" FontSize="40" HorizontalAlignment="Left" Margin="30,30,0,0" />
+            <StackPanel Orientation="Vertical" Height="360">
+                <TextBlock x:Name="txbOhjeet" TextWrapping="Wrap" Width="700" Height="60" FontFamily="Perpetua Titling MT" FontSize="16" Margin="50,40,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,0"> 
+                    <Image x:Name="pet" Source="Resources/pet.png" Width="50" Margin="50,0,0,0" HorizontalAlignment="Left"/>
+                    <TextBlock x:Name="txbPet" Text="With brush you can pet the Oliogotchi, it will be happier" TextWrapping="Wrap" Width="600" Height="20" FontFamily="Perpetua Titling MT" FontSize="16" Margin="50,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                    <Image x:Name="wash" Source="Resources/wash.png" Width="50" Margin="50,0,0,0" HorizontalAlignment="Left"/>
+                    <TextBlock x:Name="txbWash" Text="With bucket you can wash the Oliogotchi, it will be cleaner" TextWrapping="Wrap" Width="600" Height="20" FontFamily="Perpetua Titling MT" FontSize="16" Margin="50,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                    <Image x:Name="evo" Source="Resources/evo.png" Width="50" Margin="50,0,0,0" HorizontalAlignment="Left"/>
+                    <TextBlock x:Name="txbEvolve" Text="In time you can evolve your Oliogotchi to something different" TextWrapping="Wrap" Width="600" Height="20" FontFamily="Perpetua Titling MT" FontSize="16" Margin="50,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                    <StackPanel Orientation="Horizontal">
+                        <Image x:Name="meat" Source="Resources/meat.png" Width="50" Margin="20,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        <Image x:Name="veggie" Source="Resources/veggie.png" Width="50" Margin="10,0,0,0" HorizontalAlignment="Left"/>
+                    </StackPanel>
+                    <TextBlock x:Name="txbMinigames" Text="You can feed the Oliogotchi with meat or vegetable" TextWrapping="Wrap" Width="600" Height="20" FontFamily="Perpetua Titling MT" FontSize="16" Margin="50,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                </StackPanel>
+            </StackPanel>
             <Button x:Name="btnMainMenu" Style="{StaticResource Nappula}" Width="180" Height="50" HorizontalAlignment="Left" Margin="40,30,0,0" Click="btnMainMenu_Click" BorderThickness="0" >
                 <Button.Background>
                     <ImageBrush ImageSource="Resources/main.png" Stretch="Uniform"/>

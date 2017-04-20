@@ -35,7 +35,6 @@ using System.Windows.Threading;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
-using Microsoft.Win32;      // Äänelle
 
 namespace Oliogotchi
 {
@@ -235,16 +234,16 @@ namespace Oliogotchi
             this.Close();
         }
 
-        //private void btnSettings_Click(object sender, RoutedEventArgs e)    // Asetuksiin siirtyminen
-        //{
-        //    Tallenna();
-        //    timer.Stop();
-        //    double x = this.Left;
-        //    double y = this.Top;
-        //    SettingsView settings = new SettingsView(x, y);
-        //    settings.Show();
-        //    this.Close();
-        //}
+        private void btnOhjeet_Click(object sender, RoutedEventArgs e)    // Asetuksiin siirtyminen
+        {
+            Tallenna();
+            timer.Stop();
+            double x = this.Left;
+            double y = this.Top;
+            SettingsView settings = new SettingsView(x, y);
+            settings.Show();
+            this.Close();
+        }
 
         private void btnGiveVeggie_Click(object sender, RoutedEventArgs e)  // Ruokitaan oliolle kasviksia
         {

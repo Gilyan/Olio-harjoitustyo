@@ -73,7 +73,7 @@ namespace Oliogotchi
             Application.Current.Shutdown();
         }
 
-        private void btnAsetukset_Click(object sender, RoutedEventArgs e)
+        private void btnOhjeet_Click(object sender, RoutedEventArgs e)
         {
             double x = this.Left;
             double y = this.Top;

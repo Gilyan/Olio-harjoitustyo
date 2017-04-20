@@ -1,9 +1,7 @@
 ﻿/* **********************************************************
-Oliogotchin asetussivu.
+Oliogotchin ohjesivu.
 
-Toiminta: Asetuksien kautta voi 
-- poistaa olion
-
+Toiminta: Täällä on ohjeet pelille.
 Main Menu -napista pääsee takaisin päävalikkoon.
 
 Luotu 27.3.2017
@@ -45,6 +43,11 @@ namespace Oliogotchi
             InitializeComponent();
             this.Left = x;
             this.Top = y;
+
+            txbOhjeet.Text = ("Main goal of this game is to take care of your Oliogotchi." +
+                "\r\nIf you care for your critter well enough, " +
+                "\r\nyou can evolve it to something amazing.");
+
         }
 
         private void btnMainMenu_Click(object sender, RoutedEventArgs e)
