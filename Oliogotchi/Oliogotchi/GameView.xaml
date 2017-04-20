@@ -79,11 +79,11 @@
                             <ImageBrush ImageSource="Resources/evo.png" Stretch="Uniform"/>
                         </Button.Background>
                     </Button>
-                    <!-- <Button x:Name="btnSettings" Style="{StaticResource Nappula}" Margin="0,55,0,10" Width="150" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center" BorderThickness="0" Click="btnSettings_Click">
-                    <Button.Background>
-                        <ImageBrush ImageSource="Resources/settings.png" Stretch="Uniform"/>
-                    </Button.Background>
-                </Button> -->
+                    <Button x:Name="btnOhjeet" Style="{StaticResource Nappula}" Margin="0,55,0,10" Width="150" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center" BorderThickness="0" Click="btnOhjeet_Click">
+                        <Button.Background>
+                            <ImageBrush ImageSource="Resources/instructions.png" Stretch="Uniform"/>
+                        </Button.Background>
+                    </Button>
                 </StackPanel>
                 <StackPanel Width="395" VerticalAlignment="Bottom">
                     <!-- Olion kuvan paikka -->
