@@ -61,7 +61,7 @@ namespace Oliogotchi
         {
             kumpiPeli = false;
             btnGoPlay.Visibility = System.Windows.Visibility.Visible;       // Pelin aloittava nappi näkyville
-            txbGameInfo.Text = "Tänne pallon heitto -pelin ohjeet";
+            txbGameInfo.Text = "Catch the ball by moving left or right with the arrow keys on your keyboard! \n\n- If you catch the ball, Olio gains 20 happiness points. \n- If you miss the ball, Olio loses 5 points from hunger and happiness.";
         }
 
         private void btnGoPlay_Click(object sender, RoutedEventArgs e)

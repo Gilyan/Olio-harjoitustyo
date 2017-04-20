@@ -26,6 +26,8 @@ namespace Oliogotchi
         Random rnd = new Random();
         bool keyPressed = true;
 
+        private MediaPlayer mediaPlayer = new MediaPlayer();    // Äänisoitin
+
         public PlayBallView(double x, double y)     // Ylikuormitetaan, että saadaan ikkunan paikka oikein
         {
             InitializeComponent();
@@ -183,6 +185,10 @@ namespace Oliogotchi
                 timer.Stop();
                 btnAgain.Visibility = Visibility.Visible;
                 ball.Visibility = Visibility.Hidden;
+
+                mediaPlayer.Open(new Uri(@"../../Resources/sound/hihi.mp3", UriKind.Relative));
+                mediaPlayer.Play();
+                mediaPlayer.Position = TimeSpan.Zero;
             }
         }
         private void btnAgain_Click(object sender, RoutedEventArgs e)       // Pelataan uudestaan!
