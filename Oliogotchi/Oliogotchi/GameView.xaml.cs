@@ -67,7 +67,8 @@ namespace Oliogotchi
         private bool isNewGame;
         private bool gameIsPlayed = false;
         private bool isMeat;
-        private bool showEvolve;
+
+        public string motivatingComment;
 
         Creature olio;
         Habitat tausta;
