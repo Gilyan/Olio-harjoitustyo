@@ -35,6 +35,7 @@ using System.Windows.Threading;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Windows.Media.Animation;
 
 namespace Oliogotchi
 {
@@ -42,8 +43,7 @@ namespace Oliogotchi
     class Testi
     {
         static bool btnBackWasClicked = false;
-        static int gamePoints;
-        static int hungerPoints;
+        static int stonePoints;
         public static bool WasClicked
         {
             get { return btnBackWasClicked; }
@@ -51,13 +51,8 @@ namespace Oliogotchi
         }
         public static int GetPoints
         {
-            get { return gamePoints; }
-            set { gamePoints = value; }
-        }
-        public static int GetHunger
-        {
-            get { return hungerPoints; }
-            set { hungerPoints = value; }
+            get { return stonePoints; }
+            set { stonePoints = value; }
         }
     }
     /// <summary>
@@ -72,12 +67,14 @@ namespace Oliogotchi
         private bool isNewGame;
         private bool gameIsPlayed = false;
         private bool isMeat;
+        private bool showEvolve;
 
         Creature olio;
         Habitat tausta;
+        Storyboard sb;
 
         string myDocPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-        IFormatter formatter = new BinaryFormatter();           // Käytetään binäärimuotoa
+        IFormatter formatter = new BinaryFormatter();           // Käytetään binäärimuotoa tallennuksessa
 
         private MediaPlayer mediaPlayer = new MediaPlayer();    // Äänisoitin
 
@@ -119,6 +116,8 @@ namespace Oliogotchi
                     lueTiedostosta = new FileStream(myDocPath + @"tausta.bin", FileMode.Open, FileAccess.Read, FileShare.None);
                     tausta = (Habitat)formatter.Deserialize(lueTiedostosta);
                     lueTiedostosta.Close();
+
+                    Animation();
                 }
                 catch (Exception ex)    // Jos tallennustiedostoa ei löydy, luodaan uusi peli alkuarvoilla
                 {
@@ -157,6 +156,7 @@ namespace Oliogotchi
         {
             olio = new Creature();
             olio.FillDefault();
+            Animation();
 
             prbHappiness.DataContext = olio.Happiness;
             prbHunger.DataContext = olio.Hunger;
@@ -199,6 +199,8 @@ namespace Oliogotchi
             olio.GetHungry();
             olio.Age++;
 
+
+
             // Viedään arvot progress bareihin sekä footeriin
             prbHappiness.Dispatcher.Invoke(() => prbHappiness.Value = olio.Happiness, DispatcherPriority.Background);
             prbCleanliness.Dispatcher.Invoke(() => prbCleanliness.Value = olio.Cleanliness, DispatcherPriority.Background);
@@ -206,13 +208,28 @@ namespace Oliogotchi
             txbFooter.Text = "olion ikä: " + olio.Age + ", onnellisuus: " + olio.Happiness + ", nälkä: " + olio.Hunger + ", puhtaus: " + olio.Cleanliness
                              + ", ympäristön puhtaus: " + tausta.Cleanliness + ", roskien määrä: " + tausta.Trash;
         }
-        public void GetGamePoints() // Syöttää oliolle pisteet jos btnBackia on painettu PlayStoneViewissä
+
+        public void Animation()     // Täällä olion liikkuminen
+        {
+            try
+            {
+                sb = this.FindResource(olio.Ani) as Storyboard;     // Luo Storyboradin, jossa on animaatio
+                Storyboard.SetTarget(sb, this.imgOlio);
+                sb.Begin();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Animaatiota ei voitu ladata syystä: " + ex);
+            }
+        }
+
+
+        public void GetStonePoints() // Syöttää oliolle pisteet jos btnBackia on painettu PlayStoneViewissä
         {
             if (Testi.WasClicked)
             {
                 Testi.WasClicked = false;
-                olio.GamePoints(Testi.GetPoints);
-                olio.HungerPoints(Testi.GetHunger);
+                olio.StonePoints(Testi.GetPoints);
             }
         }
         public void timer_Tick(object sender, EventArgs e) // Timer, missä tapahtuu olion "eläminen". Olio elää kunnes jokin arvo = 0
@@ -223,7 +240,7 @@ namespace Oliogotchi
                 HabitatLiving();
                 if (gameIsPlayed)   // Jos minipeliä on pelattu, käydään suorittamassa aliohjelman toiminnot
                 {
-                    GetGamePoints();
+                    GetStonePoints();
                     gameIsPlayed = false;       // Alustaa tiedon, onko peliä pelattu
                 }
             }
@@ -239,6 +256,23 @@ namespace Oliogotchi
             MainWindow menu = new MainWindow(x, y);
             menu.Show();
             this.Close();
+        }
+
+        private void btnEvolve_Click(object sender, RoutedEventArgs e)      // Evolvoituminen
+        {     
+            try
+            {
+                sb.Stop();      // Vanha Storyboard pysäytetään ennen poistamista
+                olio.Evolve();
+
+                Storyboard evo = this.FindResource(olio.Ani) as Storyboard; // Korvataan vanha Storyboard uudella
+                Storyboard.SetTarget(evo, this.imgOlio);
+                evo.Begin();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Evolvoituminen ei toiminut syystä: " + ex);
+            }
         }
 
         private void btnOhjeet_Click(object sender, RoutedEventArgs e)    // Asetuksiin siirtyminen
@@ -274,7 +308,7 @@ namespace Oliogotchi
 
                 mediaPlayer.Open(new Uri(@"../../Resources/sound/munch.mp3", UriKind.Relative));
                 mediaPlayer.Play();
-                mediaPlayer.Position = TimeSpan.Zero;   // Kelataan alkuun
+                mediaPlayer.Position = TimeSpan.Zero;
             }
             prbHunger.Dispatcher.Invoke(() => prbHunger.Value = olio.Hunger, DispatcherPriority.Background);
         }
