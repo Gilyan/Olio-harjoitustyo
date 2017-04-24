@@ -46,6 +46,7 @@ namespace Oliogotchi
     /// </summary>
     public partial class PlayStoneView : Window
     {
+        //property pisteille
         public int points = 0;
         public int Pisteet {
                     get { return points; }
@@ -84,7 +85,7 @@ namespace Oliogotchi
                 luku = 0;
                 Run(txt, luku);
             }
-            switch (plaChoice)
+            switch (plaChoice) //Tarkistus switchissä onko voitto vai häviö ja vie Run() metodiin pisteet ja tekstin
             {
                 case M.rock:        // Valittu vaihtoehto : kivi
                     if (plaChoice == M.rock && comChoice == M.scissor)
@@ -162,8 +163,9 @@ namespace Oliogotchi
             txbGameInfo.Text = teksti; //textboxiin saatu teksti voitto, häviö vai tasapeli
             btnAgain.Visibility = System.Windows.Visibility.Visible;    // Valikkonapit aktiiviseksi (Again, Back)
             btnBack.Visibility = System.Windows.Visibility.Visible;
-            txbFooter.Text = "Happiness: " + points.ToString();
+            txbFooter.Text = "Happiness: " + points.ToString(); //footterin pistelaskuri
         }
+        //Buttonien tapahtumienkäsittelijät
         private void btnRock_Click(object sender, RoutedEventArgs e)
         {
             btnPaper.Visibility = System.Windows.Visibility.Hidden;     // Piilotetaan ei-valitut vaihtoehdot
