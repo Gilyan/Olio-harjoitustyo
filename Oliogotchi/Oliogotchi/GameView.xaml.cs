@@ -43,12 +43,18 @@ namespace Oliogotchi
     class Testi
     {
         static bool btnBackWasClicked = false;
+        static bool whichGame = true;
         static int gamePoints;
         static int hungerPoints;
         public static bool WasClicked
         {
             get { return btnBackWasClicked; }
             set { btnBackWasClicked = value; }
+        }
+        public static bool WasGame
+        {
+            get { return whichGame; }
+            set { whichGame = value; }
         }
         public static int GetPoints
         {
@@ -285,7 +291,10 @@ namespace Oliogotchi
             {
                 Testi.WasClicked = false;
                 olio.GamePoints(Testi.GetPoints);
-                olio.HungerPoints(Testi.GetHunger);
+                if (!Testi.WasGame)
+                {
+                    olio.HungerPoints(Testi.GetHunger); 
+                }
             }
         }
         public void timer_Tick(object sender, EventArgs e) // Timer, missä tapahtuu olion "eläminen". Olio elää kunnes jokin arvo = 0
