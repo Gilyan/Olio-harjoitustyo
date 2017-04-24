@@ -28,8 +28,7 @@
         <Canvas HorizontalAlignment="Stretch"
             VerticalAlignment="Stretch" x:Name="ImageHolder" Margin="0,0,0,20" >
             <Image Source="Resources/placeholderslime2.png" Canvas.Left="412" Canvas.Top="431" Height="110" Width="120" x:Name="slime" KeyDown="slime_KeyDown"/>
-            <Image MouseMove="ball_MouseMove"
-              MouseDown="ball_MouseDown" MouseUp="ball_MouseUp" Panel.ZIndex="0"
+            <Image Panel.ZIndex="0"
                Cursor="Hand" Canvas.Top="141" Height="50" Width="50" Source="Resources/bounce.png"
                x:Name="ball" Canvas.Left="392"/>
         </Canvas>
