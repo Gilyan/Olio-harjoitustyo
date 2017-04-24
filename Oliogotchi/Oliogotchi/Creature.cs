@@ -72,19 +72,30 @@ namespace Oliogotchi
         {
             happiness += 1;
         }
-        public void StonePoints(int stonePoints)
+        public void GamePoints(int gamePoints)
         {
-            if (happiness + stonePoints > 0 && happiness + stonePoints < 100)
+            if (happiness + gamePoints > 0 && happiness + gamePoints < 100)
             {
-                happiness += stonePoints;
+                happiness += gamePoints;
             }
-            else if (happiness + stonePoints >= 100)
+            else if (happiness + gamePoints >= 100)
             {
                 happiness = 100;
             }
             else
             {
                 happiness = 0;
+            }
+        }
+        public void HungerPoints(int hungerPoints)
+        {
+            if (hunger + hungerPoints > 0 && hunger + hungerPoints < 100)
+            {
+                hunger += hungerPoints;
+            }
+            else
+            {
+                hunger = 0;
             }
         }
 
