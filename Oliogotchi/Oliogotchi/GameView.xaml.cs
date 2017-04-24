@@ -268,15 +268,20 @@ namespace Oliogotchi
 
             else if (olio.Hunger > 45 && olio.Happiness > 45 && olio.Cleanliness > 45)
             {
-                txbFooter.Text = "You could do better than this. Your creature's not gonna evolve if you keep this pace up.";
+                txbFooter.Text = "Looks like your creature is hungry. Maybe you should give her a carrot or a piece of meat?";
             }
 
             else if (olio.Hunger > 30 && olio.Happiness > 30 && olio.Cleanliness > 30)
             {
-                txbFooter.Text = "Wake up, sleepy-eyes! Your pet needs your care!";
+                txbFooter.Text = "You could do better than this. Your creature's not gonna evolve if you keep this pace up.";
             }
 
             else if (olio.Hunger > 15 && olio.Happiness > 15 && olio.Cleanliness > 15)
+            {
+                txbFooter.Text = "Wake up, sleepy-eyes! Your pet needs your care!";
+            }
+
+            else if (olio.Hunger > 0 && olio.Happiness > 0 && olio.Cleanliness > 0)
             {
                 txbFooter.Text = "WHAT'S THE MATTER WITH YOU?! YOUR CREATURE'S GONNA DIE SOON!";
             }
