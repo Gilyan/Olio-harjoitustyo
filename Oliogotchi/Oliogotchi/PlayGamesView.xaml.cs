@@ -37,11 +37,7 @@ namespace Oliogotchi
     /// </summary>
     public partial class PlayGamesView : Window
     {
-        //public PlayGamesView()
-        //{
-        //    InitializeComponent();
-        //}
-        bool kumpiPeli = true;
+        public bool kumpiPeli = true;
         public PlayGamesView(double x, double y)     // Ylikuormitetaan, että saadaan ikkunan paikka oikein
         {
             InitializeComponent();
@@ -53,6 +49,7 @@ namespace Oliogotchi
         private void btnPlayStone_Click(object sender, RoutedEventArgs e)
         {
             kumpiPeli = true;
+            Testi.WasGame = kumpiPeli;
             btnGoPlay.Visibility = System.Windows.Visibility.Visible;       // Pelin aloittava nappi näkyville
             txbGameInfo.Text = "Choose rock, paper or scissors. Rules are as always:\n- Rock beats scissors \n- Scissors beats paper \n- Paper beats rock \n\nIf you win, Olio loses 5 happiness points. \nIf Olio wins, Olio gains 20 happiness points.";
         }
@@ -60,6 +57,7 @@ namespace Oliogotchi
         private void btnPlayBall_Click(object sender, RoutedEventArgs e)
         {
             kumpiPeli = false;
+            Testi.WasGame = kumpiPeli;
             btnGoPlay.Visibility = System.Windows.Visibility.Visible;       // Pelin aloittava nappi näkyville
             txbGameInfo.Text = "Catch the ball by moving left or right with the arrow keys on your keyboard! \n\n- If you catch the ball, Olio gains 20 happiness points. \n- If you miss the ball, Olio loses 5 points from hunger and happiness.";
         }
