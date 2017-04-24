@@ -219,10 +219,7 @@
     <Resource Include="Resources\omni\3.png" />
     <Resource Include="Resources\omni\4.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\meat\" />
-    <Folder Include="Resources\vege\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Resources\rock.png" />
   </ItemGroup>
@@ -257,6 +254,32 @@
     <Resource Include="Resources\placeholderslime2.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\vege\1.png" />
+    <Resource Include="Resources\vege\10.png" />
+    <Resource Include="Resources\vege\2.png" />
+    <Resource Include="Resources\vege\3.png" />
+    <Resource Include="Resources\vege\4.png" />
+    <Resource Include="Resources\vege\5.png" />
+    <Resource Include="Resources\vege\6.png" />
+    <Resource Include="Resources\vege\7.png" />
+    <Resource Include="Resources\vege\8.png" />
+    <Resource Include="Resources\vege\9.png" />
+    <Resource Include="Resources\meat\1.png" />
+    <Resource Include="Resources\meat\10.png" />
+    <Resource Include="Resources\meat\2.png" />
+    <Resource Include="Resources\meat\3.png" />
+    <Resource Include="Resources\meat\4.png" />
+    <Resource Include="Resources\meat\5.png" />
+    <Resource Include="Resources\meat\6.png" />
+    <Resource Include="Resources\meat\7.png" />
+    <Resource Include="Resources\meat\8.png" />
+    <Resource Include="Resources\meat\9.png" />
+    <Resource Include="Resources\omni\10.png" />
+    <Resource Include="Resources\omni\5.png" />
+    <Resource Include="Resources\omni\6.png" />
+    <Resource Include="Resources\omni\7.png" />
+    <Resource Include="Resources\omni\8.png" />
+    <Resource Include="Resources\omni\9.png" />
     <Content Include="Resources\sound\hihi.mp3" />
     <Content Include="Resources\sound\noh.mp3" />
     <Content Include="Resources\sound\yay.mp3" />

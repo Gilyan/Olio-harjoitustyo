@@ -35,6 +35,7 @@ using System.Windows.Threading;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Windows.Media.Animation;
 
 namespace Oliogotchi
 {
@@ -69,6 +70,7 @@ namespace Oliogotchi
 
         Creature olio;
         Habitat tausta;
+        Storyboard sb;
 
         string myDocPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
         IFormatter formatter = new BinaryFormatter();           // Käytetään binäärimuotoa
@@ -151,6 +153,7 @@ namespace Oliogotchi
         {
             olio = new Creature();
             olio.FillDefault();
+            Animation();
 
             prbHappiness.DataContext = olio.Happiness;
             prbHunger.DataContext = olio.Hunger;
@@ -200,6 +203,23 @@ namespace Oliogotchi
             txbFooter.Text = "olion ikä: " + olio.Age + ", onnellisuus: " + olio.Happiness + ", nälkä: " + olio.Hunger + ", puhtaus: " + olio.Cleanliness
                              + ", ympäristön puhtaus: " + tausta.Cleanliness + ", roskien määrä: " + tausta.Trash;
         }
+
+        public void Animation()
+        {
+            try
+            {
+                sb = this.FindResource(olio.Ani) as Storyboard;
+                Storyboard.SetTarget(sb, this.imgOlio);
+                sb.Begin();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+
         public void GetStonePoints() // Syöttää oliolle pisteet jos btnBackia on painettu PlayStoneViewissä
         {
             if (Testi.WasClicked)
@@ -232,6 +252,25 @@ namespace Oliogotchi
             MainWindow menu = new MainWindow(x, y);
             menu.Show();
             this.Close();
+        }
+
+        private void btnEvolve_Click(object sender, RoutedEventArgs e)
+        {
+            // evolvoituminen
+            try
+            {
+                sb.Stop();
+                olio.Evolve();
+
+                Storyboard evo = this.FindResource(olio.Ani) as Storyboard;
+                Storyboard.SetTarget(evo, this.imgOlio);
+                evo.Begin();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
 
         private void btnOhjeet_Click(object sender, RoutedEventArgs e)    // Asetuksiin siirtyminen

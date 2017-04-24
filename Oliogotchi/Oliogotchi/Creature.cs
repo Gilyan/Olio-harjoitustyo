@@ -28,12 +28,13 @@ namespace Oliogotchi
         private int hunger;
         private int happiness;
         private int cleanliness;
-        
+
+        public string Ani; // polku kuviin
+
         // Käytetään kapselointia, jotta olion arvot pysyvät olion sisällä
-        public int Age { get; set; }
+        public int Age { get; set; }        
         public int Hunger { get { return hunger; } set {; } }
         public int Happiness { get { return happiness; } set {; } }
-        public string Image { get; set; } 
         public int Cleanliness { get { return cleanliness; } set {; } }
 
         public void FillDefault()        // Luo uuden lemmikkiolion
@@ -45,7 +46,7 @@ namespace Oliogotchi
             happiness = 50;
 
             Age = 0;
-            Image = "Resources/slime/sheet.png";
+            Ani = "slimeAni";
         }
 
         public void GetDirty()
@@ -106,13 +107,13 @@ namespace Oliogotchi
         public void Evolve()
         {
             if (vegeCounter * 1.5 > vegeCounter + meatCounter)
-            { Image = "Resources/vege/sheet.png"; }
+            { Ani = "vegeAni"; }
 
             else if (meatCounter * 1.5 > vegeCounter + meatCounter)
-            { Image = "Resources/meat/sheet.png"; }
+            { Ani = "meatAni"; }
 
             else
-            { Image = "Resources/omni/sheet.png"; }
+            { Ani = "omniAni"; }
         }
     }
 }

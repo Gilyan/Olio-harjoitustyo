@@ -19,13 +19,213 @@
                 </Setter.Value>
             </Setter>
         </Style>
+
+            <!-- Liman animaatio -->
+            <Storyboard x:Key="slimeAni" RepeatBehavior="Forever">
+                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Source"
+                                                   Duration="0:0:0.5">
+                    <DiscreteObjectKeyFrame KeyTime="0:0:0.0">
+                        <DiscreteObjectKeyFrame.Value>
+                            <BitmapImage UriSource="Resources/slime/1.png"/>
+                        </DiscreteObjectKeyFrame.Value>
+                    </DiscreteObjectKeyFrame>
+                    <DiscreteObjectKeyFrame KeyTime="0:0:0.2">
+                        <DiscreteObjectKeyFrame.Value>
+                            <BitmapImage UriSource="Resources/slime/2.png"/>
+                        </DiscreteObjectKeyFrame.Value>
+                    </DiscreteObjectKeyFrame>
+                    <DiscreteObjectKeyFrame KeyTime="0:0:0.3">
+                        <DiscreteObjectKeyFrame.Value>
+                            <BitmapImage UriSource="Resources/slime/3.png"/>
+                        </DiscreteObjectKeyFrame.Value>
+                    </DiscreteObjectKeyFrame>
+                    <DiscreteObjectKeyFrame KeyTime="0:0:0.4">
+                        <DiscreteObjectKeyFrame.Value>
+                            <BitmapImage UriSource="Resources/slime/2.png"/>
+                        </DiscreteObjectKeyFrame.Value>
+                    </DiscreteObjectKeyFrame>
+                </ObjectAnimationUsingKeyFrames>
+            </Storyboard>
+
+            <!-- lihansyöjän animaatio -->
+            <Storyboard x:Key="meatAni" RepeatBehavior="Forever">
+                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Source"
+                                                   Duration="0:0:1">
+                    <DiscreteObjectKeyFrame KeyTime="0:0:0.0">
+                        <DiscreteObjectKeyFrame.Value>
+                            <BitmapImage UriSource="Resources/meat/1.png"/>
+                        </DiscreteObjectKeyFrame.Value>
+                    </DiscreteObjectKeyFrame>
+                    <DiscreteObjectKeyFrame KeyTime="0:0:0.2">
+                        <DiscreteObjectKeyFrame.Value>
+                            <BitmapImage UriSource="Resources/meat/2.png"/>
+                        </DiscreteObjectKeyFrame.Value>
+                    </DiscreteObjectKeyFrame>
+                    <DiscreteObjectKeyFrame KeyTime="0:0:0.3">
+                        <DiscreteObjectKeyFrame.Value>
+                            <BitmapImage UriSource="Resources/meat/3.png"/>
+                        </DiscreteObjectKeyFrame.Value>
+                    </DiscreteObjectKeyFrame>
+                    <DiscreteObjectKeyFrame KeyTime="0:0:0.4">
+                        <DiscreteObjectKeyFrame.Value>
+                            <BitmapImage UriSource="Resources/meat/4.png"/>
+                        </DiscreteObjectKeyFrame.Value>
+                    </DiscreteObjectKeyFrame>
+                    <DiscreteObjectKeyFrame KeyTime="0:0:0.5">
+                        <DiscreteObjectKeyFrame.Value>
+                            <BitmapImage UriSource="Resources/meat/5.png"/>
+                        </DiscreteObjectKeyFrame.Value>
+                    </DiscreteObjectKeyFrame>
+                    <DiscreteObjectKeyFrame KeyTime="0:0:0.55">
+                        <DiscreteObjectKeyFrame.Value>
+                            <BitmapImage UriSource="Resources/meat/6.png"/>
+                        </DiscreteObjectKeyFrame.Value>
+                    </DiscreteObjectKeyFrame>
+                    <DiscreteObjectKeyFrame KeyTime="0:0:0.6">
+                        <DiscreteObjectKeyFrame.Value>
+                            <BitmapImage UriSource="Resources/meat/7.png"/>
+                        </DiscreteObjectKeyFrame.Value>
+                    </DiscreteObjectKeyFrame>
+                    <DiscreteObjectKeyFrame KeyTime="0:0:0.65">
+                        <DiscreteObjectKeyFrame.Value>
+                            <BitmapImage UriSource="Resources/meat/8.png"/>
+                        </DiscreteObjectKeyFrame.Value>
+                    </DiscreteObjectKeyFrame>
+                    <DiscreteObjectKeyFrame KeyTime="0:0:0.7">
+                        <DiscreteObjectKeyFrame.Value>
+                            <BitmapImage UriSource="Resources/meat/9.png"/>
+                        </DiscreteObjectKeyFrame.Value>
+                    </DiscreteObjectKeyFrame>
+                    <DiscreteObjectKeyFrame KeyTime="0:0:0.8">
+                        <DiscreteObjectKeyFrame.Value>
+                            <BitmapImage UriSource="Resources/meat/10.png"/>
+                        </DiscreteObjectKeyFrame.Value>
+                    </DiscreteObjectKeyFrame>
+                </ObjectAnimationUsingKeyFrames>
+            </Storyboard>
+
+            <!-- kasvinsyöjän animaatio -->
+            <Storyboard x:Key="vegeAni" RepeatBehavior="Forever">
+                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Source"
+                                                   Duration="0:0:1.5">
+                    <DiscreteObjectKeyFrame KeyTime="0:0:0.0">
+                        <DiscreteObjectKeyFrame.Value>
+                            <BitmapImage UriSource="Resources/vege/1.png"/>
+                        </DiscreteObjectKeyFrame.Value>
+                    </DiscreteObjectKeyFrame>
+                    <DiscreteObjectKeyFrame KeyTime="0:0:0.2">
+                        <DiscreteObjectKeyFrame.Value>
+                            <BitmapImage UriSource="Resources/vege/2.png"/>
+                        </DiscreteObjectKeyFrame.Value>
+                    </DiscreteObjectKeyFrame>
+                    <DiscreteObjectKeyFrame KeyTime="0:0:0.3">
+                        <DiscreteObjectKeyFrame.Value>
+                            <BitmapImage UriSource="Resources/vege/3.png"/>
+                        </DiscreteObjectKeyFrame.Value>
+                    </DiscreteObjectKeyFrame>
+                    <DiscreteObjectKeyFrame KeyTime="0:0:0.35">
+                        <DiscreteObjectKeyFrame.Value>
+                            <BitmapImage UriSource="Resources/vege/4.png"/>
+                        </DiscreteObjectKeyFrame.Value>
+                    </DiscreteObjectKeyFrame>
+                    <DiscreteObjectKeyFrame KeyTime="0:0:0.4">
+                        <DiscreteObjectKeyFrame.Value>
+                            <BitmapImage UriSource="Resources/vege/5.png"/>
+                        </DiscreteObjectKeyFrame.Value>
+                    </DiscreteObjectKeyFrame>
+                    <DiscreteObjectKeyFrame KeyTime="0:0:0.45">
+                        <DiscreteObjectKeyFrame.Value>
+                            <BitmapImage UriSource="Resources/vege/6.png"/>
+                        </DiscreteObjectKeyFrame.Value>
+                    </DiscreteObjectKeyFrame>
+                    <DiscreteObjectKeyFrame KeyTime="0:0:0.5">
+                        <DiscreteObjectKeyFrame.Value>
+                            <BitmapImage UriSource="Resources/vege/7.png"/>
+                        </DiscreteObjectKeyFrame.Value>
+                    </DiscreteObjectKeyFrame>
+                    <DiscreteObjectKeyFrame KeyTime="0:0:0.6">
+                        <DiscreteObjectKeyFrame.Value>
+                            <BitmapImage UriSource="Resources/vege/8.png"/>
+                        </DiscreteObjectKeyFrame.Value>
+                    </DiscreteObjectKeyFrame>
+                    <DiscreteObjectKeyFrame KeyTime="0:0:0.7">
+                        <DiscreteObjectKeyFrame.Value>
+                            <BitmapImage UriSource="Resources/vege/9.png"/>
+                        </DiscreteObjectKeyFrame.Value>
+                    </DiscreteObjectKeyFrame>
+                    <DiscreteObjectKeyFrame KeyTime="0:0:1.4">
+                        <DiscreteObjectKeyFrame.Value>
+                            <BitmapImage UriSource="Resources/vege/10.png"/>
+                        </DiscreteObjectKeyFrame.Value>
+                    </DiscreteObjectKeyFrame>
+                </ObjectAnimationUsingKeyFrames>
+            </Storyboard>
+
+            <!-- sekasyöjän animaatio -->
+            <Storyboard x:Key="omniAni" RepeatBehavior="Forever">
+                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Source"
+                                                   Duration="0:0:1">
+                    <DiscreteObjectKeyFrame KeyTime="0:0:0.0">
+                        <DiscreteObjectKeyFrame.Value>
+                            <BitmapImage UriSource="Resources/meat/1.png"/>
+                        </DiscreteObjectKeyFrame.Value>
+                    </DiscreteObjectKeyFrame>
+                    <DiscreteObjectKeyFrame KeyTime="0:0:0.2">
+                        <DiscreteObjectKeyFrame.Value>
+                            <BitmapImage UriSource="Resources/meat/2.png"/>
+                        </DiscreteObjectKeyFrame.Value>
+                    </DiscreteObjectKeyFrame>
+                    <DiscreteObjectKeyFrame KeyTime="0:0:0.3">
+                        <DiscreteObjectKeyFrame.Value>
+                            <BitmapImage UriSource="Resources/meat/3.png"/>
+                        </DiscreteObjectKeyFrame.Value>
+                    </DiscreteObjectKeyFrame>
+                    <DiscreteObjectKeyFrame KeyTime="0:0:0.4">
+                        <DiscreteObjectKeyFrame.Value>
+                            <BitmapImage UriSource="Resources/meat/4.png"/>
+                        </DiscreteObjectKeyFrame.Value>
+                    </DiscreteObjectKeyFrame>
+                    <DiscreteObjectKeyFrame KeyTime="0:0:0.5">
+                        <DiscreteObjectKeyFrame.Value>
+                            <BitmapImage UriSource="Resources/meat/5.png"/>
+                        </DiscreteObjectKeyFrame.Value>
+                    </DiscreteObjectKeyFrame>
+                    <DiscreteObjectKeyFrame KeyTime="0:0:0.55">
+                        <DiscreteObjectKeyFrame.Value>
+                            <BitmapImage UriSource="Resources/meat/6.png"/>
+                        </DiscreteObjectKeyFrame.Value>
+                    </DiscreteObjectKeyFrame>
+                    <DiscreteObjectKeyFrame KeyTime="0:0:0.6">
+                        <DiscreteObjectKeyFrame.Value>
+                            <BitmapImage UriSource="Resources/meat/7.png"/>
+                        </DiscreteObjectKeyFrame.Value>
+                    </DiscreteObjectKeyFrame>
+                    <DiscreteObjectKeyFrame KeyTime="0:0:0.65">
+                        <DiscreteObjectKeyFrame.Value>
+                            <BitmapImage UriSource="Resources/meat/8.png"/>
+                        </DiscreteObjectKeyFrame.Value>
+                    </DiscreteObjectKeyFrame>
+                    <DiscreteObjectKeyFrame KeyTime="0:0:0.7">
+                        <DiscreteObjectKeyFrame.Value>
+                            <BitmapImage UriSource="Resources/meat/9.png"/>
+                        </DiscreteObjectKeyFrame.Value>
+                    </DiscreteObjectKeyFrame>
+                    <DiscreteObjectKeyFrame KeyTime="0:0:0.8">
+                        <DiscreteObjectKeyFrame.Value>
+                            <BitmapImage UriSource="Resources/meat/10.png"/>
+                        </DiscreteObjectKeyFrame.Value>
+                    </DiscreteObjectKeyFrame>
+                </ObjectAnimationUsingKeyFrames>
+            </Storyboard>
     </Window.Resources>
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="Resources/plain.png" Opacity="0.5" />
         </Grid.Background>
-        <Rectangle Name="imgOtus" Margin="100,120,250,50">
-            <!-- Animaatiojuttuja jotka toimii vähintään hämysti -->
+        <Image x:Name="imgOlio" Width="400" Height="400" Margin="186,148,206,22">
+        </Image>
+        <!--<Rectangle Name="imgOtus" Margin="100,120,250,50">
+            --><!-- Animaatiojuttuja jotka toimii vähintään hämysti --><!--
             <Rectangle.Fill>
                 <ImageBrush ImageSource="Resources/slime/sheet.png" AlignmentY="Top" ViewboxUnits="Absolute" Viewbox="200,30,400,400"/>
             </Rectangle.Fill>
@@ -47,7 +247,7 @@
                     </BeginStoryboard>
                 </EventTrigger>
             </Rectangle.Triggers>
-        </Rectangle>
+        </Rectangle>-->
         <StackPanel Orientation="Vertical">
             <StackPanel Height="40" Margin="0" Orientation="Horizontal">
                 <!-- Yläpalkin statusbarit -->
@@ -74,7 +274,7 @@
                             <ImageBrush ImageSource="Resources/pet.png" Stretch="Uniform"/>
                         </Button.Background>
                     </Button>
-                    <Button x:Name="btnEvolve" Style="{StaticResource Nappula}" Width="60" Height="70" HorizontalAlignment="Center" VerticalAlignment="Center" BorderThickness="0" Margin="0,55,0,0" >
+                    <Button x:Name="btnEvolve" Style="{StaticResource Nappula}" Width="60" Height="70" HorizontalAlignment="Center" VerticalAlignment="Center" BorderThickness="0" Margin="0,55,0,0" Click="btnEvolve_Click">
                         <Button.Background>
                             <ImageBrush ImageSource="Resources/evo.png" Stretch="Uniform"/>
                         </Button.Background>
@@ -87,7 +287,7 @@
                 </StackPanel>
                 <StackPanel Width="395" VerticalAlignment="Bottom">
                     <!-- Olion kuvan paikka -->
-                    <!-- <Image Source="Resources/placeholderslime.png" Height="150" Opacity="1" VerticalAlignment="Bottom" Margin="0,0,0,40" /> -->
+                    <!-- <Image Source="Resources/placeholderslime.png" Height="150" Opacity="1" VerticalAlignment="Bottom" Margin="0,0,0,40" /> -->                    
                 </StackPanel>
                 <StackPanel Width="200">
                     <!-- Oikean valikkopalkin kuvakkeet -->
