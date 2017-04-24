@@ -54,7 +54,7 @@
         <DockPanel VerticalAlignment="Bottom">
             <StatusBar>
                 <StatusBarItem Height="20">
-                    <TextBlock x:Name="txbFooter" Text="Valitse haluamasi peli." FontSize="12"/>
+                    <TextBlock x:Name="txbFooter" Text="Choose the game you wish to play." FontSize="12"/>
                 </StatusBarItem>
             </StatusBar>
         </DockPanel>

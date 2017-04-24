@@ -157,7 +157,7 @@ namespace Oliogotchi
         public void Die()   // Lemmikki kuolee, footeriin infoa asiasta
         {
             timer.Stop();
-            MessageBox.Show("Lemmikkisi kuoli.Voi kuinka surullista. Hanki seuraavaksi vaikka kivi.");
+            MessageBox.Show("Your pet died, so sad. Maybe you should get a rock?");
 
             double x = this.Left;
             double y = this.Top;
@@ -174,8 +174,6 @@ namespace Oliogotchi
             prbHappiness.DataContext = olio.Happiness;
             prbHunger.DataContext = olio.Hunger;
             prbCleanliness.DataContext = olio.Cleanliness;
-
-            txbFooter.Text = "Uusi lemmikki luotu. Pidä siitä hyvää huolta!";
         }
         public void HabitatLiving()     // Taustan arvojen säätöä
         {

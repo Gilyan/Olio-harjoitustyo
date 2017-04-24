@@ -49,7 +49,7 @@
         <DockPanel VerticalAlignment="Bottom">
             <StatusBar>
                 <StatusBarItem Height="20">
-                    <TextBlock x:Name="txbFooter" Text="Kaunis päivä tänään." FontSize="12"/>
+                    <TextBlock x:Name="txbFooter" FontSize="12"/>
                 </StatusBarItem>
             </StatusBar>
         </DockPanel>

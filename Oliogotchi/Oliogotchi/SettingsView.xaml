@@ -58,7 +58,7 @@
         <DockPanel VerticalAlignment="Bottom">
             <StatusBar>
                 <StatusBarItem Height="20">
-                    <TextBlock x:Name="txbFooter" Text="Peliohjeet." FontSize="12"/>
+                    <TextBlock x:Name="txbFooter" Text="Instructions." FontSize="12"/>
                 </StatusBarItem>
             </StatusBar>
         </DockPanel>

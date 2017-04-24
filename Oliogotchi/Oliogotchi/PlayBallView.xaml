@@ -49,7 +49,7 @@
         <DockPanel VerticalAlignment="Bottom">
             <StatusBar>
                 <StatusBarItem Height="20">
-                    <TextBlock x:Name="txbFooter" Text="Liiku nuolinäppäimillä vasemmalle tai oikealle ja ota pallo kiinni." FontSize="12"/>
+                    <TextBlock x:Name="txbFooter" Text="Move left or right with the arrow keys and catch the ball!" FontSize="12"/>
                 </StatusBarItem>
             </StatusBar>
         </DockPanel>
