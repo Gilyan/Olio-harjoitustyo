@@ -21,6 +21,18 @@ namespace Oliogotchi
     /// </summary>
     public partial class PlayBallView : Window
     {
+        public int points = 0;
+        public int Pisteet
+        {
+            get { return points; }
+            set { points = value; }
+        }
+        public int Hunger
+        {
+            get { return hunger; }
+            set { hunger = value; }
+        }
+        int hunger = 0;
         Point p = new Point();
         DispatcherTimer timer = new DispatcherTimer(DispatcherPriority.Render);
         Random rnd = new Random();
@@ -73,7 +85,7 @@ namespace Oliogotchi
             BallGravity(ball1Pos, ball2Pos);
             MoveSlime(slime2Pos);
             CollisionTester();
-            //txbFooter.Text = "i: " + i.ToString() + " k: " + k.ToString();
+            txbFooter.Text = "points: " + points.ToString()  + ", hunger" + hunger.ToString();
 
         }
         private void BallGravity(long ballTop, long ballLeft)
@@ -87,6 +99,8 @@ namespace Oliogotchi
             }
             if (ballTop > 480)
             {
+                hunger += -2;
+                points += -5;
                 Canvas.SetLeft(ball, rnd.Next(10, 734));
                 Canvas.SetTop(ball, 130);
             }
@@ -179,6 +193,7 @@ namespace Oliogotchi
 
             if (r1.IntersectsWith(r2))
             {
+                points += 20;
                 ball.Visibility = Visibility.Hidden;
                 timer.Stop();
                 btnAgain.Visibility = Visibility.Visible;
@@ -196,6 +211,9 @@ namespace Oliogotchi
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
+            Testi.WasClicked = true;    // Palauttaa tiedon, että back-nappia on painettu
+            Testi.GetPoints = points;  // Vie oliolle peliltä saadut pisteet
+            Testi.GetHunger = hunger;
             GameView.timer.Start();
             this.Close();
         }
