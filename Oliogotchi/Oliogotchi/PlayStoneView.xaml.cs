@@ -162,6 +162,7 @@ namespace Oliogotchi
             txbGameInfo.Text = teksti; //textboxiin saatu teksti voitto, häviö vai tasapeli
             btnAgain.Visibility = System.Windows.Visibility.Visible;    // Valikkonapit aktiiviseksi (Again, Back)
             btnBack.Visibility = System.Windows.Visibility.Visible;
+            txbFooter.Text = "Points: " + points.ToString();
         }
         private void btnRock_Click(object sender, RoutedEventArgs e)
         {

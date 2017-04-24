@@ -87,7 +87,7 @@ namespace Oliogotchi
             BallGravity(ball1Pos, ball2Pos);
             MoveSlime(slime2Pos);
             CollisionTester();
-            txbFooter.Text = "points: " + points.ToString()  + ", hunger" + hunger.ToString();
+            txbFooter.Text = "Points: " + points.ToString()  + ", Hunger" + hunger.ToString();
 
         }
         private void BallGravity(long ballTop, long ballLeft)
