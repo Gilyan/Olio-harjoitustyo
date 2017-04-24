@@ -281,6 +281,7 @@
     <Resource Include="Resources\omni\8.png" />
     <Resource Include="Resources\omni\9.png" />
     <Resource Include="Resources\slime\1.png" />
+    <Content Include="Resources\sound\bam.mp3" />
     <Content Include="Resources\sound\hihi.mp3" />
     <Content Include="Resources\sound\noh.mp3" />
     <Content Include="Resources\sound\yay.mp3" />

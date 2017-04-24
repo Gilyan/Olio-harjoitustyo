@@ -336,6 +336,10 @@ namespace Oliogotchi
                 Storyboard evo = this.FindResource(olio.Ani) as Storyboard; // Korvataan vanha Storyboard uudella
                 Storyboard.SetTarget(evo, this.imgOlio);
                 evo.Begin();
+
+                mediaPlayer.Open(new Uri(@"../../Resources/sound/bam.mp3", UriKind.Relative));
+                mediaPlayer.Play();
+                mediaPlayer.Position = TimeSpan.Zero;   // Kelataan alkuun
             }
             catch (Exception ex)
             {
