@@ -1,12 +1,11 @@
 ﻿/* **********************************************************
-Olion kanssa pelattavien pelien pääsivu.
+Olion kanssa pelattavien minipelien pääsivu.
 
 Toiminta: Pelivalikon kautta voit valita, haluatko pelata
-- kivi-sakset-paperi -peliä olion kanssa
-- heittää palloa, jota olio voi hakea
+- kivi-sakset-paperi -peliä
+- pallon kiinni ottamista
 
 Näet pelien ohjeet, kun haluttu peli on klikattu.
-Back-napista pääset takaisin pääpeliin.
 
 Luotu 3.4.2017
 

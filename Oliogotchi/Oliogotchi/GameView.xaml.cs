@@ -2,12 +2,14 @@
 Oliogotchin pelisivu.
 
 Toiminta: Pelisivun kautta voi 
-- pelata peliä
-- tänne juttuja lisättävä
+- hoivata oliota pesemällä, silittämällä ja ruokkimalla sitä
+- pääset minipeleihin
+- pääset ohjeisiin ja päävalikkoon
 
 Silitysääni: https://www.freesound.org/people/deleted_user_7146007/sounds/383266/
 Ruokintaääni: https://www.freesound.org/people/Ondruska/sounds/360686/
 Pesuääni: https://www.freesound.org/people/JohnsonBrandEditing/sounds/173930/
+Evolveääni: https://www.freesound.org/people/newagesoup/sounds/347327/
 
 Luotu 27.3.2017
 

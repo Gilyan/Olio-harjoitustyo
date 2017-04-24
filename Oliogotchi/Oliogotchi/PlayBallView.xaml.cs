@@ -1,4 +1,20 @@
-﻿using System;
+﻿/* **********************************************************
+Oliogotchin minipeli: pallon kiinniotto.
+
+Toiminta: Minipelissä otetaan yltäältä tippuvaa palloa kiinni
+Liikkuminen: A = vasemmalle, D = oikealle
+
+Peliäänet: https://www.freesound.org/people/MadamVicious/sounds/238641/
+
+Luotu 3.4.2017
+
+Minttu Mäkäläinen K8517
+Kioto Hiirola K8252
+Joona Hautamäki K1647
+@ JAMK 
+********************************************************** */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

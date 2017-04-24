@@ -2,10 +2,10 @@
 Oliogotchin päävalikko.
 
 Toiminta: Päävalikon kautta voi 
-- jatkaa vanhaa peliä
-- aloittaa uuden pelin
-- lopettaa pelin
-- mennä asetuksiin
+- jatkaa vanhaa peliä (load)
+- aloittaa uuden pelin (start)
+- lopettaa pelin (quit)
+- mennä ohjesivulle (instructions)
 
 Luotu 6.3.2017
 

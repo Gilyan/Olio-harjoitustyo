@@ -1,13 +1,9 @@
 ﻿/* **********************************************************
-Kivi-sakset-paperi -peli.
+Oliogotchin minipeli: kivi-sakset-paperi.
 
 Toiminta: Voit pelata kivi-sakset-paperi -peliä olion kanssa.
 Klikkaa haluamaasi vaihtoehtoa.
-Olion valinta random-generaattorin mukaan.
-
-Jos Olio voittaa -> arvoa "luku" nostetaan 20:llä.
-Jos Olio häviää -> arvoa "luku" lasketaan 5:llä.
-"luku" lisätään pääpelin arvoon Happiness joka kierroksen lopussa.
+Olion valinta arvotaan random-generaattorilla..
 
 Peliäänet: https://www.freesound.org/people/MadamVicious/sounds/238641/
 
