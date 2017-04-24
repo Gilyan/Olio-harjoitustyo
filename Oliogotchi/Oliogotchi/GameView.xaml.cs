@@ -115,6 +115,8 @@ namespace Oliogotchi
                     lueTiedostosta = new FileStream(myDocPath + @"tausta.bin", FileMode.Open, FileAccess.Read, FileShare.None);
                     tausta = (Habitat)formatter.Deserialize(lueTiedostosta);
                     lueTiedostosta.Close();
+
+                    Animation();
                 }
                 catch (Exception ex)    // Jos tallennustiedostoa ei löydy, luodaan uusi peli alkuarvoilla
                 {
@@ -214,8 +216,7 @@ namespace Oliogotchi
             }
             catch (Exception ex)
             {
-
-                throw ex;
+                MessageBox.Show("Animaatiota ei voitu ladata syystä: " + ex);
             }
         }
 
@@ -268,8 +269,7 @@ namespace Oliogotchi
             }
             catch (Exception ex)
             {
-
-                throw ex;
+                MessageBox.Show("Evolvoituminen kusee syystä: " + ex);
             }
         }
 
