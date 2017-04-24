@@ -43,7 +43,8 @@ namespace Oliogotchi
     class Testi
     {
         static bool btnBackWasClicked = false;
-        static int stonePoints;
+        static int gamePoints;
+        static int hungerPoints;
         public static bool WasClicked
         {
             get { return btnBackWasClicked; }
@@ -51,8 +52,13 @@ namespace Oliogotchi
         }
         public static int GetPoints
         {
-            get { return stonePoints; }
-            set { stonePoints = value; }
+            get { return gamePoints; }
+            set { gamePoints = value; }
+        }
+        public static int GetHunger
+        {
+            get { return hungerPoints; }
+            set { hungerPoints = value; }
         }
     }
     /// <summary>
@@ -241,12 +247,13 @@ namespace Oliogotchi
         }
 
 
-        public void GetStonePoints() // Syöttää oliolle pisteet jos btnBackia on painettu PlayStoneViewissä
+        public void GetGamePoints() // Syöttää oliolle pisteet jos btnBackia on painettu PlayStoneViewissä
         {
             if (Testi.WasClicked)
             {
                 Testi.WasClicked = false;
-                olio.StonePoints(Testi.GetPoints);
+                olio.GamePoints(Testi.GetPoints);
+                olio.HungerPoints(Testi.GetHunger);
             }
         }
         public void timer_Tick(object sender, EventArgs e) // Timer, missä tapahtuu olion "eläminen". Olio elää kunnes jokin arvo = 0
@@ -257,7 +264,7 @@ namespace Oliogotchi
                 HabitatLiving();
                 if (gameIsPlayed)   // Jos minipeliä on pelattu, käydään suorittamassa aliohjelman toiminnot
                 {
-                    GetStonePoints();
+                    GetGamePoints();
                     gameIsPlayed = false;       // Alustaa tiedon, onko peliä pelattu
                 }
             }
