@@ -46,6 +46,7 @@ namespace Oliogotchi
     {
         static bool btnBackWasClicked = false;
         static bool whichGame = true;
+        
         static int gamePoints;
         static int hungerPoints;
         public static bool WasClicked
@@ -81,12 +82,14 @@ namespace Oliogotchi
         private bool isNewGame;
         private bool gameIsPlayed = false;
         private bool isMeat;
+        private bool whichAni = true;
 
         public string motivationText;
 
         Creature olio;
         Habitat tausta;
         Storyboard sb;
+        Storyboard evo;
 
         string myDocPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
         IFormatter formatter = new BinaryFormatter();           // Käytetään binäärimuotoa tallennuksessa
@@ -159,6 +162,13 @@ namespace Oliogotchi
         public void Die()   // Lemmikki kuolee, footeriin infoa asiasta
         {
             timer.Stop();
+
+            if (whichAni == true)
+            { sb.Stop(); }
+            else { evo.Stop(); }
+
+            imgGrave.Visibility = System.Windows.Visibility.Visible;
+
             MessageBox.Show("Your pet died, so sad. Maybe you should get a rock?");
 
             double x = this.Left;
@@ -231,6 +241,7 @@ namespace Oliogotchi
         {
             try
             {
+                imgGrave.Visibility = System.Windows.Visibility.Hidden;
                 sb = this.FindResource(olio.Ani) as Storyboard;     // Luo Storyboradin, jossa on animaatio
                 Storyboard.SetTarget(sb, this.imgOlio);
                 sb.Begin();
@@ -335,9 +346,10 @@ namespace Oliogotchi
                 sb.Stop();      // Vanha Storyboard pysäytetään ennen poistamista
                 olio.Evolve();
 
-                Storyboard evo = this.FindResource(olio.Ani) as Storyboard; // Korvataan vanha Storyboard uudella
+                evo = this.FindResource(olio.Ani) as Storyboard; // Korvataan vanha Storyboard uudella
                 Storyboard.SetTarget(evo, this.imgOlio);
                 evo.Begin();
+                whichAni = false;
 
                 mediaPlayer.Open(new Uri(@"../../Resources/sound/bam.mp3", UriKind.Relative));
                 mediaPlayer.Play();

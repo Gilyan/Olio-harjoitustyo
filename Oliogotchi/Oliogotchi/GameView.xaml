@@ -167,87 +167,68 @@
                                                    Duration="0:0:1">
                     <DiscreteObjectKeyFrame KeyTime="0:0:0.0">
                         <DiscreteObjectKeyFrame.Value>
-                            <BitmapImage UriSource="Resources/meat/1.png"/>
+                            <BitmapImage UriSource="Resources/omni/1.png"/>
                         </DiscreteObjectKeyFrame.Value>
                     </DiscreteObjectKeyFrame>
                     <DiscreteObjectKeyFrame KeyTime="0:0:0.2">
                         <DiscreteObjectKeyFrame.Value>
-                            <BitmapImage UriSource="Resources/meat/2.png"/>
+                            <BitmapImage UriSource="Resources/omni/2.png"/>
                         </DiscreteObjectKeyFrame.Value>
                     </DiscreteObjectKeyFrame>
                     <DiscreteObjectKeyFrame KeyTime="0:0:0.3">
                         <DiscreteObjectKeyFrame.Value>
-                            <BitmapImage UriSource="Resources/meat/3.png"/>
+                            <BitmapImage UriSource="Resources/omni/3.png"/>
+                        </DiscreteObjectKeyFrame.Value>
+                    </DiscreteObjectKeyFrame>
+                    <DiscreteObjectKeyFrame KeyTime="0:0:0.35">
+                        <DiscreteObjectKeyFrame.Value>
+                            <BitmapImage UriSource="Resources/omni/4.png"/>
                         </DiscreteObjectKeyFrame.Value>
                     </DiscreteObjectKeyFrame>
                     <DiscreteObjectKeyFrame KeyTime="0:0:0.4">
                         <DiscreteObjectKeyFrame.Value>
-                            <BitmapImage UriSource="Resources/meat/4.png"/>
+                            <BitmapImage UriSource="Resources/omni/5.png"/>
                         </DiscreteObjectKeyFrame.Value>
                     </DiscreteObjectKeyFrame>
                     <DiscreteObjectKeyFrame KeyTime="0:0:0.5">
                         <DiscreteObjectKeyFrame.Value>
-                            <BitmapImage UriSource="Resources/meat/5.png"/>
-                        </DiscreteObjectKeyFrame.Value>
-                    </DiscreteObjectKeyFrame>
-                    <DiscreteObjectKeyFrame KeyTime="0:0:0.55">
-                        <DiscreteObjectKeyFrame.Value>
-                            <BitmapImage UriSource="Resources/meat/6.png"/>
+                            <BitmapImage UriSource="Resources/omni/6.png"/>
                         </DiscreteObjectKeyFrame.Value>
                     </DiscreteObjectKeyFrame>
                     <DiscreteObjectKeyFrame KeyTime="0:0:0.6">
                         <DiscreteObjectKeyFrame.Value>
-                            <BitmapImage UriSource="Resources/meat/7.png"/>
+                            <BitmapImage UriSource="Resources/omni/7.png"/>
                         </DiscreteObjectKeyFrame.Value>
                     </DiscreteObjectKeyFrame>
                     <DiscreteObjectKeyFrame KeyTime="0:0:0.65">
                         <DiscreteObjectKeyFrame.Value>
-                            <BitmapImage UriSource="Resources/meat/8.png"/>
+                            <BitmapImage UriSource="Resources/omni/8.png"/>
                         </DiscreteObjectKeyFrame.Value>
                     </DiscreteObjectKeyFrame>
                     <DiscreteObjectKeyFrame KeyTime="0:0:0.7">
                         <DiscreteObjectKeyFrame.Value>
-                            <BitmapImage UriSource="Resources/meat/9.png"/>
+                            <BitmapImage UriSource="Resources/omni/9.png"/>
                         </DiscreteObjectKeyFrame.Value>
                     </DiscreteObjectKeyFrame>
                     <DiscreteObjectKeyFrame KeyTime="0:0:0.8">
                         <DiscreteObjectKeyFrame.Value>
-                            <BitmapImage UriSource="Resources/meat/10.png"/>
+                            <BitmapImage UriSource="Resources/omni/10.png"/>
                         </DiscreteObjectKeyFrame.Value>
                     </DiscreteObjectKeyFrame>
                 </ObjectAnimationUsingKeyFrames>
-            </Storyboard>
+            </Storyboard>        
+        
     </Window.Resources>
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="Resources/plain.png" Opacity="0.5" />
         </Grid.Background>
+        <!-- olion kuva-->
         <Image x:Name="imgOlio" Width="400" Height="400" Margin="186,148,206,22">
         </Image>
-        <!--<Rectangle Name="imgOtus" Margin="100,120,250,50">
-            --><!-- Animaatiojuttuja jotka toimii vähintään hämysti --><!--
-            <Rectangle.Fill>
-                <ImageBrush ImageSource="Resources/slime/sheet.png" AlignmentY="Top" ViewboxUnits="Absolute" Viewbox="200,30,400,400"/>
-            </Rectangle.Fill>
-            <Rectangle.Triggers>
-                <EventTrigger RoutedEvent="Rectangle.Loaded">
-                    <BeginStoryboard>
-                        <Storyboard>
-                            <ParallelTimeline RepeatBehavior="Forever">
-                                <RectAnimation Storyboard.TargetProperty="(Rectangle.Fill).Viewbox" To="0,0,500,400" BeginTime="0:0:0.0" Duration="0:0:0"/>
-                                <RectAnimation Storyboard.TargetProperty="(Rectangle.Fill).Viewbox" To="0,2,500,401" BeginTime="0:0:0.1" Duration="0:0:0"/>
-                                <RectAnimation Storyboard.TargetProperty="(Rectangle.Fill).Viewbox" To="0,4,500,403" BeginTime="0:0:0.2" Duration="0:0:0"/>
-                                <RectAnimation Storyboard.TargetProperty="(Rectangle.Fill).Viewbox" To="0,7,500,407" BeginTime="0:0:0.3" Duration="0:0:0"/>
-                                <RectAnimation Storyboard.TargetProperty="(Rectangle.Fill).Viewbox" To="0,4,500,411" BeginTime="0:0:0.4" Duration="0:0:0"/>
-                                <RectAnimation Storyboard.TargetProperty="(Rectangle.Fill).Viewbox" To="0,2,500,407" BeginTime="0:0:0.5" Duration="0:0:0"/>
-                                <RectAnimation Storyboard.TargetProperty="(Rectangle.Fill).Viewbox" To="0,0,500,403" BeginTime="0:0:0.6" Duration="0:0:0"/>
-                                <RectAnimation Storyboard.TargetProperty="(Rectangle.Fill).Viewbox" To="0,0,500,401" BeginTime="0:0:0.7" Duration="0:0:0"/>
-                            </ParallelTimeline>
-                        </Storyboard>
-                    </BeginStoryboard>
-                </EventTrigger>
-            </Rectangle.Triggers>
-        </Rectangle>-->
+        <!-- hautakivi -->
+        <Image x:Name="imgGrave" Source="Resources/grave.png"  Width="400" Height="400" Margin="186,148,206,22"/>
+
         <StackPanel Orientation="Vertical">
             <StackPanel Height="40" Margin="0" Orientation="Horizontal">
                 <!-- Yläpalkin statusbarit -->
