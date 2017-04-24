@@ -28,24 +28,24 @@
             <TextBlock x:Name="txbTitle" TextWrapping="Wrap" Text="How to play?" Width="350" Height="40" FontFamily="Perpetua Titling MT" FontSize="40" HorizontalAlignment="Left" Margin="30,30,0,0" />
             <StackPanel Orientation="Vertical" Height="380">
                 <TextBlock x:Name="txbOhjeet" TextWrapping="Wrap" Width="700" Height="80" FontFamily="Century Schoolbook" FontSize="20" Margin="50,30,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                <StackPanel Orientation="Horizontal" Height="55" Background="#F3E5B5" > 
+                <StackPanel Orientation="Horizontal" Height="55" Background="#fff8ed" > 
                     <Image x:Name="pet" Source="Resources/pet.png" Width="50" Margin="50,0,0,0" HorizontalAlignment="Left"/>
                     <TextBlock x:Name="txbPet" Text="With brush you can pet the Oliogotchi, it will be happier" TextWrapping="Wrap" Width="600" Height="25" FontFamily="Century Schoolbook" FontSize="20" Margin="50,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Height="55" Background="#fff8ed">
+                <StackPanel Orientation="Horizontal" Height="55" Background="#F3E5B5">
                     <Image x:Name="wash" Source="Resources/wash.png" Width="45" Margin="50,0,0,0" HorizontalAlignment="Left"/>
                     <TextBlock x:Name="txbWash" Text="With bucket you can wash the Oliogotchi, it will be cleaner" TextWrapping="Wrap" Width="600" Height="25" FontFamily="Century Schoolbook" FontSize="20" Margin="50,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Height="55" Background="#F3E5B5">
+                <StackPanel Orientation="Horizontal" Height="55" Background="#fff8ed">
                     <Image x:Name="evo" Source="Resources/evo.png" Width="40" Margin="50,0,0,0" HorizontalAlignment="Left"/>
                     <TextBlock x:Name="txbEvolve" Text="In time you can evolve your Oliogotchi to something different" TextWrapping="Wrap" Width="600" Height="25" FontFamily="Century Schoolbook" FontSize="20" Margin="50,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Height="55" Background="#fff8ed">
+                <StackPanel Orientation="Horizontal" Height="55" Background="#F3E5B5">
                     <StackPanel Orientation="Horizontal">
                         <Image x:Name="meat" Source="Resources/meat.png" Width="50" Margin="20,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                         <Image x:Name="veggie" Source="Resources/veggie.png" Width="50" Margin="10,0,0,0" HorizontalAlignment="Left"/>
                     </StackPanel>
-                    <TextBlock x:Name="txbMinigames" Text="You can feed the Oliogotchi meat or vegetable" TextWrapping="Wrap" Width="600" Height="25" FontFamily="Century Schoolbook" FontSize="20" Margin="50,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <TextBlock x:Name="txbMinigames" Text="You can feed meat or vegetable to the Oliogotchi" TextWrapping="Wrap" Width="600" Height="25" FontFamily="Century Schoolbook" FontSize="20" Margin="50,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                 </StackPanel>
                 <TextBlock x:Name="txbLopuksi" Text="The evolved form depends on what you feed to your pet!" TextWrapping="Wrap" Width="700" Height="35" FontFamily="Century Schoolbook" FontSize="26" Margin="30,20,0,0" HorizontalAlignment="Center"/>
             </StackPanel>
