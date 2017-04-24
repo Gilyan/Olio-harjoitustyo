@@ -52,8 +52,8 @@ namespace Oliogotchi
 
             btnAgain.Visibility = System.Windows.Visibility.Hidden;     // Uudelleenpelausnappula piiloon toistaiseksi
         }
-        
-        private void ball_MouseDown(object sender, MouseButtonEventArgs e)
+        //Drag-and-drop ominaisuus pallolle joka jää pois pelistä
+       /* private void ball_MouseDown(object sender, MouseButtonEventArgs e)
         {
             timer.Start();
             ball.CaptureMouse();
@@ -75,7 +75,7 @@ namespace Oliogotchi
         {
             timer.Start();
             ball.ReleaseMouseCapture();
-        } 
+        } */
 
         private void timer_Tick(object sender, EventArgs e)
         {
@@ -110,12 +110,12 @@ namespace Oliogotchi
         private void slime_KeyDown(object sender, KeyEventArgs e)
         {
             long slime2Pos = Convert.ToInt64(slime.GetValue(Canvas.LeftProperty));
-            if (e.Key == Key.Left)
+            if (e.Key == Key.A)
             {
                 Canvas.SetLeft(slime, slime2Pos - 10);
                 keyPressed = true;
             }
-            if (e.Key == Key.Right)
+            if (e.Key == Key.D)
             {
                 Canvas.SetLeft(slime, slime2Pos + 10);
                 keyPressed = false;
@@ -139,40 +139,6 @@ namespace Oliogotchi
             {
                 Canvas.SetLeft(slime, slimeLeft + 7); ;
             }
-            #region
-            //if (slimeLeft >= 700)
-            //{
-            //    Canvas.SetLeft(slime, 690);
-            //    t = 1;
-            //}
-            //else if (slimeLeft <= -10)
-            //{
-            //    Canvas.SetLeft(slime, 0);
-            //    t = 0;
-            //    i = 0;
-            //}
-            //else
-            //{
-            //    if (i == 0)
-            //    {
-            //        k = 0;
-            //    }
-            //    i += 10;
-            //    if (i >= 600 || t == 1)
-            //    {
-            //        k += 10;
-            //        Canvas.SetLeft(slime, slimeLeft - 8);
-            //        if (k == 400)
-            //        {
-            //            i = 0;
-            //        }
-            //    }
-            //    else
-            //    {
-            //        Canvas.SetLeft(slime, slimeLeft + 8);
-            //    }
-            //}
-            #endregion
         }
         private void InsideTester(long ballTop, long ballLeft)
         {
@@ -211,7 +177,7 @@ namespace Oliogotchi
             ball.Visibility = Visibility.Visible;
             btnAgain.Visibility = Visibility.Hidden;
             Canvas.SetTop(ball, 130);
-            Canvas.SetLeft(ball, rnd.Next(10, 75));
+            Canvas.SetLeft(ball, rnd.Next(10, 734));
             timer.Start();
         }
 
