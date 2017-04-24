@@ -73,7 +73,7 @@ namespace Oliogotchi
         Storyboard sb;
 
         string myDocPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-        IFormatter formatter = new BinaryFormatter();           // Käytetään binäärimuotoa
+        IFormatter formatter = new BinaryFormatter();           // Käytetään binäärimuotoa tallennuksessa
 
         private MediaPlayer mediaPlayer = new MediaPlayer();    // Äänisoitin
 
@@ -206,11 +206,11 @@ namespace Oliogotchi
                              + ", ympäristön puhtaus: " + tausta.Cleanliness + ", roskien määrä: " + tausta.Trash;
         }
 
-        public void Animation()
+        public void Animation()     // Täällä olion liikkuminen
         {
             try
             {
-                sb = this.FindResource(olio.Ani) as Storyboard;
+                sb = this.FindResource(olio.Ani) as Storyboard;     // Luo Storyboradin, jossa on animaatio
                 Storyboard.SetTarget(sb, this.imgOlio);
                 sb.Begin();
             }
@@ -255,21 +255,20 @@ namespace Oliogotchi
             this.Close();
         }
 
-        private void btnEvolve_Click(object sender, RoutedEventArgs e)
-        {
-            // evolvoituminen
+        private void btnEvolve_Click(object sender, RoutedEventArgs e)      // Evolvoituminen
+        {     
             try
             {
-                sb.Stop();
+                sb.Stop();      // Vanha Storyboard pysäytetään ennen poistamista
                 olio.Evolve();
 
-                Storyboard evo = this.FindResource(olio.Ani) as Storyboard;
+                Storyboard evo = this.FindResource(olio.Ani) as Storyboard; // Korvataan vanha Storyboard uudella
                 Storyboard.SetTarget(evo, this.imgOlio);
                 evo.Begin();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Evolvoituminen kusee syystä: " + ex);
+                MessageBox.Show("Evolvoituminen ei toiminut syystä: " + ex);
             }
         }
 
@@ -306,7 +305,7 @@ namespace Oliogotchi
 
                 mediaPlayer.Open(new Uri(@"../../Resources/sound/munch.mp3", UriKind.Relative));
                 mediaPlayer.Play();
-                mediaPlayer.Position = TimeSpan.Zero;   // Kelataan alkuun
+                mediaPlayer.Position = TimeSpan.Zero;
             }
             prbHunger.Dispatcher.Invoke(() => prbHunger.Value = olio.Hunger, DispatcherPriority.Background);
         }
