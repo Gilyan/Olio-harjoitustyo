@@ -103,7 +103,7 @@ namespace Oliogotchi
             BallGravity(ball1Pos, ball2Pos);
             MoveSlime(slime2Pos);
             CollisionTester();
-            txbPistetilanne.Text = "Happiness: " + points.ToString()  + ", Hunger" + hunger.ToString();
+            txbPistetilanne.Text = "Happiness: " + points.ToString()  + "\nHunger: " + hunger.ToString();
             
 
         }

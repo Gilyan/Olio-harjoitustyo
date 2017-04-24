@@ -155,11 +155,12 @@ namespace Oliogotchi
         }
         public void Run(string teksti, int luku)
         {
-            points += luku; //Tallentaa muuttujaan saadut pisteet
-            txbGameInfo.Text = teksti; //textboxiin saatu teksti voitto, häviö vai tasapeli
+            points += luku;                                             // Tallentaa muuttujaan saadut pisteet
+            txbGameInfo.Text = teksti;                                  // Textboxiin saatu teksti voitto, häviö vai tasapeli
             btnAgain.Visibility = System.Windows.Visibility.Visible;    // Valikkonapit aktiiviseksi (Again, Back)
             btnBack.Visibility = System.Windows.Visibility.Visible;
-            txbFooter.Text = "Happiness: " + points.ToString(); //footterin pistelaskuri
+            txbFooter.Text = "Happiness: " + points.ToString();         // Footterin pistelaskuri
+            txbPistetilanne.Text = "Happiness: " + points.ToString();
         }
         //Buttonien tapahtumienkäsittelijät
         private void btnRock_Click(object sender, RoutedEventArgs e)
