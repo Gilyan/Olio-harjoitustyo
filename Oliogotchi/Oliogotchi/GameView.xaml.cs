@@ -75,7 +75,7 @@ namespace Oliogotchi
         // Määritetään alkuarvoja muuttujille
 
         public static DispatcherTimer timer;
-        private int easiness = 1;       // Timerin ajastinaika (ms)
+        private int easiness = 2;       // Timerin ajastinaika (s)
         private bool isNewGame;
         private bool gameIsPlayed = false;
         private bool isMeat;
