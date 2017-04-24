@@ -74,7 +74,7 @@ namespace Oliogotchi
         private bool gameIsPlayed = false;
         private bool isMeat;
 
-        public string motivatingComment;
+        public string motivationText;
 
         Creature olio;
         Habitat tausta;
@@ -208,13 +208,17 @@ namespace Oliogotchi
             olio.Age++;
 
             CheckEvolve();
+            ShowMotivationText();
 
             // Viedään arvot progress bareihin sekä footeriin
             prbHappiness.Dispatcher.Invoke(() => prbHappiness.Value = olio.Happiness, DispatcherPriority.Background);
             prbCleanliness.Dispatcher.Invoke(() => prbCleanliness.Value = olio.Cleanliness, DispatcherPriority.Background);
             prbHunger.Dispatcher.Invoke(() => prbHunger.Value = olio.Hunger, DispatcherPriority.Background);
-            txbFooter.Text = "olion ikä: " + olio.Age + ", onnellisuus: " + olio.Happiness + ", nälkä: " + olio.Hunger + ", puhtaus: " + olio.Cleanliness
-                             + ", ympäristön puhtaus: " + tausta.Cleanliness + ", roskien määrä: " + tausta.Trash;
+
+            // Testaamista varten olion statsi-info
+            //txbFooter.Text = "olion ikä: " + olio.Age + ", onnellisuus: " + olio.Happiness + ", nälkä: " + olio.Hunger + ", puhtaus: " + olio.Cleanliness
+            //                 + ", ympäristön puhtaus: " + tausta.Cleanliness + ", roskien määrä: " + tausta.Trash;
+
         }
 
         public void Animation()     // Täällä olion liikkuminen
@@ -244,6 +248,34 @@ namespace Oliogotchi
             }
 
             else { btnEvolve.Visibility = System.Windows.Visibility.Hidden; }
+        }
+
+        public void ShowMotivationText() // Näyttää alapalkissa motivoivan (tai ei) tekstipätkän
+        {
+            if (olio.Hunger > 85 && olio.Happiness > 85 && olio.Cleanliness > 85)
+            {
+                txbFooter.Text = "Awesome! You'd make a fine parent for any creature!";
+            }
+
+            else if (olio.Hunger > 60 && olio.Happiness > 60 && olio.Cleanliness > 60)
+            {
+                txbFooter.Text = "Keep on clicking! You're doing a fine job!";
+            }
+
+            else if (olio.Hunger > 45 && olio.Happiness > 45 && olio.Cleanliness > 45)
+            {
+                txbFooter.Text = "You could do better than this. Your creature's not gonna evolve if you keep this pace up.";
+            }
+
+            else if (olio.Hunger > 30 && olio.Happiness > 30 && olio.Cleanliness > 30)
+            {
+                txbFooter.Text = "Wake up, sleepy-eyes! Your pet needs your care!";
+            }
+
+            else if (olio.Hunger > 15 && olio.Happiness > 15 && olio.Cleanliness > 15)
+            {
+                txbFooter.Text = "WHAT'S THE MATTER WITH YOU?! YOUR CREATURE'S GONNA DIE SOON!";
+            }
         }
 
 
