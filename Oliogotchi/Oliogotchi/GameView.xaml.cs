@@ -67,6 +67,7 @@ namespace Oliogotchi
         private bool isNewGame;
         private bool gameIsPlayed = false;
         private bool isMeat;
+        private bool showEvolve;
 
         Creature olio;
         Habitat tausta;
@@ -195,6 +196,8 @@ namespace Oliogotchi
             olio.GetDirty();
             olio.GetHungry();
             olio.Age++;
+
+
 
             // Viedään arvot progress bareihin sekä footeriin
             prbHappiness.Dispatcher.Invoke(() => prbHappiness.Value = olio.Happiness, DispatcherPriority.Background);
