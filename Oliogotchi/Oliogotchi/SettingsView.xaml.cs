@@ -45,8 +45,8 @@ namespace Oliogotchi
             this.Top = y;
 
             txbOhjeet.Text = ("Main goal of this game is to take care of your Oliogotchi." +
-                "\r\nIf you care for your critter well enough, " +
-                "\r\nyou can evolve it to something amazing.");
+                "\r\nIf you care for your critter well enough, you can evolve it to" +
+                "\r\nsomething amazing.");
 
         }
 

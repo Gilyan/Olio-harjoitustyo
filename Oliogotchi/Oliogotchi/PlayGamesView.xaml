@@ -37,7 +37,7 @@
                     </Button.Background>
                 </Button>
             </StackPanel>
-            <TextBlock x:Name="txbGameInfo" TextWrapping="Wrap" Width="700" Height="150" FontFamily="Perpetua Titling MT" FontSize="16" Margin="50,50,0,0" HorizontalAlignment="Left"/>
+            <TextBlock x:Name="txbGameInfo" TextWrapping="Wrap" Width="700" Height="170" FontFamily="Century Schoolbook" FontSize="20" Margin="50,30,0,0" HorizontalAlignment="Left"/>
             <StackPanel Orientation="Horizontal">
                 <Button x:Name="btnBack" Style="{StaticResource Nappula}" Margin="40,10,0,10" Width="200" Height="50" BorderThickness="0" Click="btnBack_Click">
                     <Button.Background>
