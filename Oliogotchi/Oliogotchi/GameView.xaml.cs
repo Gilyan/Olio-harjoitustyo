@@ -197,9 +197,10 @@ namespace Oliogotchi
             olio.GetSad();          // Olion kaikki arvot laskevat timerin mukaan
             olio.GetDirty();
             olio.GetHungry();
+
             olio.Age++;
 
-
+            CheckEvolve();
 
             // Viedään arvot progress bareihin sekä footeriin
             prbHappiness.Dispatcher.Invoke(() => prbHappiness.Value = olio.Happiness, DispatcherPriority.Background);
@@ -221,6 +222,21 @@ namespace Oliogotchi
             {
                 MessageBox.Show("Animaatiota ei voitu ladata syystä: " + ex);
             }
+        }
+
+        public void CheckEvolve()
+        {
+            if (olio.Ani == "slimeAni")
+            {
+                if (olio.Happiness >= 60 && olio.Hunger >= 60 && olio.Cleanliness >= 60)
+                {
+                    btnEvolve.Visibility = System.Windows.Visibility.Visible;
+                }
+
+                else { btnEvolve.Visibility = System.Windows.Visibility.Hidden; }
+            }
+
+            else { btnEvolve.Visibility = System.Windows.Visibility.Hidden; }
         }
 
 
@@ -273,6 +289,7 @@ namespace Oliogotchi
             {
                 MessageBox.Show("Evolvoituminen ei toiminut syystä: " + ex);
             }
+            btnEvolve.Visibility = System.Windows.Visibility.Hidden;
         }
 
         private void btnOhjeet_Click(object sender, RoutedEventArgs e)    // Asetuksiin siirtyminen
