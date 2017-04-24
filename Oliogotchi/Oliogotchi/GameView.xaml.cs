@@ -135,7 +135,7 @@ namespace Oliogotchi
                 catch (Exception ex)    // Jos tallennustiedostoa ei löydy, luodaan uusi peli alkuarvoilla
                 {
 
-                    MessageBox.Show("Tallennustiedostoa ei löytynyt, luotu uusi peli!");
+                    MessageBox.Show("Couldn't find a save file. New creature created!");
                     CreateNewGame();
                 }
             }
@@ -235,7 +235,7 @@ namespace Oliogotchi
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Animaatiota ei voitu ladata syystä: " + ex);
+                MessageBox.Show("Animation error: " + ex);
             }
         }
 
@@ -334,7 +334,7 @@ namespace Oliogotchi
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Evolvoituminen ei toiminut syystä: " + ex);
+                MessageBox.Show("Evolve error: " + ex);
             }
             btnEvolve.Visibility = System.Windows.Visibility.Hidden;
         }
