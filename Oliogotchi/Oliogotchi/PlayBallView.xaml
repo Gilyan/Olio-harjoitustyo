@@ -34,23 +34,24 @@
         </Canvas>
 
         <StackPanel Height="140" Orientation="Horizontal" VerticalAlignment="Top">
-            <Button x:Name="btnBack" Style="{StaticResource Nappula}" Margin="40,10,0,10" Width="200" Height="50" BorderThickness="0" Click="btnBack_Click">
-                <Button.Background>
-                    <ImageBrush ImageSource="Resources/back.png" Stretch="Uniform"/>
-                </Button.Background>
-            </Button>
-            <TextBlock x:Name="txbPistetilanne" Margin="40,10,0,10" Width="200" Height="50" FontFamily="Century Schoolbook" FontSize="20" TextWrapping="Wrap" />
-            <Button x:Name="btnAgain" Style="{StaticResource Nappula}" Margin="70,10,0,10" Width="200" Height="50" BorderThickness="0" Click="btnAgain_Click">
+            <Button x:Name="btnAgain" Style="{StaticResource Nappula}" Margin="40,10,0,10" Width="200" Height="50" BorderThickness="0" Click="btnAgain_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="Resources/again.png" Stretch="Uniform"/>
                 </Button.Background>
             </Button>
+            <TextBlock x:Name="txbPistetilanne" Margin="40,10,0,10" Width="200" Height="50" FontFamily="Century Schoolbook" FontSize="20" TextWrapping="Wrap" />
+            <Button x:Name="btnBack" Style="{StaticResource Nappula}" Margin="70,10,0,10" Width="200" Height="50" BorderThickness="0" Click="btnBack_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="Resources/back.png" Stretch="Uniform"/>
+                </Button.Background>
+            </Button>
+
         </StackPanel>
 
         <DockPanel VerticalAlignment="Bottom">
             <StatusBar>
                 <StatusBarItem Height="20">
-                    <TextBlock x:Name="txbFooter" Text="Move left or right with the arrow keys and catch the ball!" FontSize="12"/>
+                    <TextBlock x:Name="txbFooter" Text="Move left with 'A' or right with 'D' and catch the ball!" FontSize="12"/>
                 </StatusBarItem>
             </StatusBar>
         </DockPanel>

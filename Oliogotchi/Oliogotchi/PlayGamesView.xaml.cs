@@ -59,7 +59,7 @@ namespace Oliogotchi
             kumpiPeli = false;
             Testi.WasGame = kumpiPeli;
             btnGoPlay.Visibility = System.Windows.Visibility.Visible;       // Pelin aloittava nappi näkyville
-            txbGameInfo.Text = "Catch the ball by moving left or right with the A and D on your keyboard! \n\nIf you catch the ball, Olio gains 20 happiness points. \nIf you miss the ball, Olio loses 2 points from hunger and 5 from happiness.";
+            txbGameInfo.Text = "Catch the ball by moving left with 'A' or right with 'D'! \n\nIf you catch the ball, Olio gains 20 happiness points. \nIf you miss the ball, Olio loses 2 points from hunger and 5 from happiness.";
         }
 
         private void btnGoPlay_Click(object sender, RoutedEventArgs e)

@@ -39,14 +39,14 @@
             </StackPanel>
             <TextBlock x:Name="txbGameInfo" TextWrapping="Wrap" Width="700" Height="170" FontFamily="Century Schoolbook" FontSize="20" Margin="50,30,0,0" HorizontalAlignment="Left"/>
             <StackPanel Orientation="Horizontal">
-                <Button x:Name="btnBack" Style="{StaticResource Nappula}" Margin="40,10,0,10" Width="200" Height="50" BorderThickness="0" Click="btnBack_Click">
-                    <Button.Background>
-                        <ImageBrush ImageSource="Resources/back.png" Stretch="Uniform"/>
-                    </Button.Background>
-                </Button>
-                <Button x:Name="btnGoPlay" Style="{StaticResource Nappula}" Margin="310,10,0,10" Width="200" Height="50" BorderThickness="0" Click="btnGoPlay_Click">
+                <Button x:Name="btnGoPlay" Style="{StaticResource Nappula}" Margin="40,10,0,10" Width="200" Height="50" BorderThickness="0" Click="btnGoPlay_Click">
                     <Button.Background>
                         <ImageBrush ImageSource="Resources/play.png" Stretch="Uniform"/>
+                    </Button.Background>
+                </Button>
+                <Button x:Name="btnBack" Style="{StaticResource Nappula}" Margin="310,10,0,10" Width="200" Height="50" BorderThickness="0" Click="btnBack_Click">
+                    <Button.Background>
+                        <ImageBrush ImageSource="Resources/back.png" Stretch="Uniform"/>
                     </Button.Background>
                 </Button>
             </StackPanel>
