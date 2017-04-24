@@ -41,9 +41,9 @@ using System.Windows.Media.Animation;
 
 namespace Oliogotchi
 {
-    // Tätä kautta kivipaperisaksetpelin pisteet välittyy olion iloisuuteen
     class Testi
     {
+        // Tätä kautta kivipaperisaksetpelin pisteet välittyy olion iloisuuteen ja nälkäisyyteen
         static bool btnBackWasClicked = false;
         static bool whichGame = true;
         
