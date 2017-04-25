@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Oliogotchi"
 
         mc:Ignorable="d"
-        Title="Throw Ball" Height="600" Width="800" ResizeMode="NoResize">
+        Title="Catch Ball" Height="600" Width="800" ResizeMode="NoResize">
     <Window.Resources>
         <Style x:Key="Nappula" TargetType="Button">
             <Setter Property="Background" Value="Transparent" />
