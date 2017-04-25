@@ -81,6 +81,30 @@ namespace Oliogotchi
             CollisionTester();
             txbPistetilanne.Text = "Happiness: " + points.ToString()  + "\nHunger: " + hunger.ToString();
         }
+        //Drag-and-drop ominaisuus pallolle joka jää pois pelistä
+        /* private void ball_MouseDown(object sender, MouseButtonEventArgs e)
+         {
+             timer.Start();
+             ball.CaptureMouse();
+             p = e.GetPosition(ImageHolder);
+         }
+
+         private void ball_MouseMove(object sender, MouseEventArgs e)
+         {
+             Point x = e.GetPosition(ImageHolder);
+             if (e.LeftButton == MouseButtonState.Pressed)
+             {
+                 Canvas.SetLeft(ball, Canvas.GetLeft(ball) + (x.X - p.X));
+                 Canvas.SetTop(ball, Canvas.GetTop(ball) + (x.Y - p.Y));
+             }
+             p = x;
+         }
+
+         private void ball_MouseUp(object sender, MouseButtonEventArgs e)
+         {
+             timer.Start();
+             ball.ReleaseMouseCapture();
+         } */
         private void BallGravity(long ballTop, long ballLeft) //pallon "gravitaatio" eli pallo liikkuu y-suunnassa 8 aina kunnes osuu maahan
         {
             if (ballTop < 485)

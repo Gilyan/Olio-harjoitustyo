@@ -256,7 +256,7 @@ namespace Oliogotchi
         {
             if (olio.Ani == "slimeAni")
             {
-                if (olio.Happiness >= 60 && olio.Hunger >= 60 && olio.Cleanliness >= 60)
+                if (olio.Happiness >= 80 && olio.Hunger >= 80 && olio.Cleanliness >= 80)
                 {
                     btnEvolve.Visibility = System.Windows.Visibility.Visible;
                 }

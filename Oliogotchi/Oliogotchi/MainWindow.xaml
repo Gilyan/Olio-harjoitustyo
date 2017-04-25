@@ -25,22 +25,22 @@
             <ImageBrush ImageSource="Resources/bg.png" Opacity="0.5" />
         </Grid.Background>
         <StackPanel VerticalAlignment="Bottom" Margin="0,0,0,50" Width="200" Height="240">
-            <Button x:Name="btnJatka" Style="{StaticResource Nappula}" Margin="0,0,0,10" Width="175" Height="50" Click="btnJatka_Click" BorderThickness="0">
+            <Button x:Name="btnJatka" Cursor="Hand" Style="{StaticResource Nappula}" Margin="0,0,0,10" Width="175" Height="50" Click="btnJatka_Click" BorderThickness="0">
                 <Button.Background>
                     <ImageBrush ImageSource="Resources/load.png" Stretch="Uniform"/>
                 </Button.Background>
             </Button>
-            <Button x:Name="btnUusi" Style="{StaticResource Nappula}" Margin="0,0,0,10" Width="175" Height="50" Click="btnUusi_Click" BorderThickness="0">
+            <Button x:Name="btnUusi" Cursor="Hand" Style="{StaticResource Nappula}" Margin="0,0,0,10" Width="175" Height="50" Click="btnUusi_Click" BorderThickness="0">
                 <Button.Background>
                     <ImageBrush ImageSource="Resources/start.png" Stretch="Uniform"/>
                 </Button.Background>
             </Button>
-            <Button x:Name="btnLopeta" Style="{StaticResource Nappula}" Margin="0,0,0,10" Width="175" Height="50" Click="btnLopeta_Click" BorderThickness="0">
+            <Button x:Name="btnLopeta" Cursor="Hand" Style="{StaticResource Nappula}" Margin="0,0,0,10" Width="175" Height="50" Click="btnLopeta_Click" BorderThickness="0">
                 <Button.Background>
                     <ImageBrush ImageSource="Resources/quit.png" Stretch="Uniform"/>
                 </Button.Background>
             </Button>
-            <Button x:Name="btnOhjeet" Style="{StaticResource Nappula}" Margin="0,0,0,10" Width="175" Height="50" Click="btnOhjeet_Click" BorderThickness="0">
+            <Button x:Name="btnOhjeet" Cursor="Hand" Style="{StaticResource Nappula}" Margin="0,0,0,10" Width="175" Height="50" Click="btnOhjeet_Click" BorderThickness="0">
                 <Button.Background>
                     <ImageBrush ImageSource="Resources/instruction.png" Stretch="Uniform"/>
                 </Button.Background>
