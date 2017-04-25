@@ -281,7 +281,7 @@ namespace Oliogotchi
 
             else if (olio.Hunger > 45 && olio.Happiness > 45 && olio.Cleanliness > 45)
             {
-                txbFooter.Text = "Looks like your creature is hungry. Maybe you should give it a carrot or a piece of meat?";
+                txbFooter.Text = "Looks like your creature needs something. Maybe you should take a look?";
             }
 
             else if (olio.Hunger > 30 && olio.Happiness > 30 && olio.Cleanliness > 30)
