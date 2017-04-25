@@ -109,10 +109,7 @@ namespace Oliogotchi
         {
             if (ballTop < 485)
             {
-                if (Mouse.LeftButton != MouseButtonState.Pressed)
-                {
                     Canvas.SetTop(ball, ballTop + 8);
-                }
             }
             if (ballTop > 480)
             {
