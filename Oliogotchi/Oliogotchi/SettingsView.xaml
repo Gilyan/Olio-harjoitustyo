@@ -49,7 +49,7 @@
                 </StackPanel>
                 <TextBlock x:Name="txbLopuksi" Text="The evolved form depends on what you feed to your pet!" TextWrapping="Wrap" Width="700" Height="35" FontFamily="Century Schoolbook" FontSize="26" Margin="30,20,0,0" HorizontalAlignment="Center"/>
             </StackPanel>
-            <Button x:Name="btnMainMenu" Style="{StaticResource Nappula}" Width="180" Height="50" HorizontalAlignment="Right" Margin="0,20,40,0" Click="btnMainMenu_Click" BorderThickness="0" >
+            <Button x:Name="btnMainMenu" Cursor="Hand" Style="{StaticResource Nappula}" Width="180" Height="50" HorizontalAlignment="Right" Margin="0,20,40,0" Click="btnMainMenu_Click" BorderThickness="0" >
                 <Button.Background>
                     <ImageBrush ImageSource="Resources/main.png" Stretch="Uniform"/>
                 </Button.Background>

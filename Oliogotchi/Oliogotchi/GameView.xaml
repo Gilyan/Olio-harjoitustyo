@@ -245,22 +245,22 @@
             <StackPanel Orientation="Horizontal" Height="495">
                 <StackPanel Width="200">
                     <!-- Vasemman valikkopalkin kuvakkeet -->
-                    <Button x:Name="btnShower" Style="{StaticResource Nappula}" Width="70" Height="70" HorizontalAlignment="Center" VerticalAlignment="Center" Click="btnShower_Click" BorderThickness="0" Margin="0,55,0,0" >
+                    <Button x:Name="btnShower" Cursor="Hand" Style="{StaticResource Nappula}" Width="70" Height="70" HorizontalAlignment="Center" VerticalAlignment="Center" Click="btnShower_Click" BorderThickness="0" Margin="0,55,0,0" >
                         <Button.Background>
                             <ImageBrush ImageSource="Resources/wash.png" Stretch="Uniform"/>
                         </Button.Background>
                     </Button>
-                    <Button x:Name="btnPet" Style="{StaticResource Nappula}" Width="90" Height="60" HorizontalAlignment="Center" VerticalAlignment="Center" Click="btnPet_Click" BorderThickness="0" Margin="0,55,0,0" >
+                    <Button x:Name="btnPet" Cursor="Hand" Style="{StaticResource Nappula}" Width="90" Height="60" HorizontalAlignment="Center" VerticalAlignment="Center" Click="btnPet_Click" BorderThickness="0" Margin="0,55,0,0" >
                         <Button.Background>
                             <ImageBrush ImageSource="Resources/pet.png" Stretch="Uniform"/>
                         </Button.Background>
                     </Button>
-                    <Button x:Name="btnEvolve" Style="{StaticResource Nappula}" Width="60" Height="70" HorizontalAlignment="Center" VerticalAlignment="Center" BorderThickness="0" Margin="0,55,0,0" Click="btnEvolve_Click">
+                    <Button x:Name="btnEvolve" Cursor="Hand" Style="{StaticResource Nappula}" Width="60" Height="70" HorizontalAlignment="Center" VerticalAlignment="Center" BorderThickness="0" Margin="0,55,0,0" Click="btnEvolve_Click">
                         <Button.Background>
                             <ImageBrush ImageSource="Resources/evo.png" Stretch="Uniform"/>
                         </Button.Background>
                     </Button>
-                    <Button x:Name="btnOhjeet" Style="{StaticResource Nappula}" Margin="0,55,0,10" Width="150" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center" BorderThickness="0" Click="btnOhjeet_Click">
+                    <Button x:Name="btnOhjeet" Cursor="Hand" Style="{StaticResource Nappula}" Margin="0,55,0,10" Width="150" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center" BorderThickness="0" Click="btnOhjeet_Click">
                         <Button.Background>
                             <ImageBrush ImageSource="Resources/instruction.png" Stretch="Uniform"/>
                         </Button.Background>
@@ -272,22 +272,22 @@
                 </StackPanel>
                 <StackPanel Width="200">
                     <!-- Oikean valikkopalkin kuvakkeet -->
-                    <Button x:Name="btnGiveVeggie" Style="{StaticResource Nappula}" Margin="0,55,0,10" Width="70" Height="60" VerticalAlignment="Center" BorderThickness="0" Click="btnGiveVeggie_Click">
+                    <Button x:Name="btnGiveVeggie" Cursor="Hand" Style="{StaticResource Nappula}" Margin="0,55,0,10" Width="70" Height="60" VerticalAlignment="Center" BorderThickness="0" Click="btnGiveVeggie_Click">
                         <Button.Background>
                             <ImageBrush ImageSource="Resources/veggie.png" Stretch="Uniform"/>
                         </Button.Background>
                     </Button>
-                    <Button x:Name="btnGiveMeat" Style="{StaticResource Nappula}" Margin="0,50,0,10" Width="70" Height="60" VerticalAlignment="Center" Click="btnGiveMeat_Click" BorderThickness="0">
+                    <Button x:Name="btnGiveMeat" Cursor="Hand" Style="{StaticResource Nappula}" Margin="0,50,0,10" Width="70" Height="60" VerticalAlignment="Center" Click="btnGiveMeat_Click" BorderThickness="0">
                         <Button.Background>
                             <ImageBrush ImageSource="Resources/meat.png" Stretch="Uniform"/>
                         </Button.Background>
                     </Button>
-                    <Button x:Name="btnPlayGame" Style="{StaticResource Nappula}" Margin="0,50,0,10" Width="80" Height="70" VerticalAlignment="Center" Click="btnPlayGame_Click" BorderThickness="0">
+                    <Button x:Name="btnPlayGame" Cursor="Hand" Style="{StaticResource Nappula}" Margin="0,50,0,10" Width="80" Height="70" VerticalAlignment="Center" Click="btnPlayGame_Click" BorderThickness="0">
                         <Button.Background>
                             <ImageBrush ImageSource="Resources/games.png" Stretch="Uniform"/>
                         </Button.Background>
                     </Button>
-                    <Button x:Name="btnMainMenu" Style="{StaticResource Nappula}" Margin="0,45,0,10" Width="150" Height="50" VerticalAlignment="Center" Click="btnMainMenu_Click" BorderThickness="0" >
+                    <Button x:Name="btnMainMenu" Cursor="Hand" Style="{StaticResource Nappula}" Margin="0,45,0,10" Width="150" Height="50" VerticalAlignment="Center" Click="btnMainMenu_Click" BorderThickness="0" >
                         <Button.Background>
                             <ImageBrush ImageSource="Resources/main.png" Stretch="Uniform"/>
                         </Button.Background>

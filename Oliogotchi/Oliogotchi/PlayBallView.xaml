@@ -24,23 +24,23 @@
         <Grid.Background>
             <ImageBrush ImageSource="Resources/stars.png" Opacity="0.5" />
         </Grid.Background>
-
+        <!-- Pallon ja liman canvas -->
         <Canvas HorizontalAlignment="Stretch"
             VerticalAlignment="Stretch" x:Name="ImageHolder" Margin="0,0,0,20" >
             <Image Source="Resources/placeholderslime2.png" Canvas.Left="412" Canvas.Top="431" Height="110" Width="120" x:Name="slime" KeyDown="slime_KeyDown"/>
             <Image Panel.ZIndex="0"
-               Cursor="Hand" Canvas.Top="141" Height="50" Width="50" Source="Resources/bounce.png"
+               Canvas.Top="141" Height="50" Width="50" Source="Resources/bounce.png"
                x:Name="ball" Canvas.Left="392"/>
         </Canvas>
-
+        <!-- Buttonit ja pistelaskuri -->
         <StackPanel Height="140" Orientation="Horizontal" VerticalAlignment="Top">
-            <Button x:Name="btnAgain" Style="{StaticResource Nappula}" Margin="40,10,0,10" Width="200" Height="50" BorderThickness="0" Click="btnAgain_Click">
+            <Button x:Name="btnAgain" Cursor="Hand" Style="{StaticResource Nappula}" Margin="40,10,0,10" Width="200" Height="50" BorderThickness="0" Click="btnAgain_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="Resources/again.png" Stretch="Uniform"/>
                 </Button.Background>
             </Button>
             <TextBlock x:Name="txbPistetilanne" Margin="40,10,0,10" Width="200" Height="50" FontFamily="Century Schoolbook" FontSize="20" TextWrapping="Wrap" />
-            <Button x:Name="btnBack" Style="{StaticResource Nappula}" Margin="70,10,0,10" Width="200" Height="50" BorderThickness="0" Click="btnBack_Click">
+            <Button x:Name="btnBack" Cursor="Hand" Style="{StaticResource Nappula}" Margin="70,10,0,10" Width="200" Height="50" BorderThickness="0" Click="btnBack_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="Resources/back.png" Stretch="Uniform"/>
                 </Button.Background>
